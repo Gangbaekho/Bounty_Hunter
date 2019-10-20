@@ -1,0 +1,43 @@
+package data.dto;
+
+public class QuestionDTO {
+
+	private int num;
+	private int mnum;
+	private String title;
+	private String content;
+	private String checked;
+	
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
+	public int getMnum() {
+		return mnum;
+	}
+	public void setMnum(int mnum) {
+		this.mnum = mnum;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public String getChecked() {
+		return checked;
+	}
+	public void setChecked(String checked) {
+		this.checked = checked;
+	}
+	
+	
+}
