@@ -8,99 +8,86 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DBConnect {
-
+	String driver = "oracle.jdbc.driver.OracleDriver";
+	String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	String user = "angel2";
+	String pwd = "a1234";
 	
-
-	String driver="oracle.jdbc.driver.OracleDriver";
-	String url="jdbc:oracle:thin:@localhost:1521:xe";
-	String user="angel2";
-	String pass="a1234";
+	String t_url = "jdbc:oracle:thin:@192.168.0.86:1521:xe";
+	String t_user = "angel2";
+	String t_pwd = "a1234";
 	
-	String t_url="jdbc:oracle:thin:@192.168.0.86:1521:xe";
-	String t_user="angel2";
-	String t_pass="a1234";
-	
-
 	public DBConnect() {
-		
 		try {
 			Class.forName(driver);
-			System.out.println("¼º°øÇß´Ù");
+			System.out.println("ì˜¤ë¼í´ ë“œë¼ì´ë²„ ì„±ê³µ");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("ì˜¤ë¼í´ ë“œë¼ì´ë²„ ì‹¤íŒ¨: "+e.getMessage());
 		}
 	}
 	
+	//dbì—ì„œ ë‚˜ì˜¤ëŠ”ê±´ ì „ë¶€ java.sqlì—ì„œ import
 	public Connection getConnection() {
-		//db server¿¡ ¿¬°á ½Ãµµ
+		//db ì„œë²„ì— ì—°ê²° ì‹œë„ 
 		Connection conn = null;
 		try {
-		conn=DriverManager.getConnection(url, user, pass);
-		//System.out.println("¿À¶óÅ¬ ¿¬°á ¼º°ø");
-		}
-		catch(SQLException e) {
-			System.out.println("¿À¶óÅ¬ ¿¬°á ½ÇÆĞ" + e.getMessage());
+			conn = DriverManager.getConnection(url, user, pwd);
+			//System.out.println("ì˜¤ë¼í´ ì—°ê²° ì„±ê³µ");
+		} catch (SQLException e) {
+			System.out.println("ì˜¤ë¼í´ ì—°ê²° ì‹¤íŒ¨: "+e.getMessage());
 		}
 		return conn;
 	}
-	
-	public Connection getGangsaConnection() {
-		//db server¿¡ ¿¬°á ½Ãµµ
-		Connection conn = null;
-		try {
-		conn=DriverManager.getConnection(t_url, t_user, t_pass);
-		//System.out.println("¿À¶óÅ¬ ¿¬°á ¼º°ø");
-		}
-		catch(SQLException e) {
-			System.out.println("¿À¶óÅ¬ ¿¬°á ½ÇÆĞ" + e.getMessage());
-		}
-		return conn;
-	}
-	
-	public void dbClose(PreparedStatement pstmt, Connection conn) {
 		
+	public Connection getTeacherConnection() {
+		//db ì„œë²„ì— ì—°ê²° ì‹œë„ 
+		Connection conn = null;
+		try {
+			conn = DriverManager.getConnection(t_url, t_user, t_pwd);
+			//System.out.println("ì˜¤ë¼í´ ì—°ê²° ì„±ê³µ");
+		} catch (SQLException e) {
+			System.out.println("ì˜¤ë¼í´ ì—°ê²° ì‹¤íŒ¨: "+e.getMessage());
+		}
+		return conn;
+	}
+	
+	//ì˜¤ë²„ë¡œë”©ìœ¼ë¡œ ì´ 4ê°œì˜ close ë©”ì†Œë“œ 
+	public void dbClose(PreparedStatement pstmt, Connection conn) {
 		try {
 			pstmt.close();
 			conn.close();
-		}catch(SQLException e) {
+		} catch(SQLException e) {
 			
 		}
-		
 	}
+	
 	public void dbClose(ResultSet rs, PreparedStatement pstmt, Connection conn) {
-		
 		try {
 			rs.close();
 			pstmt.close();
 			conn.close();
-		}catch(SQLException e) {
+		} catch(SQLException e) {
 			
 		}
-		
 	}
 	
 	public void dbClose(Statement stmt, Connection conn) {
-		
 		try {
 			stmt.close();
 			conn.close();
-		}catch(SQLException e) {
+		} catch(SQLException e) {
 			
 		}
-		
 	}
+	
 	public void dbClose(ResultSet rs, Statement stmt, Connection conn) {
-		
 		try {
 			rs.close();
 			stmt.close();
 			conn.close();
-		}catch(SQLException e) {
+		} catch(SQLException e) {
 			
 		}
-		
 	}
-	
 }
-
