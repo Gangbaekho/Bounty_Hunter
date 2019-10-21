@@ -11,6 +11,9 @@ public class BoardDTO {
 	private int count;
 	private int bounty;
 	private Timestamp createday;
+	private Timestamp modday;
+	
+	
 	public Timestamp getCreateday() {
 		return createday;
 	}
@@ -23,8 +26,6 @@ public class BoardDTO {
 	public void setModday(Timestamp modday) {
 		this.modday = modday;
 	}
-	private Timestamp modday;
-	
 	public int getNum() {
 		return num;
 	}
