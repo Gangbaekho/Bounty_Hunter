@@ -77,7 +77,7 @@ public class BoardDB {
 	
 	//Board에 새 글 작성 method
 	public void insertBoard(int mnum, BoardDTO dto) {
-		String sql = "insert into board value(seq_bounty.nextval, ?, ?, ?, 0, 0, sysdate, sysdate)";
+		String sql = "insert into board values (seq_bounty.nextval, ?, ?, ?, 0, 0, sysdate, sysdate)";
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		
