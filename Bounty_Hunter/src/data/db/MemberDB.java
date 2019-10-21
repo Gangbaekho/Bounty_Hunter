@@ -19,6 +19,7 @@ public class MemberDB {
 		String sql = "insert into member values(seq_bounty.nextval,?,?,?,?,?,?,0,sysdate)";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		conn=db.getConnection();
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -49,6 +50,7 @@ public class MemberDB {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		conn = db.getConnection();
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -84,6 +86,7 @@ public class MemberDB {
 		String sql = "update member set name=?,pass=?,email1=?,email2=?,mobile=?,bounty=?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		conn=db.getConnection();
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -110,6 +113,7 @@ public class MemberDB {
 		String sql = "delete from member where num=?";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		conn=db.getConnection();
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
