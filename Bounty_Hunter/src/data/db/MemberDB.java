@@ -27,6 +27,7 @@ public class MemberDB {
 			pstmt.setString(3, dto.getPass());
 			pstmt.setString(4, dto.getEmail1());
 			pstmt.setString(5, dto.getEmail2());
+			pstmt.setString(6, dto.getMobile());
 			
 			pstmt.execute();
 			
