@@ -10,14 +10,16 @@ public class MemberDBTest {
 		MemberDB db = new MemberDB();
 		
 		MemberDTO dto = new MemberDTO();
-		dto.setEmail1("lasd");
+		dto.setEmail1("leesol529");
 		dto.setEmail2("naver.com");
-		dto.setMobile("01029481828");
-		dto.setMyid("leesol592");
+		dto.setMobile("01027749429");
 		dto.setName("이솔");
-		dto.setPass("1234");
+		dto.setPass("5252");
+		dto.setNum(5);
+		dto.setBounty(100);
+		
 	
-		db.insertMember(dto);
+		db.updateMember(dto);
 		
 	}
 }
