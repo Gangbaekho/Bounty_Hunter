@@ -12,12 +12,11 @@ public class MemberDBTest {
 		MemberDTO dto = new MemberDTO();
 		dto.setEmail1("lasd");
 		dto.setEmail2("naver.com");
-		dto.setMobile("010294818284");
+		dto.setMobile("01029481828");
 		dto.setMyid("leesol592");
 		dto.setName("이솔");
 		dto.setPass("1234");
 	
-		
 		db.insertMember(dto);
 		
 	}
