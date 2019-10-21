@@ -1,5 +1,7 @@
 package data.dto;
 
+import java.sql.Timestamp;
+
 public class ReplyDTO {
 
 	private int num;
@@ -7,7 +9,21 @@ public class ReplyDTO {
 	private int bnum;
 	private String content;
 	private int bounty;
+	private Timestamp createday;
+	private Timestamp modday;
 	
+	public Timestamp getCreateday() {
+		return createday;
+	}
+	public void setCreateday(Timestamp createday) {
+		this.createday = createday;
+	}
+	public Timestamp getModday() {
+		return modday;
+	}
+	public void setModday(Timestamp modday) {
+		this.modday = modday;
+	}
 	public int getNum() {
 		return num;
 	}

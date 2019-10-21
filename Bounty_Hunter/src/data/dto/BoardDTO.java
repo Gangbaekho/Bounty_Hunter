@@ -1,5 +1,7 @@
 package data.dto;
 
+import java.sql.Timestamp;
+
 public class BoardDTO {
 
 	private int num;
@@ -8,6 +10,20 @@ public class BoardDTO {
 	private String content;
 	private int count;
 	private int bounty;
+	private Timestamp createday;
+	public Timestamp getCreateday() {
+		return createday;
+	}
+	public void setCreateday(Timestamp createday) {
+		this.createday = createday;
+	}
+	public Timestamp getModday() {
+		return modday;
+	}
+	public void setModday(Timestamp modday) {
+		this.modday = modday;
+	}
+	private Timestamp modday;
 	
 	public int getNum() {
 		return num;

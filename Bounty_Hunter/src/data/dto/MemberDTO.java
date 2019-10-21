@@ -1,5 +1,7 @@
 package data.dto;
 
+import java.sql.Timestamp;
+
 public class MemberDTO {
 
 	private int num;
@@ -10,7 +12,14 @@ public class MemberDTO {
 	private String email2;
 	private String mobile;
 	private int bounty;
+	private Timestamp joinday;
 	
+	public Timestamp getJoinday() {
+		return joinday;
+	}
+	public void setJoinday(Timestamp joinday) {
+		this.joinday = joinday;
+	}
 	public int getNum() {
 		return num;
 	}
