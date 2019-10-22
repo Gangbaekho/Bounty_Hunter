@@ -3,6 +3,7 @@ package data.test;
 import data.db.BoardDB;
 import data.db.MemberDB;
 import data.dto.BoardDTO;
+import data.dto.MemberDTO;
 
 public class BoardDBTest {
 	
@@ -15,6 +16,6 @@ public class BoardDBTest {
 		dto.setTitle("안녕");
 		dto.setContent("시간 순삭");
 		
-		db.insertBoard(1, dto);
+		db.deleteBoard(6);
 	}
 }
