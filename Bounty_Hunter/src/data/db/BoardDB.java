@@ -97,7 +97,7 @@ public class BoardDB {
 	
 	//Board 글 수정 method
 	public void updateBoard(BoardDTO dto) {
-		String sql = "update board set title=?, content=?, modday=sysdate";
+		String sql = "update board set title=?, content=?, modday=sysdate where num=?";
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		
@@ -105,6 +105,7 @@ public class BoardDB {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getTitle());
 			pstmt.setString(2, dto.getContent());
+			pstmt.setInt(3, dto.getNum());
 			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

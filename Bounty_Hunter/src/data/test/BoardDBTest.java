@@ -13,9 +13,10 @@ public class BoardDBTest {
 		
 		BoardDTO dto = new BoardDTO();
 		
-		dto.setTitle("안녕");
+		dto.setNum(4);
+		dto.setTitle("안녕 업뎃 확인");
 		dto.setContent("시간 순삭");
 		
-		db.deleteBoard(6);
+		db.updateBoard(dto);
 	}
 }
