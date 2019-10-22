@@ -1,29 +1,64 @@
 package data.test;
 
-import data.db.BoardDB;
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
 import data.db.MemberDB;
 import data.dto.MemberDTO;
 
 public class MemberDBTest {
+
+	private MemberDB db = new MemberDB();
 	
-	public static void main(String[] args) {
+/*	@Test
+	public void MemberDBInsertAndRead() {
 		
-		MemberDB db = new MemberDB();
+		db.deleteAllMember();
 		
-		BoardDB db2 = new BoardDB();
-		MemberDTO dto = new MemberDTO();
-		dto.setEmail1("leesol529");
-		dto.setEmail2("naver.com");
-		dto.setMobile("01027749429");
-		dto.setName("이솔");
-		dto.setPass("5252");
-		dto.setNum(5);
-		dto.setBounty(100);
+		MemberDTO dto1 = new MemberDTO();
+		dto1.setEmail1("vv888vv");
+		dto1.setEmail2("naver.com");
+		dto1.setMobile("01029482818");
+		dto1.setMyid("jajajaja");
+		dto1.setName("1234");
+		dto1.setPass("hahaha");
 		
+		db.insertMember(dto1);
+		
+		
+		
+	}*/
 	
-		db.insertMember(dto);
+/*	@Test
+	public void MemberUpdateTest() {
+		
+		MemberDTO dto1 = new MemberDTO();
+		dto1.setEmail1("vv888vv");
+		dto1.setEmail2("naver.com");
+		dto1.setMobile("01029482818");
+		dto1.setMyid("jajajaja");
+		dto1.setName("1234");
+		dto1.setPass("hahaha");
+		dto1.setBounty(10000);
+		
+		db.updateMember(dto1);
+		
+	}*/
+	
+/*	@Test
+	public void MemberDeleteTest() {
+		
+		db.deleteMember(7);
+	}*/
+	
+	@Test
+	public void MemberReadTest() {
+		
+		MemberDTO dto = db.getMember(8);
 		
 		
 		
 	}
+
 }

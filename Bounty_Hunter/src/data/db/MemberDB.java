@@ -130,5 +130,25 @@ public class MemberDB {
 		
 	}
 	
+	public void deleteAllMember() {
+		
+		String sql = "delete from member";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		conn=db.getConnection();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.execute();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(pstmt, conn);
+		}
+		
+	}
+	
 	
 }
