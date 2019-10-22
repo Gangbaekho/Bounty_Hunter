@@ -8,31 +8,30 @@ import java.util.List;
 import java.util.Vector;
 
 import data.dto.BoardDTO;
+import data.dto.QuestionDTO;
 import oracle.db.DBConnect;
 
-public class BoardDB {
+public class QuestionDB {
 	private DBConnect db = new DBConnect();
 	
-	//mnum에 해당하는 회원이 작성한 전체 Board 가져오기
-	public List<BoardDTO> getAllBoard(int mnum) {
-		List<BoardDTO> list = new Vector<>();
-		String sql = "select * from board where mnum=?";
+	//모든 question 가져오기
+	public List<QuestionDTO> getAllQuestion() {
+		List<QuestionDTO> list = new Vector<>();
+		String sql = "select * from question";
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, mnum);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				BoardDTO dto = new BoardDTO();
+				QuestionDTO dto = new QuestionDTO();
 				dto.setNum(rs.getInt("num"));
 				dto.setMnum(rs.getInt("mnum"));
 				dto.setTitle(rs.getString("title"));
 				dto.setContent(rs.getString("content"));
-				dto.setCount(rs.getInt("count"));
-				dto.setBounty(rs.getInt("bounty"));
+				dto.setChecked(rs.getString("checked"));
 				dto.setCreateday(rs.getTimestamp("createday"));
 				dto.setModday(rs.getTimestamp("modday"));
 				
@@ -46,10 +45,10 @@ public class BoardDB {
 		return list;
 	}
 	
-	//선택 한 num에 해당하는 하나의 글 가져오기 
-	public BoardDTO getBoard(int num) {
-		BoardDTO dto = new BoardDTO();
-		String sql = "select * from board where num=?";
+	//해당 num에 해당하는 question 가져오기
+	public QuestionDTO getQuestion(int num) {
+		QuestionDTO dto = new QuestionDTO();
+		String sql = "select * from question where num=?";
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -62,8 +61,7 @@ public class BoardDB {
 				dto.setMnum(rs.getInt("mnum"));
 				dto.setTitle(rs.getString("title"));
 				dto.setContent(rs.getString("content"));
-				dto.setCount(rs.getInt("count"));
-				dto.setBounty(rs.getInt("bounty"));
+				dto.setChecked(rs.getString("checked"));
 				dto.setCreateday(rs.getTimestamp("createday"));
 				dto.setModday(rs.getTimestamp("modday"));
 			}
@@ -74,10 +72,9 @@ public class BoardDB {
 		}
 		return dto;
 	}
-	
-	//Board에 새 글 작성 method
-	public void insertBoard(int mnum, BoardDTO dto) {
-		String sql = "insert into board values (seq_bounty.nextval, ?, ?, ?, 0, 0, sysdate, sysdate)";
+	//새로운 질문 insert
+	public void insertQuestion(int mnum, QuestionDTO dto) {
+		String sql = "insert into question values (seq_bounty.nextval, ?, ?, ?, 'n', sysdate, sysdate)";
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		
@@ -95,9 +92,9 @@ public class BoardDB {
 		}
 	}
 	
-	//Board 글 수정 method
-	public void updateBoard(BoardDTO dto) {
-		String sql = "update board set title=?, content=?, modday=sysdate where num=?";
+	//질문 수정 
+	public void updateQuestion(QuestionDTO dto) {
+		String sql = "update question set title=?, content=?, modday=sysdate where num=?";
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		
@@ -115,9 +112,9 @@ public class BoardDB {
 		}
 	}
 	
-	//Board 글 삭제 method
-	public void deleteBoard(int num) {
-		String sql = "delete from board where num=?";
+	//질문 삭제 
+	public void deleteQuestion(int num) {
+		String sql = "delete from question where num=?";
 		Connection conn=null;
 		PreparedStatement pstmt=null;
 		conn=db.getConnection();
