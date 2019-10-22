@@ -1,5 +1,6 @@
 package data.test;
 
+import data.db.BoardDB;
 import data.db.MemberDB;
 import data.dto.MemberDTO;
 
@@ -9,6 +10,7 @@ public class MemberDBTest {
 		
 		MemberDB db = new MemberDB();
 		
+		BoardDB db2 = new BoardDB();
 		MemberDTO dto = new MemberDTO();
 		dto.setEmail1("leesol529");
 		dto.setEmail2("naver.com");
@@ -19,7 +21,9 @@ public class MemberDBTest {
 		dto.setBounty(100);
 		
 	
-		db.updateMember(dto);
+		db.insertMember(dto);
+		
+		
 		
 	}
 }
