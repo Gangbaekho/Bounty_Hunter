@@ -20,39 +20,39 @@ public class DBConnect {
 	public DBConnect() {
 		try {
 			Class.forName(driver);
-			System.out.println("오라클 드라이버 성공");
+			System.out.println("로그인성공");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
-			System.out.println("오라클 드라이버 실패: "+e.getMessage());
+			System.out.println("�삤�씪�겢 �뱶�씪�씠踰� �떎�뙣: "+e.getMessage());
 		}
 	}
 	
-	//db에서 나오는건 전부 java.sql에서 import
+	//db�뿉�꽌 �굹�삤�뒗嫄� �쟾遺� java.sql�뿉�꽌 import
 	public Connection getConnection() {
-		//db 서버에 연결 시도 
+		//db �꽌踰꾩뿉 �뿰寃� �떆�룄 
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(url, user, pwd);
-			//System.out.println("오라클 연결 성공");
+			//System.out.println("�삤�씪�겢 �뿰寃� �꽦怨�");
 		} catch (SQLException e) {
-			System.out.println("오라클 연결 실패: "+e.getMessage());
+			System.out.println("getConnection 에러: "+e.getMessage());
 		}
 		return conn;
 	}
 		
 	public Connection getTeacherConnection() {
-		//db 서버에 연결 시도 
+		//db �꽌踰꾩뿉 �뿰寃� �떆�룄 
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(t_url, t_user, t_pwd);
-			//System.out.println("오라클 연결 성공");
+			//System.out.println("�삤�씪�겢 �뿰寃� �꽦怨�");
 		} catch (SQLException e) {
-			System.out.println("오라클 연결 실패: "+e.getMessage());
+			System.out.println("�삤�씪�겢 �뿰寃� �떎�뙣: "+e.getMessage());
 		}
 		return conn;
 	}
 	
-	//오버로딩으로 총 4개의 close 메소드 
+	//�삤踰꾨줈�뵫�쑝濡� 珥� 4媛쒖쓽 close 硫붿냼�뱶 
 	public void dbClose(PreparedStatement pstmt, Connection conn) {
 		try {
 			pstmt.close();

@@ -12,10 +12,40 @@ public class MemberDB {
 
 	private DBConnect db = new DBConnect();
 	
-	//새로운 회원을 추가하는 메소드
+
+	public boolean isSearchId(String id)//�쉶�썝媛��엯�븷�븣 id 以묐났泥댄겕
+	{
+		boolean find=false;//�엳�쓣寃쎌슦 true濡� 蹂�寃�
+		String sql="select * from member where myid=?";
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		
+		conn=db.getConnection();
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setString(1,id);
+			
+			rs=pstmt.executeQuery();
+			
+			if(rs.next())//�빐�떦 �븘�씠�뵒媛� �엳�쓣寃쎌슦 ture
+				find=true;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return find;
+	}	
+	
 	public void insertMember(MemberDTO dto) {
 		
-		//처음 만드는 회원은 bounty가 0이고 joinday는 sysdate이다.
+		//泥섏쓬 留뚮뱶�뒗 �쉶�썝�� bounty媛� 0�씠怨� joinday�뒗 sysdate�씠�떎.
 		String sql = "insert into member values(seq_bounty.nextval,?,?,?,?,?,?,0,sysdate)";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -40,8 +70,67 @@ public class MemberDB {
 		}
 		
 	}
+
+	public boolean isEqualPass(String num, String pass)
+{
+	boolean b=false;
+	Connection conn=null;
+	PreparedStatement pstmt=null;
+	ResultSet rs=null;
+	String sql="select count(*) from member where num=? and pass=?";
 	
-	//하나의 멤버의 정보를 num을 통해서 읽어오는 메소드
+	conn=db.getConnection();
+	
+	try {
+		pstmt=conn.prepareStatement(sql);
+		//諛붿씤�뵫
+		pstmt.setString(1, num);
+		pstmt.setString(2, pass);
+		rs=pstmt.executeQuery();
+		
+		if(rs.next())
+		{
+			if(rs.getInt(1)==1)
+				b=true;
+		}
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally {
+		db.dbClose(rs, pstmt, conn);
+	}
+	return b;
+}
+	public boolean isLogin(String myid, String pass) 
+	{
+		boolean b=false;
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		String sql="select * from member where myid=? and pass=?";
+		ResultSet rs=null;
+		conn=db.getConnection();
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, myid);
+			pstmt.setString(2, pass);
+			
+			rs=pstmt.executeQuery();
+		if(rs.next())
+		{
+			b=true;
+		}
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return b;
+	}
+	
+	//�븯�굹�쓽 硫ㅻ쾭�쓽 �젙蹂대�� num�쓣 �넻�빐�꽌 �씫�뼱�삤�뒗 硫붿냼�뱶
 	public MemberDTO getMember(int num) {
 		
 		MemberDTO dto = new MemberDTO();
@@ -80,7 +169,7 @@ public class MemberDB {
 		
 	}
 	
-	//MemberDTO를 받아서 update하는 메소드
+	//MemberDTO瑜� 諛쏆븘�꽌 update�븯�뒗 硫붿냼�뱶
 	public void updateMember(MemberDTO dto) {
 		
 		String sql = "update member set name=?,pass=?,email1=?,email2=?,mobile=?,bounty=?";
@@ -150,5 +239,36 @@ public class MemberDB {
 		
 	}
 	
+	//id에 해당하는 이름 반환
+	public String getName(String id) 
+	{
+		String name="";
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		String sql="select name from member where myid=?";
+		ResultSet rs=null;
+		conn=db.getConnection();
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			rs=pstmt.executeQuery();
+			if(rs.next())
+			{
+				name=rs.getString("name");
+			}
+			
+		
+		    } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		    }finally {
+			db.dbClose(rs, pstmt, conn);
+	     	}
+		return name;
+	}
+
+
 	
 }
