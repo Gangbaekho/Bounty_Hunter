@@ -14,9 +14,6 @@
 	 String id=request.getParameter("myid");
   	 String pass=request.getParameter("pass");
   	 
-  	 
-  	 //checkbox 체크인하면 null값
-  	 String idsave=request.getParameter("idsave");
 	//db 선언
 	MemberDB db=new MemberDB();
 	//isLogin 호출
@@ -29,12 +26,10 @@
 		//세션저장
 		session.setAttribute("loginok", "success");
 		session.setAttribute("myid", id);
-		//체크하면 yes, 체크 안하면 no
-		session.setAttribute("idsave", idsave==null?"no":"yes");
 		//세션 유지 시간
 		session.setMaxInactiveInterval(60*60*9);
 		//메인으로 이동
-		response.sendRedirect("../");
+		response.sendRedirect("../main/main.jsp");
 	}else
 	{%>
 		<script type="text/javascript">

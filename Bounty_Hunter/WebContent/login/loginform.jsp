@@ -49,10 +49,6 @@ $(function(){
 		//alert("test");
 		$("#frm").submit();//action으로 넘어감
 	});
-
-     	
-
-
 });
 
 

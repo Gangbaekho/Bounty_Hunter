@@ -1,0 +1,142 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: -1;
+  background: rgba(136, 98, 178, 1);
+}
+.scroll {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: url(../image/indexbg.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+.logo {
+  font-size: 11rem;
+  font-family: "Lobster", sans-serif;
+  text-align: center;
+  color: white;
+  width: 100%;
+  text-shadow: 2vh 2vh 2vh black;
+}
+.cover-gray {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.forfonts {
+  z-index: 2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+}
+
+.loginform {
+  margin-top: 30px;
+  width: 50%;
+  height: 20%;
+  margin: auto;
+  text-align: center;
+  display: flex;
+}
+
+.joinform {
+  margin-top: 10%;
+  width: 10%;
+  height: 10%;
+  margin: auto;
+
+  text-align: center;
+  vertical-align: middle;
+  display: table;
+  cursor: pointer;
+}
+.jointext {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 3rem;
+  font-family: "Caveat";
+  font-weight: bold;
+  color: #f5bb4e;
+  text-shadow: 0.5vh 0.5vh #806e67;
+  text-align: center;
+  padding-right: 3vw;
+}
+.inputbox {
+  flex: 4;
+  order: 1;
+
+  font-family: "Caveat";
+  font-weight: bold;
+  font-size: 3rem;
+  color: #f5bb4e;
+  -webkit-appearance: none;
+}
+
+.stamp {
+  flex: 1;
+  order: 2;
+
+  background-image: url(../image/stamp.png);
+  background-size: 100% 100%;
+  color: white;
+  cursor:pointer;
+ 
+}
+.logintext {
+  font-family: "Lobster", sans-serif;
+  font-size: 2.5rem;
+  display: table-cell;
+  line-height: 19vh;
+  text-align: center;
+  padding-left: 2.5vw;
+  text-shadow: 0.5vh 0.5vh 0.5vh black;
+}
+
+.inputbox form input {
+  width: 25vw;
+  height: 2rem;
+  margin-bottom: 1vh;
+  border: 0;
+  border-bottom: 10px ridge #f5bb4e;
+  outline: 0;
+  background: transparent;
+  font-size: 3rem;
+  color: #f5bb4e;
+  text-shadow: 0.5vh 0.5vh #806e67;
+  font-family: "Caveat";
+  padding-left: 1vw;
+  padding-bottom: 1vh;
+  text-align: center;
+}
+
+.inputbox form input:focus {
+  outline: none;
+}
+
+.inputbox form {
+  text-shadow: 0.5vh 0.5vh #806e67;
+  font-size: 3rem;
+}
+
+#loginbutton{
+	background:transparent;
+	border:none;
+	cursor:pointer;
+	width:5vw;
+	height:10vh;
+	font-family:"Lobster";
+	color:white;
+	font-size:2rem;
+}
