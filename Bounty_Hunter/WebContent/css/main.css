@@ -6,6 +6,14 @@ body{
     top: 0px;
     left: 0px;
 }
+
+.centerimg{
+	position: absolute;
+	z-index: -4;
+	width: 200px;
+	top: 40vh;
+	left: 42vw;
+}
 .scroll {
     position: absolute;
     top: 0px;
