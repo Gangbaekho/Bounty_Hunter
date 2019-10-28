@@ -1,142 +1,113 @@
-body,
-html {
-  height: 100%;
+body {
   margin: 0;
   padding: 0;
-  z-index: -1;
-  background: rgba(136, 98, 178, 1);
-}
-.scroll {
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  background: url(../image/indexbg.png);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  text-align: center;
+  box-sizing: border-box;
 }
 
-.logo {
-  font-size: 11rem;
-  font-family: "Lobster", sans-serif;
-  text-align: center;
-  color: white;
+.cover-purple {
   width: 100%;
-  text-shadow: 2vh 2vh 2vh black;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  background: #8862b2;
 }
+
+.scroll {
+  width: 1440px;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  background-image: url(../image/indexbg.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
 .cover-gray {
   width: 100%;
   height: 100%;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.2);
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background: rgb(0, 0, 0, 0.2);
 }
-.forfonts {
-  z-index: 2;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0px;
-  left: 0px;
+.logo {
+  font-size: 9rem;
+  font-family: "Lobster", cursive;
+  text-align: center;
+  text-shadow: 10px 10px 10px black;
+  color: white;
+  margin-bottom: 20vh;
 }
 
-.loginform {
-  margin-top: 30px;
-  width: 50%;
-  height: 20%;
-  margin: auto;
-  text-align: center;
+.super {
+  width: 1000px;
+
+  margin: 0 auto;
+}
+
+.myform {
+  text-align: right;
+  font-size: 50px;
+  font-family: "Caveat";
+  color: #f5bb4e;
+  text-shadow: 5px 5px 1px #806e67;
   display: flex;
-}
-
-.joinform {
-  margin-top: 10%;
-  width: 10%;
-  height: 10%;
-  margin: auto;
-
-  text-align: center;
-  vertical-align: middle;
-  display: table;
-  cursor: pointer;
-}
-.jointext {
-  display: table-cell;
-  vertical-align: middle;
-  font-size: 3rem;
-  font-family: "Caveat";
   font-weight: bold;
-  color: #f5bb4e;
-  text-shadow: 0.5vh 0.5vh #806e67;
-  text-align: center;
-  padding-right: 3vw;
+  margin-bottom: 40px;
 }
-.inputbox {
-  flex: 4;
+.myinput {
+  background: transparent;
+  border: none;
+  border-bottom: 10px ridge #f5bb4e;
+  width: 20vw;
+  height: 40px;
+  font-weight: bold;
+  text-indent: 10px;
+  color: #806e67;
+  font-family: "Caveat";
+  font-size: 40px;
+  text-shadow: 2px 2px 1px #f5bb4e;
+}
+.login {
+  flex: 6;
   order: 1;
-
-  font-family: "Caveat";
-  font-weight: bold;
-  font-size: 3rem;
-  color: #f5bb4e;
-  -webkit-appearance: none;
 }
-
 .stamp {
-  flex: 1;
-  order: 2;
-
+  text-align: center;
+  flex: 2;
+  order: 3;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
   background-image: url(../image/stamp.png);
   background-size: 100% 100%;
+  line-height: 200px;
+  font-family: "Lobster";
   color: white;
-  cursor:pointer;
- 
 }
-.logintext {
-  font-family: "Lobster", sans-serif;
-  font-size: 2.5rem;
-  display: table-cell;
-  line-height: 19vh;
-  text-align: center;
-  padding-left: 2.5vw;
-  text-shadow: 0.5vh 0.5vh 0.5vh black;
+.fake_stamp {
+  flex: 1;
+  order: 2;
 }
-
-.inputbox form input {
-  width: 25vw;
-  height: 2rem;
-  margin-bottom: 1vh;
-  border: 0;
-  border-bottom: 10px ridge #f5bb4e;
-  outline: 0;
-  background: transparent;
-  font-size: 3rem;
-  color: #f5bb4e;
-  text-shadow: 0.5vh 0.5vh #806e67;
+.fake_stamp2 {
+  flex: 1;
+  order: 4;
+}
+.joinpadding {
+  padding-right: 120px;
   font-family: "Caveat";
-  padding-left: 1vw;
-  padding-bottom: 1vh;
-  text-align: center;
+  color: #f5bb4e;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 5px 5px px #806e67;
 }
-
-.inputbox form input:focus {
-  outline: none;
-}
-
-.inputbox form {
-  text-shadow: 0.5vh 0.5vh #806e67;
-  font-size: 3rem;
-}
-
-#loginbutton{
-	background:transparent;
-	border:none;
-	cursor:pointer;
-	width:5vw;
-	height:10vh;
-	font-family:"Lobster";
-	color:white;
-	font-size:2rem;
+.joinpadding:visited {
+  color: #f5bb4e;
+  font-weight: bold;
 }
