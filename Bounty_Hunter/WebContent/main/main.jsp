@@ -17,47 +17,48 @@
 <body>
     <div class="scroll"></div>
     <div class="cover-gray"></div>
-    <div id="logo">
-        <h1> Bounty Hunter </h1>
+    <div class="super">
+    	<div id="logo">
+	        <h1> Bounty Hunter </h1>
+	    </div>
+	    <div class="wrapper">
+	        <div class="demo1">
+	            <div class="container">
+	                <div class="row">
+	                    <div class="col-md-12">
+	                        <div class="navbar1">New <br>Fugitives
+	                            <ul class="menu">
+	                                <li><a href="#" class="fab fa-facebook"> 질문하기 </a></li>
+	                                <li><a href="#" class="fab fa-google-plus">#질문보기</a></li>
+	                                <li><a href="#" class="fab fa-twitter">MyQ&A</a></li>
+	                                <li><a href="#" class="fab fa-linkedin">Search</a></li>
+	                            </ul>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="demo2">
+	            <div class="container">
+	                <div class="row">
+	                    <div class="col-md-12">
+	                        <div class="navbar2"><%= myid %>'s<br>Stable
+	                            <ul class="menu">
+	                                <li><a href="#" class="fab fa-facebook">게시판가기</a></li>
+	                                <li><a href="#" class="fab fa-google-plus">토론만들기</a></li>
+	                                <li><a href="#" class="fab fa-twitter"># 작성</a></li>
+	                            </ul>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	    <div class="desc">
+	         <h3 class="qnadesc">새로운 질문에 답 해 <br>도망자를 잡아주세요</h3>
+	         <h3 class="stabledesc">마구간에서 토론을 통해 <br>현상금을 쟁취 해 보세요</h3>
+	     </div>
+	     <img src="../image/cowboy.png" class="centerimg">
     </div>
-    
-    <div class="wrapper">
-        <div class="demo1">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="navbar1">New <br>Fugitives
-                            <ul class="menu">
-                                <li><a href="#" class="fab fa-facebook"> 질문하기 </a></li>
-                                <li><a href="#" class="fab fa-google-plus">#질문보기</a></li>
-                                <li><a href="#" class="fab fa-twitter">MyQ&A</a></li>
-                                <li><a href="#" class="fab fa-linkedin">Search</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="demo2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="navbar2"><%= myid %>'s<br>Stable
-                            <ul class="menu">
-                                <li><a href="#" class="fab fa-facebook">게시판가기</a></li>
-                                <li><a href="#" class="fab fa-google-plus">토론만들기</a></li>
-                                <li><a href="#" class="fab fa-twitter"># 작성</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="desc">
-         <h3>새로운 질문에 답 해 <br>도망자를 잡아주세요</h3>
-         <h3>마구간에서 토론을 통해 <br>현상금을 쟁취 해 보세요</h3>
-     </div>
-     <img src="../image/cowboy.png" class="centerimg">
 </body>
 </html>
