@@ -131,4 +131,34 @@ public class QuestionDB {
 		}
 	}
 	
+	//해당 해시태그의 검색결과 출력 메소드
+	public List<QuestionDTO> searchByQhash(String hash){
+		String sql = "select q.num, q.title, q.checked, q.modday" + 
+						  " from question q, questionhash qh" + 
+						  " where q.num = qh.qnum and qh.hash=?" + 
+						  " order by q.num desc";
+		List <QuestionDTO> list = new Vector<>();
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, hash);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				QuestionDTO dto = new QuestionDTO();
+				dto.setNum(rs.getInt("num"));
+				dto.setTitle(rs.getString("title"));
+				dto.setChecked(rs.getString("checked"));
+				dto.setModday(rs.getTimestamp("modday"));
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return list;
+	}
 }

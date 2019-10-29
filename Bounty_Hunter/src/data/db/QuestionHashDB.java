@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Vector;
 
+import data.dto.QuestionDTO;
 import data.dto.QuestionHashDTO;
 import oracle.db.DBConnect;
 
