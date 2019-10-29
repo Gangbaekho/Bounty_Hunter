@@ -58,8 +58,8 @@ body {
 
 .mybutton {
   position: absolute;
-  right: 420px;
-  top: 625px;
+  right: 270px;
+  bottom: 62px;
   height: 50px;
   border-radius: 10px;
   font-family: "Lobster";
