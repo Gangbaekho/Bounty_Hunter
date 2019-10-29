@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,101 +7,148 @@
 <title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <link
-	href="https://fonts.googleapis.com/css?family=Lobster&display=swap&subset=cyrillic,cyrillic-ext"
-	rel="stylesheet">
+   href="https://fonts.googleapis.com/css?family=Lobster&display=swap&subset=cyrillic,cyrillic-ext"
+   rel="stylesheet">
 <style>
-body {
-	height: 100%;
+html, body{
+   height:100%;
 }
 
-#h1 {
-	font-size: 100px;
-	margin-left: 450px;
-	font-family: Lobster;
+body{
+   background-color: #5D5D5D;
 }
 
 #h3 {
-	margin-left: 650px;
+   color: white;
+   font-family: Lobster;
+   text-align: center;
+}
+
+#h1 {
+   text-align: center;
+   color: white;
+   font-size: 100px;
+   font-family: Lobster;
+   height: 12%;
+   font-weight: 100;
 }
 
 #h4 {
-	font-size: 18px;
-	text-shadow: #212121 5px 5px 5px;
+   font-size: 45%;
+   text-shadow: #212121 5px 5px 5px;
+   font-family: Lobster;
+   font-weight: 100;
 }
 
 #hash {
-	margin-right: 950px;
-	margin-left: 30px;
+   margin-right: 62%;
+   color: white;
+}
+
+a{
+   color: white;
 }
 
 .hashbox {
-	width: 75%;
-	height: 100px;
-	border: 1px solid black;
-	float: left;
-	margin-left: 30px;
+   width: 70%;
+   height: 15%;
+   border:   medium solid white;
+   float: left;
+   margin-left: 5%;
+   border-style: wave;
+   
 }
 
 #hash_wrapper{
-	margin-left:10px;
+   margin-left:5%;
 }
 
 
 .img_wrapper {
-	background-image: url(../image/stamp.png);
-	width: 300px;
-	background-size: 120px;
-	background-repeat: no-repeat;
-	position: absolute;
-	height: 130px;
-	margin-left: 80%;
+   background-image: url(../image/stamp.png);
+   top:40%;
+   width: 30%;
+   background-size: 40%;
+   background-repeat: no-repeat;
+   position: absolute;
+   height: 24%;
+   margin-left: 80%;
+   filter: drop-shadow(5px 5px 5px #222)
 }
 
 .content {
-	position: absolute;
-	top: 48%;
-	left: 21%;
-	transform: translate(-50%, -50%);
-	font-size: 80px;
-	color: white;
-	z-index: 2;
-	text-align: center;
+   position: absolute;
+   top: 50%;
+   left: 21%;
+   transform: translate(-50%, -50%);
+   font-size: 80px;
+   color: white;
+   z-index: 2;
+   text-align: center;
 }
 
-.board1{
-	border: 1px solid black;
-	width: 50px;
-	height: 40px;
+
+#board_wrapper{
+   border: 1px solid black;
+   width:90%;
+   height: 100%;
+   margin-top: 5%;
+   margin-left: 5%;
+   
 }
+
+#board1{
+   border-color: white;
+   border-widht: 3%;
+   width: 25%;
+   height: 40%;
+   float: left;
+   border-style: ridge;
+
+   
+}
+
+#board2{
+   border: medium solid white;
+   width: 25%;
+   height: 40%;
+   float: left;
+   margin-left: 3%;
+}
+
 </style>
 
 
 </head>
 <body>
-	<h1 id="h1">Bounty Hunter</h1>
+   <h3 id="h3">Bounty Hunter</h3>
 
-	<h3 id="h3">( ) Stable</h3>
-	<br>
-	<br>
+   <h1 id="h1">( )'s &nbsp;&nbsp; Stable</h1>
+   <br>
+   <br>
 
-	<div id="hash_wrapper">
-		<span id="hash">@@님의 해시태그</span> 
-		<a>수정</a>
-	</div>
-	<div class="hashbox">hi</div>
+   <div id="hash_wrapper">
+      <span id="hash">@@님의 해시태그</span> 
+      <a>수정</a>
+   </div>
+   <div class="hashbox">hi</div>
 
-	<div class="img_wrapper">
-		<div class="content">
-			<h4 id="h4">
-				create new <br> debate
-			</h4>
-		</div>
-	</div>
-	
+   <div class="img_wrapper">
+      <div class="content">
+         <h4 id="h4">
+            Create new <br> Debate
+         </h4>
+      </div>
+   </div>
+   
 <div style="clear:both"></div>
-	<div id="board1">
-		앙농
-	</div>
-
+<div id="board_wrapper">
+   <div id="board1">
+      board1
+   </div>
+   <div id="board2">
+      board2
+   </div>
+</div>
 </body>
 </html>
