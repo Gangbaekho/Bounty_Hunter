@@ -1,40 +1,60 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
-	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <link rel="stylesheet" href="../css/debateform.css">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../css/debateform.css" />
     <link
-      href="https://fonts.googleapis.com/css?family=Caveat|Lobster&display=swap"
+      href="https://fonts.googleapis.com/css?family=Lobster&display=swap"
       rel="stylesheet"
     />
-</head>
+    <title>Document</title>
+  </head>
   <body>
-    <a href="BountyHunter.jsp" class="target">Bounty Hunter</a>
-    <div class="page">
+    <div class="super">
+      <h2 class="logo"><a href="#">Bounty Hunter</a></h2>
+      <form action="" method="post" id="frm">
+        <table class="formtable">
+          <tr>
+            <th style="width:200px;">Subject</th>
+            <td style="width:600px;">
+              <input style="width:450px;" type="text" />
+            </td>
+          </tr>
+          <tr>
+            <th style="width:200px;">Upload</th>
+            <td style="width:600px;">
+              <input style="width:450px;" type="text" />
+            </td>
+          </tr>
+          <tr>
+            <th style="width:200px;">Content</th>
+            <td style="width:600px;">
+              <textarea
+                style="width:450px;"
+                name=""
+                id=""
+                cols="30"
+                rows="10"
+              ></textarea>
+            </td>
+          </tr>
+        </table>
 
-
-<div class="article">
-  <div class="first">
-  <span>Subject</span>  <input type="text" name="" value="" autofocus="autofocus"  checked="checked">
-  </div>
-  <div class="second">
-    <span>Upload</span>  <input type="text" name="" value="" checked="checked"><button type="button" name="button" class="search">Search</button>
-  </div>
-  <div class="third">
-    <span>Content</span>  <textarea name="name" rows="8" cols="80"  checked="checked"></textarea>
-  </div>
-  <form class="" action="index.html" method="post">
-    <button type="submit" name="button" class="submit">Submit</button>
-  </form>
-</div>
-
-
-
-
+        <div
+          class="submitform"
+          style="width:800px;margin:0 auto;text-align: center;"
+        >
+          <input
+            type="submit"
+            value="Submit"
+            style="height:50px;border-radius:10px; background:#8862b2;
+            border:none; font-family: 'Lobster';font-size: 30px ;cursor: pointer;color:white"
+          />
+        </div>
+      </form>
+      <button class="mybutton">Search</button>
     </div>
-</body>
+  </body>
 </html>

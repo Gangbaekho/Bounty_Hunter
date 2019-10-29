@@ -1,103 +1,75 @@
 body {
-	background-color: rgba(0, 0, 0, 0.7);
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.7);
+}
+.super {
+  width: 1300px;
+  margin: 0 auto;
+  position: relative;
+}
+.logo a {
+  color: white;
+  text-decoration: none;
+  font-family: "Lobster";
+  font-size: 35px;
+}
+.formtable {
+  width: 800px;
+  margin: 0 auto;
 }
 
-.page {
-	width: 1200px;
-	margin: 0 auto;
-	font-family: 'Lobster';
-	color: white;
-	font-size: 100px;
+.formtable th {
+  font-size: 60px;
+  font-family: "Lobster";
+  color: white;
+  text-shadow: 5px 5px 3px black;
+  vertical-align: top;
 }
 
-.article {
-	width: 1324px;
-	margin: 0 auto;
+.formtable td input {
+  height: 40px;
+  border-radius: 15px;
+  text-indent: 10px;
+  font-size: 20px;
+  margin-top: 15px;
+  border: 4px solid #ecb765;
+}
+.formtable td input:focus {
+  outline: none;
 }
 
-.first>input {
-	text-indent: 10px;
-	font-size: 20px;
-	width: 600px;
-	height: 70px;
-	margin-right: 50px;
-	border: 5px solid #f5bb4e;
-	border-radius: 20px 20px 20px 20px;
+.formtable td textarea {
+  padding-top: 10px;
+  height: 400px;
+  outline: none;
+  border-radius: 15px;
+  text-indent: 10px;
+  font-size: 20px;
+  margin-top: 15px;
+  border: 4px solid #ecb765;
 }
 
-.second>input {
-	text-indent: 10px;
-	font-size: 20px;
-	width: 600px;
-	height: 70px;
-	border: 5px solid #f5bb4e;
-	border-radius: 20px 20px 20px 20px;
-	margin-bottom: 60px;
+.formtable td {
+  text-align: left;
+  vertical-align: top;
 }
 
-.third>textarea {
-	text-indent: 10px;
-	width: 600px;
-	height: 400px;
-	border: 5px solid #f5bb4e;
-	border-radius: 20px 20px 20px 20px;
-	font-size: 20px;
-	font-weight: bold;
+.mybutton {
+  position: absolute;
+  right: 270px;
+  top: 160px;
+  height: 50px;
+  border-radius: 10px;
+  font-family: "Lobster";
+  font-size: 30px;
+  background: #8862b2;
+  border: none;
+  cursor: pointer;
+  color: white;
 }
 
-.first>span {
-	position: relative;
-	top: 30px;
-}
-
-.second>span {
-	position: relative;
-	top: 30px;
-}
-
-.third>span {
-	position: relative;
-	top: -320px;
-}
-
-.submit {
-	background-color: #8962b2;
-	border-radius: 28px;
-	border: 1px solid #8962b2;
-	display: inline-block;
-	cursor: pointer;
-	color: #ffffff;
-	font-family: 'Lobster';
-	font-size: 30px;
-	padding: 16px 31px;
-	text-decoration: none;
-	text-shadow: 0px 1px 0px #2f6627;
-	position: relative;
-	left: 530px;
-	top: -50px;
-}
-
-.search {
-	background-color: #8962b2;
-	border-radius: 17px;
-	border: 1px solid #8962b2;
-	display: inline-block;
-	cursor: pointer;
-	color: #ffffff;
-	font-family: Arial;
-	font-size: 17px;
-	font-size: 30px;
-	padding: 16px 31px;
-	text-decoration: none;
-	text-shadow: 0px 1px 0px #2f6627;
-	left: 30px;
-	position: relative;
-	font-family: 'Lobster';
-}
-
-.target {
-	font-family: 'Lobster';
-	font-size: 35px;
-	color: white;
-	text-decoration: none;
+.mybutton:focus {
+  outline: none;
 }
