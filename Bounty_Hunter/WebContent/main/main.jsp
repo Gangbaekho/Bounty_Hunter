@@ -29,8 +29,8 @@
 	                    <div class="col-md-12">
 	                        <div class="navbar1">New <br>Fugitives
 	                            <ul class="menu">
-	                                <li><a href="../question/questionform.jsp" class="fab fa-facebook"> 질문하기 </a></li>
-	                                <li><a href="../question/questionhash.jsp" class="fab fa-google-plus">#별 질문보기</a></li>
+	                                <li><a href="../question/questionform.jsp" class="fab fa-facebook"> Ask </a></li>
+	                                <li><a href="../question/questionhash.jsp" class="fab fa-google-plus">Q by #</a></li>
 	                                <li><a href="../question/myqna.jsp" class="fab fa-twitter">My Q&A</a></li>
 	                                <li><a href="../question/questionsearch.jsp" class="fab fa-linkedin">Search</a></li>
 	                            </ul>
@@ -45,9 +45,9 @@
 	                    <div class="col-md-12">
 	                        <div class="navbar2"><%= myid %>'s<br>Stable
 	                            <ul class="menu">
-	                                <li><a href="../debate/stableform.jsp" class="fab fa-facebook">게시판 가기</a></li>
-	                                <li><a href="../debate/debateform.jsp" class="fab fa-google-plus">토론 만들기</a></li>
-	                                <li><a href="../debate/debatehash.jsp" class="fab fa-twitter"># 작성</a></li>
+	                                <li><a href="../debate/stableform.jsp" class="fab fa-facebook">My stable</a></li>
+	                                <li><a href="../debate/debateform.jsp" class="fab fa-google-plus">Debate</a></li>
+	                                <li><a href="../debate/debatehash.jsp" class="fab fa-twitter">Write #</a></li>
 	                            </ul>
 	                        </div>
 	                    </div>

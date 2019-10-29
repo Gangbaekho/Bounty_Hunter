@@ -30,7 +30,7 @@
     background-image: url("../image/indexbg.png");
 
     /* Center and scale the image nicely */
-    background-position: center center;
+   /*  background-position: center center; */
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -198,10 +198,11 @@
     border-radius: 50%;
     background: #ECB765;
     position: absolute;
-    font-size: 30%;
+    font-size: 2.3rem;
     color:#fff;
     transition: 0.6s;
     margin: 180px;
+    font-family: 'Lobster', cursive;
 }
 .navbar2 .menu li a{
     width: 100px;
@@ -210,10 +211,11 @@
     border-radius: 50%;
     background: #8862B2;
     position: absolute;
-    font-size: 30%;
+    font-size: 2.3rem;
     color:#fff;
     transition: 0.6s;
     margin: -80px;
+     font-family: 'Lobster', cursive;
 }
 .navbar1:hover .menu li:nth-child(1){
     transition-delay: 0.02s;
