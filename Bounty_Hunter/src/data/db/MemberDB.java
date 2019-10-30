@@ -268,6 +268,36 @@ public class MemberDB {
 	     	}
 		return name;
 	}
+	
+	public int getNumByMyid(String myid) {
+		
+		int mnum = 0;
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		String sql="select num from member where myid=?";
+		ResultSet rs=null;
+		conn=db.getConnection();
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, myid);
+			
+			rs=pstmt.executeQuery();
+			if(rs.next())
+			{
+				mnum=rs.getInt("num");
+			}
+			
+		
+		    } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		    }finally {
+			db.dbClose(rs, pstmt, conn);
+	     	}
+		return mnum;
+		
+	}
 
 
 	

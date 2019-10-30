@@ -73,14 +73,14 @@ public class QuestionDB {
 		return dto;
 	}
 	//새로운 질문 insert
-	public void insertQuestion(int mnum, QuestionDTO dto) {
+	public void insertQuestion(QuestionDTO dto) {
 		String sql = "insert into question values (seq_bounty.nextval, ?, ?, ?, 'n', sysdate, sysdate)";
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, mnum);
+			pstmt.setInt(1, dto.getMnum());
 			pstmt.setString(2, dto.getTitle());
 			pstmt.setString(3, dto.getContent());
 			pstmt.execute();

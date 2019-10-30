@@ -1,3 +1,4 @@
+<%@page import="data.db.MemberDB"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,7 +24,6 @@
     <script>
       $(function() {
         $("#hashtag").tagEditor({
-          delimiter: ", " /* space and comma */,
           placeholder: "해시태그를 입력하세요"
         });
 
@@ -35,15 +35,28 @@
       });
     </script>
   </head>
+  <%
+  	//Session에서 나의 id를 가져오기
+  	String myid = (String)session.getAttribute("myid");
+  	System.out.println(myid);
+  	
+  	MemberDB db = new MemberDB();
+  	
+  	//나의 id를 통해서 나의 mnum을 알아내기.
+  	int mnum = db.getNumByMyid(myid);
+  	System.out.println(mnum);
+  	
+  
+  %>
   <body>
     <div class="super">
       <h2 class="logo"><a href="#">Bounty Hunter</a></h2>
-      <form action="" method="post" id="frm">
+      <form action="questionaction.jsp" method="post" id="frm">
         <table class="formtable">
           <tr>
             <th style="width:200px;">Title</th>
             <td style="width:600px;">
-              <input id="title" style="width:450px;" type="text" />
+              <input id="title" name="title" style="width:450px;" type="text" />
             </td>
           </tr>
           <tr>
@@ -51,7 +64,7 @@
             <td style="width:600px;">
               <textarea
                 style="width:450px;"
-                name=""
+                name="content"
                 id=""
                 cols="30"
                 rows="10"
@@ -61,24 +74,41 @@
           <tr>
             <th style="width:200px;">#</th>
             <td style="width:600px;">
-              <input id="hashtag" style="width:450px;" type="text" value="" />
+              <input
+                id="hashtag"
+                name="hash"
+                style="width:450px;"
+                type="text"
+                value=""
+              />
             </td>
           </tr>
         </table>
+        
+        <!-- this is hidden type! -->      
+        <input type="hidden" name="mnum" value="<%=mnum %>">
 
         <div
           class="submitform"
-          style="width:800px;margin:0 auto;text-align: center;"
+          style="width:800px;margin:0 auto;text-align: center;padding-left:50px;"
         >
           <input
             type="submit"
             value="Submit"
             style="height:50px;border-radius:10px; background:#8862b2;
             border:none; font-family: 'Lobster';font-size: 30px ;cursor: pointer;color:white"
-          />
+          />&nbsp;&nbsp;&nbsp;
+          <button
+            type="button"
+            style="height:50px;border-radius:10px; background:#8862b2;
+            border:none; font-family: 'Lobster';font-size: 30px ;cursor: pointer;color:white;width:96px;"
+            onclick="history.back()"
+          >
+            Back
+          </button>
         </div>
+        
       </form>
-      <button class="mybutton">Search</button>
     </div>
   </body>
 </html>

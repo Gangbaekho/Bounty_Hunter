@@ -42,13 +42,13 @@ public class QuestionHashDB {
 	}
 	
 	//# 입력
-	public void insertQuestionHash(int qnum, String hash) {
-		String sql = "insert into questionhash values (?, ?)";
+	public void insertQuestionHash(int max,String hash) {
+		String sql = "insert into questionhash values (?,?)";
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, qnum);
+			pstmt.setInt(1, max);
 			pstmt.setString(2, hash);
 			pstmt.execute();
 		} catch (SQLException e) {
@@ -94,4 +94,55 @@ public class QuestionHashDB {
 			db.dbClose(pstmt, conn);
 		}
 	}
+	
+	public long getCurrval() {
+		
+		long currval = 0;
+		
+		String sql = "select last_number from user_sequences where sequence_name = 'SEQ_BOUNTY'";
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				currval = rs.getLong("last_number");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return currval;
+		
+	}
+	
+	public int getMaxQuestionNum() {
+		
+		int max = 0;
+		String sql = "select nvl(max(num),0) from question";
+		
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				max = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return max;
+	}
+	
+
 }
