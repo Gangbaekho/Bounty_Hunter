@@ -23,7 +23,6 @@
 	#mylogin{
 		padding-top: 40px;
 	}
-   
    	svg {
     width: 70%;
     border-radius: 50%;
