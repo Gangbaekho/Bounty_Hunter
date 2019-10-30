@@ -13,6 +13,10 @@
 
 <link rel="stylesheet" type="text/css" href="../css/debatehash.css" />
 <link href="https://fonts.googleapis.com/css?family=Lobster|Nanum+Myeongjo&display=swap" rel="stylesheet">
+<!-- 해시태그용 link  -->
+   <link rel="stylesheet" href="../css/jquery.tag-editor2.css" />
+    <script src="../js/jquery.tag-editor.js"></script>
+    <script src="../js/jquery.caret.min.js"></script>
 <!-- 이미지 슬라이더용 link -->
 <link
 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
@@ -21,6 +25,19 @@
 	rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Neucha'
 	rel='stylesheet' type='text/css'>
+	<script type="text/javascript">
+    $(function() {
+        $("#hasharea1").tagEditor({
+          placeholder: "해시태그를 입력하세요"
+        });
+
+        $("#btnsubmit").click(function() {
+          var hashtag = $("#hasharea1");
+          var mytags = hashtag.tagEditor("getTags")[0].tags;
+          hashtag.attr("value", mytags);
+        });
+      });
+	</script>
 </head>
 <%
 	String myid = (String)session.getAttribute("myid");
@@ -84,7 +101,7 @@
 				<h3>관심 분야의 해시태그를 입력 해 주세요</h3>
 			</div>
 			<div class="yborder2">
-				<textarea id="hasharea"></textarea>
+				<textarea id="hasharea1"></textarea>
 				<button type="submit" id="btnsubmit">Submit</button>
 			</div>
 		</div>
