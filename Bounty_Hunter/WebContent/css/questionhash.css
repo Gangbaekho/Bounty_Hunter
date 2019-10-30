@@ -1,0 +1,24 @@
+.cover-gray {
+    width: 100%;
+    height: 100%;
+    z-index: -5;
+    background: rgba(0, 0, 0, 0.7);
+	position: absolute;
+ 	left: 0;
+ 	top: 0;
+}
+.super{
+	text-align: center;
+	width: 1300px;
+	margin: 0 auto;
+	border: 1px solid black;
+	height: 800px;
+}
+.logo{
+	font-family: "Lobster", cursive;
+	font-size: 35px;
+	color: white;
+	text-decoration: none;
+	cursor: pointer;
+	text-align: left;
+}
