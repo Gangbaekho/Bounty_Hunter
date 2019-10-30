@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,7 +11,29 @@
       href="https://fonts.googleapis.com/css?family=Lobster&display=swap"
       rel="stylesheet"
     />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="../css/jquery.tag-editor.css" />
+    <script src="../js/jquery.tag-editor.js"></script>
+    <script src="../js/jquery.caret.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Lobster|Nanum+Myeongjo&display=swap"
+      rel="stylesheet"
+    />
     <title>Document</title>
+    <script>
+      $(function() {
+        $("#hashtag").tagEditor({
+          delimiter: ", " /* space and comma */,
+          placeholder: "해시태그를 입력하세요"
+        });
+
+        $(".mybutton").click(function() {
+          var hashtag = $("#hashtag");
+          var mytags = hashtag.tagEditor("getTags")[0].tags;
+          hashtag.attr("value", mytags);
+        });
+      });
+    </script>
   </head>
   <body>
     <div class="super">
@@ -19,7 +43,7 @@
           <tr>
             <th style="width:200px;">Title</th>
             <td style="width:600px;">
-              <input style="width:450px;" type="text" />
+              <input id="title" style="width:450px;" type="text" />
             </td>
           </tr>
           <tr>
@@ -37,7 +61,7 @@
           <tr>
             <th style="width:200px;">#</th>
             <td style="width:600px;">
-              <input style="width:450px;" type="text" />
+              <input id="hashtag" style="width:450px;" type="text" value="" />
             </td>
           </tr>
         </table>

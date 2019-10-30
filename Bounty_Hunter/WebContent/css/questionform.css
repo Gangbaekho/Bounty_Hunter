@@ -28,7 +28,7 @@ body {
   vertical-align: top;
 }
 
-.formtable td input {
+#title {
   height: 40px;
   border-radius: 15px;
   text-indent: 10px;
