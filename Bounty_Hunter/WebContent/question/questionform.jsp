@@ -49,6 +49,7 @@
   
   %>
   <body>
+  	<div class="cover-gray"></div>
     <div class="super">
       <h2 class="logo"><a href="#">Bounty Hunter</a></h2>
       <form action="questionaction.jsp" method="post" id="frm">
@@ -109,6 +110,8 @@
         </div>
         
       </form>
+    </div>
+    <div class="cowboy-cover">
     </div>
   </body>
 </html>
