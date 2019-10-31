@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Insert title here</title>
+<title>Bounty Hunter</title>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
 </head>

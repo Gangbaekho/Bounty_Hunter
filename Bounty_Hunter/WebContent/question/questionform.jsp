@@ -20,7 +20,7 @@
       href="https://fonts.googleapis.com/css?family=Lobster|Nanum+Myeongjo&display=swap"
       rel="stylesheet"
     />
-    <title>Document</title>
+    <title>Bounty Hunter</title>
     <script>
       $(function() {
         $("#hashtag").tagEditor({
@@ -51,7 +51,7 @@
   <body>
   	<div class="cover-gray"></div>
     <div class="super">
-      <h2 class="logo"><a href="#">Bounty Hunter</a></h2>
+      <h2 class="logo"><a href="../main/main.jsp">Bounty Hunter</a></h2>
       <form action="questionaction.jsp" method="post" id="frm">
         <table class="formtable">
           <tr>

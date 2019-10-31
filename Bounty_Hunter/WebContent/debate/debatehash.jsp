@@ -15,7 +15,7 @@
 	List<MemberHashDTO> list = mdb.getMemberHash(mnum);
 %>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Bounty Hunter</title>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">

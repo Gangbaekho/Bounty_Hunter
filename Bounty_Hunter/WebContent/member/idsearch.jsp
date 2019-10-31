@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>아이디 검색</title>
+<title>Bounty Hunter</title>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">

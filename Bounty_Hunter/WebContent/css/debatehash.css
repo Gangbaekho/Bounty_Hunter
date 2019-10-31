@@ -132,7 +132,9 @@ button{
 .delete{
 	cursor: pointer;
 }
-
+.delete:hover{
+	color: #d65454
+}
 
 /***** 이미지 슬라이더 css *****/
 

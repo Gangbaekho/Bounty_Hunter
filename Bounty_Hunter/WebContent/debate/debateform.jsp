@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css?family=Lobster&display=swap"
       rel="stylesheet"
     />
-    <title>Document</title>
+    <title>Bounty Hunter</title>
   </head>
   <body>
     <div class="super">

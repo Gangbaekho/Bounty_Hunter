@@ -12,7 +12,7 @@
       href="https://fonts.googleapis.com/css?family=Lobster|Special+Elite&display=swap"
       rel="stylesheet"
     />
-    <title>Document</title>
+    <title>Bounty Hunter</title>
   </head>
   <body>
     <div class="wall_background"></div>
