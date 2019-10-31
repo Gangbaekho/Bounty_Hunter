@@ -1,3 +1,6 @@
+<%@page import="data.dto.MemberHashDTO"%>
+<%@page import="java.util.List"%>
+<%@page import="data.db.MemberHashDB"%>
 <%@page import="data.db.MemberDB"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -8,6 +11,8 @@
 	String myid = (String) session.getAttribute("myid");
 	MemberDB db = new MemberDB();
 	int mnum = db.getNumByMyid(myid);
+	MemberHashDB mdb = new MemberHashDB();
+	List<MemberHashDTO> list = mdb.getMemberHash(mnum);
 %>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -36,6 +41,7 @@
 <script type="text/javascript">
 	$(function() {
 		listing(<%=mnum%>);
+		
 		$("#hasharea1").tagEditor({
 			placeholder : "해시태그를 입력하세요"
 		});
@@ -44,6 +50,29 @@
 			var hashtag = $("#hasharea1");
 			var mytags = hashtag.tagEditor("getTags")[0].tags;
 			hashtag.attr("value", mytags);
+		});
+		
+		$(document).on("click", "span.delete", function(){
+			var hash = $(this).parent().find("h").text();
+			var mnum = <%= mnum %>
+			$.ajax({
+				type: "get",
+				url: "debatehash_deleteaction.jsp",
+				dataType: "html",
+				data: {"mnum": mnum, "hash": hash},
+				success: function(data){
+					console.log("삭제완료");
+					listing(mnum);
+				},
+				statusCode: {
+					404: function(){
+						alert("해당 url을 찾을 수 없습니다");
+					},
+					500: function(){
+						alert("서버 오류");
+					}
+				}
+			});
 		});
 	});
 	
@@ -57,11 +86,13 @@
 				var str = "";
 				$(data).find("memberhash").each(function(){
 					var s = $(this);
-					str += '<button type="button" class="hashbtn">';
-					str += s.find("hash").text();
-					str += '</button>';
+					console.log(<%= list.size()%>);
+					str += '<span class="hashbtn">&nbsp;#';
+					str += '<h>'+s.find("hash").text()+'</h>';
+					str += '<span class="delete">&nbsp;×&nbsp;</span></span>';
+					
 				});
-				$("#userhash").html(str);
+				$("#printhash").html(str);
 			},
 			statusCode: {
 				404: function(){
@@ -122,18 +153,20 @@
 			<div class="colorbox"></div>
 		</div>
 		<div class="right-input">
-			<div class="desc">
+			<div class="desc1">
 				<h3>
 					<%=myid%>님의 해시태그
 				</h3>
 			</div>
 			<div class="yborder1">
-				<div id="userhash" name="userhash" value=""></div>
+				<div id="userhash" name="userhash" value="">
+					<div id="printhash"></div>
+				</div>
 			</div>
 			
 			<!-- *****form***** -->
 			<form action="debatehashaction.jsp" method="post" id="frm">
-				<div class="desc">
+				<div class="desc2">
 					<h3>관심 분야의 해시태그를 입력 해 주세요</h3>
 				</div>
 				<div class="yborder2">
