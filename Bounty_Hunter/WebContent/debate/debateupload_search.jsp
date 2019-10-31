@@ -5,9 +5,25 @@
 <head>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+img{
+cursor:pointer;
+margin:10px;
+}
+</style>
 <title>Insert title here</title>
 <script>
 	$(function(){
+		
+		$(document).on("click","img.click",function(){
+			
+			var src = $(this).attr("src");
+			$(opener.upload).val(src);
+			$(opener.content).focus();
+			window.close();
+			
+			
+		});
 		
 		$("#btn1").click(function(){
 			
@@ -22,7 +38,7 @@
 				success:function(data){
 					for(var i = 0 ; i < data.items.length ;i++){
 						
-							$("#out").append("<img width='150' src='"+data.items[i].image+"'>");
+							$("#out").append("<img class='click' width='150' src='"+data.items[i].image+"'>");
 						}
 					}
 			});

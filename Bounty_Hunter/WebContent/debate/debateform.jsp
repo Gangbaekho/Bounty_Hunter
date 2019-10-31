@@ -30,22 +30,22 @@
 		<h2 class="logo">
 			<a href="../main/main.jsp">Bounty Hunter</a>
 		</h2>
-		<form action="" method="post" id="frm">
+		<form action="debateaction.jsp" method="post" id="frm">
 			<table class="formtable">
 				<tr>
 					<th style="width: 200px;">Subject</th>
-					<td style="width: 600px;"><input style="width: 450px;"
+					<td style="width: 600px;"><input name="subject" style="width: 450px;"
 						type="text" /></td>
 				</tr>
 				<tr>
 					<th style="width: 200px;">Upload</th>
 					<td style="width: 600px;"><input style="width: 450px;"
-						type="text" /></td>
+						type="text" id="upload" name="upload"></td>
 				</tr>
 				<tr>
 					<th style="width: 200px;">Content</th>
 					<td style="width: 600px;"><textarea style="width: 450px;"
-							name="" id="" cols="30" rows="10"></textarea></td>
+							name="content" id="content" cols="30" rows="10"></textarea></td>
 				</tr>
 			</table>
 

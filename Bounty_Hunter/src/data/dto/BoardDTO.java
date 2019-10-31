@@ -12,6 +12,7 @@ public class BoardDTO {
 	private int bounty;
 	private Timestamp createday;
 	private Timestamp modday;
+	private String image;
 	
 	
 	public Timestamp getCreateday() {
@@ -61,6 +62,12 @@ public class BoardDTO {
 	}
 	public void setBounty(int bounty) {
 		this.bounty = bounty;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 	
 	

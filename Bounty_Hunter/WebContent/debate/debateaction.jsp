@@ -23,9 +23,11 @@
 	String subject=request.getParameter("subject");
 	String upload=request.getParameter("upload");
 	String content=request.getParameter("content");
+
 	
 	bdto.setContent(content);
 	bdto.setTitle(subject);
+	bdto.setImage(upload);
 	
 	bdb.insertBoard(mnum, bdto);
 	

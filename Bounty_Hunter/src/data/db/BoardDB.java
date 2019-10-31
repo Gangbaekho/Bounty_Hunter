@@ -35,6 +35,7 @@ public class BoardDB {
 				dto.setBounty(rs.getInt("bounty"));
 				dto.setCreateday(rs.getTimestamp("createday"));
 				dto.setModday(rs.getTimestamp("modday"));
+				dto.setImage(rs.getString("image"));
 				
 				list.add(dto);
 			}
@@ -66,6 +67,7 @@ public class BoardDB {
 				dto.setBounty(rs.getInt("bounty"));
 				dto.setCreateday(rs.getTimestamp("createday"));
 				dto.setModday(rs.getTimestamp("modday"));
+				dto.setImage(rs.getString("image"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -77,7 +79,7 @@ public class BoardDB {
 	
 	//Board에 새 글 작성 method
 	public void insertBoard(int mnum, BoardDTO dto) {
-		String sql = "insert into board values (seq_bounty.nextval, ?, ?, ?, 0, 0, sysdate, sysdate)";
+		String sql = "insert into board values (seq_bounty.nextval, ?, ?, ?, 0, 0, sysdate, sysdate,?)";
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		
@@ -86,6 +88,7 @@ public class BoardDB {
 			pstmt.setInt(1, mnum);
 			pstmt.setString(2, dto.getTitle());
 			pstmt.setString(3, dto.getContent());
+			pstmt.setString(4,dto.getImage());
 			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
