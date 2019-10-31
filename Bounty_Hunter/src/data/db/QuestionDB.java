@@ -168,7 +168,7 @@ public class QuestionDB {
 		List<QuestionByHashDTO> list = new ArrayList<QuestionByHashDTO>();
 		
 		String sql ="select q.title, q.checked, q.modday, m.name, m.myid, q.num from questionhash h, question q, member m "+
-		"where h.hash=? and h.qnum=q.num and q.mnum-m.num";
+		"where h.hash=? and h.qnum=q.num and q.mnum=m.num";
 		
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
