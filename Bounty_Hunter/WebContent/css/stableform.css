@@ -1,0 +1,164 @@
+html, body {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	background: rgba(0, 0, 0, 0.7);
+}
+
+#super {
+	width: 1300px;
+	margin: auto;
+}
+
+#h3 {
+	font-family: "Lobster", cursive;
+	font-size: 35px;
+	color: white;
+	text-decoration: none;
+	
+}
+
+#h1 {
+	text-align: center;
+	color: white;
+	font-size: 100px;
+	font-family: Lobster;
+	height: 12%;
+	font-weight: 100;
+}
+
+#h4 {
+	font-size: 45%;
+	text-shadow: #212121 5px 5px 5px;
+	font-family: Lobster;
+	font-weight: 100;
+}
+
+#hash {
+	margin-right: 58%;
+	color: white;
+}
+
+a {
+	color: white;
+}
+
+#hash_wrapper>a: hover{
+	font-weight: bold;
+
+}
+
+.hashbox {
+	width: 70%;
+	height: 100px;
+	border: medium solid white;
+	float: left;
+	border-style: ridge;
+}
+
+#hash_wrapper {
+	font-family: Nanum Myeongjo
+}
+
+.img_wrapper {
+	background-image: url(../image/stamp.png);
+	background-size: 200px;
+	top: -50px;
+	width: 200px;
+	background-repeat: no-repeat;
+	position: relative;
+	height: 200px;
+	left: 1050px;
+	filter: drop-shadow(5px 5px 5px #222);
+	cursor: pointer;
+}
+
+.content {
+	position: absolute;
+	top: 100px;
+	width: 100%;
+	left: 100px;
+	transform: translate(-50%, -50%);
+	font-size: 80px;
+	color: white;
+	text-align: center;
+}
+
+#board_super {
+	/*border: 1px solid black;*/
+	width: 1300px;
+	max-height: 100%;
+}
+
+#board_wrapper1{
+	border: 1px solid black;
+	height: 400px;
+	
+}
+
+
+#board_wrapper2{
+	border: 1px solid black;
+	height: 400px;
+	margin-top: 10px;
+	
+}
+
+#board1 {
+	border: medium solid white;
+	width: 400px;
+    height: 400px;
+	float: left;
+	border-style: ridge;
+}
+
+#board2 {
+	border: medium solid white;
+    width: 400px;
+    height: 400px;
+    margin-left: 50px;
+    left: 3%;
+    float: left;
+    border-style: ridge;
+}
+
+#board3 {
+	border: medium solid white;
+    width: 400px;
+    height: 400px;
+    margin-left: 48px;
+    float: left;
+    border-style: ridge;
+}
+
+
+#board4 {
+	border: medium solid white;
+    width: 400px;
+    height: 400px;
+    margin-left: 50px;
+    float: left;
+    border-style: ridge;
+}
+
+#board5 {
+	border: medium solid white;
+    width: 400px;
+    height: 400px;
+    margin-left: 50px;
+    float: left;
+    border-style: ridge;
+}
+
+
+#board6 {
+	border: medium solid white;
+    width: 400px;
+    height: 400px;
+    margin-left: 50px;
+    float: left;
+    border-style: ridge;
+}
+
