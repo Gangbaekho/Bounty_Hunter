@@ -14,8 +14,10 @@
     <title>Bounty Hunter</title>
   </head>
   <body>
+  	<div class="cover-gray"></div>
+  	<div class="debatecover"></div>
     <div class="super">
-      <h2 class="logo"><a href="#">Bounty Hunter</a></h2>
+      <h2 class="logo"><a href="../main/main.jsp">Bounty Hunter</a></h2>
       <form action="" method="post" id="frm">
         <table class="formtable">
           <tr>

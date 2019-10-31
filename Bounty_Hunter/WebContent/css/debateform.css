@@ -2,25 +2,39 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 1;
 }
 .super {
   width: 1300px;
   margin: 0 auto;
   position: relative;
-  z-index: 2;
+}
+.cover-gray{
+  background: rgba(0, 0, 0, 0.6);
+  width:100%;
+  height:100%;
+  z-index:-5;
+  position:absolute;
+  top:0;
+  left:0;
+}
+.debatecover{
+	z-index:-10;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	width:100%;
+	height:100%;
+	margin:0 auto;
+	background-image: url("../image/debate.JPG");
+	background-size:100% 100%;
+	background-image:no-repeat;
 }
 .logo a {
   color: white;
   text-decoration: none;
   font-family: "Lobster";
   font-size: 35px;
-}
-.cover-gray{
-	width: 100%;
-	height: 100%;
-	background: rgb(0, 0, 0, 0.7);
 }
 .formtable {
   width: 800px;
@@ -80,7 +94,3 @@ body {
 .mybutton:focus {
   outline: none;
 }
-
-
-
-

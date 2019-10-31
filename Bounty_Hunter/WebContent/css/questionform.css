@@ -7,14 +7,13 @@ body {
   
 }
 .cover-gray{
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.5);
   width:100%;
   height:100%;
   z-index:-5;
   position:absolute;
   top:0;
   left:0;
-  
 }
 .super {
   width: 1300px;
@@ -85,7 +84,7 @@ body {
 .mybutton:focus {
   outline: none;
 }
-.cowboy-cover{
+.bulbcover{
 	z-index:-10;
 	position:absolute;
 	top:50%;
@@ -94,7 +93,7 @@ body {
 	width:100%;
 	height:100%;
 	margin:0 auto;
-	background-image: url("../image/cowboy.jpg");
+	background-image: url("../image/bulb.JPG");
 	background-size:100% 100%;
 	background-image:no-repeat;
 }
