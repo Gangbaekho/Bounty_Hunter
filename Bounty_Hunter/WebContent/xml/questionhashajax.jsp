@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="data.dto.QuestionByHashDTO"%>
 <%@page import="java.util.List"%>
@@ -9,6 +10,7 @@
 	String hash = request.getParameter("hash");
 	QuestionDB db = new QuestionDB();
 	List<QuestionByHashDTO> list = db.getQuestionListByHash(hash);
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 %>
 
 <list>
@@ -17,7 +19,7 @@
 			<question>
 				<title><%=dto.getTitle() %></title>
 				<checked><%=dto.getChecked() %></checked>
-				<modday><%=dto.getModday() %></modday>
+				<modday><%=sdf.format(dto.getModday()) %></modday>
 				<name><%=dto.getName() %></name>
 				<myid><%=dto.getMyid() %></myid>
 				<qnum><%=dto.getQnum() %></qnum>

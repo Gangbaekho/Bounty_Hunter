@@ -12,10 +12,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="../css/questionhash.css" />
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <title>Document</title>
+    <title>Bounty Hunter</title>
     <script>
       $(function() {
         $(".link").click(function() {
+        	
+        	$("#questionlist").html("");
+        	
           var hash = $(this)
             .children("span")
             .html().substring(1);
@@ -28,21 +31,28 @@
         	  success: function(data){
         		  
         		  var str="";
-        		  str+="<table class='table table-hover'>";
-        		  str+="<tr><th>#Num</th><th>Checked</th><th>Title</th><th>modify date</th><th>Name(ID)</th></tr>"
+        		  str+="<ul class='responsive-table'>";
+        		  str+=" <li class='table-header'>";
+        		  str+="<div class='col col-1' data-label='Job Id'>#Num</div>";
+        		  str+="<div class='col col-2' data-label='Job Id'>Checked</div>";
+        		  str+="<div class='col col-3' data-label='Job Id'>Title</div>";
+        		  str+="<div class='col col-4' data-label='Job Id'>Name(Id)</div>";
+        		  str+="<div class='col col-5' data-label='Job Id'>Writeday</div>";
+        		  str+="</li>";
         		  $(data).find("question").each(function(){
         
                       var s = $(this);
               
-                      str+="<tr>";
-                      str+="<td>"+s.find("qnum").text()+"</td>";
-                      str+="<td>"+s.find("checked").text()+"</td>";
-                      str+="<td>"+s.find("title").text()+"</td>";
-                      str+="<td>"+s.find("modday").text()+"</td>";
-                      str+="<td>"+s.find("name").text()+"("+s.find("myid").text()+")"+"</td>";
-                      str+="</tr>";
+                      str+="<li class='table-row'>";
+                      str+="<div class='col col-1' data-label='Job Id'>"+s.find("qnum").text()+"</div>";
+                      str+="<div class='col col-2' data-label='Job Id'>"+s.find("checked").text()+"</div>";
+                      str+="<div class='col col-3' data-label='Job Id'>"+s.find("title").text()+"</div>";
+                      str+="<div class='col col-4' data-label='Job Id'>"+s.find("name").text()+"("+s.find("myid").text()+")"+"</div>";
+                      str+="<div class='col col-5' data-label='Job Id'>"+s.find("modday").text()+"</div>";
+                     
+                      str+="</li>";
                 });
-        		  str+="</table>";
+        		  str+="</ul>";
         		  
 				$("#questionlist").append(str);
         		  
@@ -86,7 +96,7 @@
     %>
   		
       <div class="questionlist" id="questionlist">
-        <h1 style="text-align: center;">Question List</h1>
+        
       </div>
     </div>
   </body>
