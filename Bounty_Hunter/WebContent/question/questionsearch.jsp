@@ -23,7 +23,7 @@
 					/* alert(hash); */
 					$.ajax({
 						type: "get",
-						url: "qsearchajax.jsp",
+						url: "../xml/qsearchajax.jsp",
 						dataType: "xml",
 						data: {"hash": hash},
 						success: function(data){
