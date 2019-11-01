@@ -46,7 +46,7 @@ public class MemberDB {
 	public void insertMember(MemberDTO dto) {
 		
 		//泥섏쓬 留뚮뱶�뒗 �쉶�썝�� bounty媛� 0�씠怨� joinday�뒗 sysdate�씠�떎.
-		String sql = "insert into member values(seq_bounty.nextval,?,?,?,?,?,?,0,sysdate)";
+		String sql = "insert into member values(seq_bounty.nextval,?,?,?,?,?,?,10000,sysdate)";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		conn=db.getConnection();

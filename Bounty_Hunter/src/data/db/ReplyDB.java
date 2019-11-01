@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import data.dto.ReplyDTO;
 import oracle.db.DBConnect;
@@ -23,8 +25,8 @@ public class ReplyDB {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, dto.getMnum());
-			pstmt.setInt(2, dto.getBnum());
+			pstmt.setInt(1, dto.getBnum());
+			pstmt.setInt(2, dto.getMnum());
 			pstmt.setString(3, dto.getContent());
 			
 			pstmt.execute();
@@ -120,6 +122,51 @@ public class ReplyDB {
 		}finally {
 			db.dbClose(pstmt, conn);
 		}
+		
+	}
+	
+	public List<ReplyDTO> getReplyList(int bnum) {
+		
+		
+		
+		List<ReplyDTO> list = new ArrayList<ReplyDTO>();
+		
+
+		String sql = "select * from reply where bnum = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		conn = db.getConnection();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bnum);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ReplyDTO dto = new ReplyDTO();
+				dto.setNum(rs.getInt("num"));
+				dto.setBnum(rs.getInt("bnum"));
+				dto.setBounty(rs.getInt("bounty"));
+				dto.setContent(rs.getString("content"));
+				dto.setCreateday(rs.getTimestamp("createday"));
+				dto.setMnum(rs.getInt("mnum"));
+				dto.setModday(rs.getTimestamp("modday"));
+				dto.setNum(rs.getInt("num"));
+				
+				list.add(dto);
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			
+			db.dbClose(rs, pstmt, conn);
+		}
+		
+		
+		return list;
 		
 	}
 		
