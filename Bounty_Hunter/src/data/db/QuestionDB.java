@@ -77,7 +77,7 @@ public class QuestionDB {
 
 	// 새로운 질문 insert
 	public void insertQuestion(QuestionDTO dto) {
-		String sql = "insert into question values (seq_bounty.nextval, ?, ?, ?, 'n', sysdate, sysdate)";
+		String sql = "insert into question values (seq_bounty.nextval, ?, ?, ?, 'n', sysdate, sysdate,?)";
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 
@@ -86,6 +86,7 @@ public class QuestionDB {
 			pstmt.setInt(1, dto.getMnum());
 			pstmt.setString(2, dto.getTitle());
 			pstmt.setString(3, dto.getContent());
+			pstmt.setInt(4, dto.getBounty());
 			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -198,5 +199,58 @@ public class QuestionDB {
 		
 		return list;
 		
+	}
+	
+	//질문자 bounty 차감 
+	public void decreaseBounty(int bounty, int mnum) {
+		String sql = "update member set bounty=bounty-"+bounty+" where num=?";
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, mnum);
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(pstmt, conn);
+		}
+	}
+	
+	//답변자 bounty 증감, QuestionDTO랑 답변자 myid로 얻어온 mnum 
+	public void increaseBounty(int bounty, int mnum) {
+		String sql = "update member set bounty=bounty+"+bounty+" where num=?";
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, mnum);
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(pstmt, conn);
+		}
+	}
+
+	//채택된 답변이 있을 시 질문의 checked column 'y'로 변경, Question의 num을 parameter로 줄 것 
+	public void questionIsChecked(int num) {
+		String sql = "update question set checked='y' where exists (select * from qreply where checked='y' and qnum=?)";
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(pstmt, conn);
+		}
 	}
 }

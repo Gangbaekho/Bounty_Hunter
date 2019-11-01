@@ -2,23 +2,15 @@ package data.dto;
 
 import java.sql.Timestamp;
 
-public class QuestionDTO {
-
+public class QreplyDTO {
 	private int num;
 	private int mnum;
-	private String title;
-	private String content;
+	private int qnum;
 	private String checked;
+	private String content;
 	private Timestamp createday;
 	private Timestamp modday;
-	private int bounty;
 	
-	public int getBounty() {
-		return bounty;
-	}
-	public void setBounty(int bounty) {
-		this.bounty = bounty;
-	}
 	public int getNum() {
 		return num;
 	}
@@ -31,11 +23,23 @@ public class QuestionDTO {
 	public void setMnum(int mnum) {
 		this.mnum = mnum;
 	}
-	public String getTitle() {
-		return title;
+	public int getQnum() {
+		return qnum;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setQnum(int qnum) {
+		this.qnum = qnum;
+	}
+	public String getChecked() {
+		return checked;
+	}
+	public void setChecked(String checked) {
+		this.checked = checked;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
 	}
 	public Timestamp getCreateday() {
 		return createday;
@@ -49,18 +53,4 @@ public class QuestionDTO {
 	public void setModday(Timestamp modday) {
 		this.modday = modday;
 	}
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
-	}
-	public String getChecked() {
-		return checked;
-	}
-	public void setChecked(String checked) {
-		this.checked = checked;
-	}
-	
-	
 }
