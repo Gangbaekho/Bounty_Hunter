@@ -82,28 +82,42 @@
         <span class="boardbounty"><img width="50" src="../image/usd2.png"><b><%=dto.getBounty() %></b></span><br>
         </p>
         <div class="top1_reply topreply">
-    		<h4><%=mdb.getMember(top3List.get(2).getMnum()).getName() %>(<%=mdb.getMember(top3List.get(2).getMnum()).getName() %>)<br>
+		<% if(list.size() >=3){
+			%>
+			<h4><%=mdb.getMember(top3List.get(2).getMnum()).getName() %>(<%=mdb.getMember(top3List.get(2).getMnum()).getName() %>)<br>
     		<%=top3List.get(2).getModday() %></h4>
     		
     		<%=top3List.get(2).getContent() %><br>
 	
     		<span class="mybounty"><img class="imagebutton" width="50" src="../image/usd2.png" value="<%=top3List.get(2).getNum() %>" bnum=<%=bnum %> ><b style="font-size:40px; line-height:50px;"><%=top3List.get(2).getBounty() %></b></span><br>
+			<%}
+			%>
+		
+        	
+    		
         </div>
         <div class="top2_reply topreply">
-  			<h4><%=mdb.getMember(top3List.get(1).getMnum()).getName() %>(<%=mdb.getMember(top3List.get(1).getMnum()).getName() %>)<br>
-    		<%=top3List.get(1).getModday() %></h4>
-    		
-    		<%=top3List.get(1).getContent() %><br>
-	
-    		<span class="mybounty"><img class="imagebutton" width="50" src="../image/usd2.png" value="<%=top3List.get(1).getNum()%>" bnum="<%=bnum%>"><b style="font-size:40px; line-height:50px;"><%=top3List.get(1).getBounty() %></b></span><br>
+  			<%if(list.size()>=2){%>
+  				<h4><%=mdb.getMember(top3List.get(1).getMnum()).getName() %>(<%=mdb.getMember(top3List.get(1).getMnum()).getName() %>)<br>
+  	    		<%=top3List.get(1).getModday() %></h4>
+  	    		
+  	    		<%=top3List.get(1).getContent() %><br>
+  		
+  	    		<span class="mybounty"><img class="imagebutton" width="50" src="../image/usd2.png" value="<%=top3List.get(1).getNum()%>" bnum="<%=bnum%>"><b style="font-size:40px; line-height:50px;"><%=top3List.get(1).getBounty() %></b></span><br>
+  			<%}
+  			%>
         </div>
         <div class="top3_reply topreply">
-        	<h4><%=mdb.getMember(top3List.get(0).getMnum()).getName() %>(<%=mdb.getMember(top3List.get(0).getMnum()).getName() %>)<br>
+       		<%
+       		if(list.size()>=1){%>
+       			<h4><%=mdb.getMember(top3List.get(0).getMnum()).getName() %>(<%=mdb.getMember(top3List.get(0).getMnum()).getName() %>)<br>
     		<%=top3List.get(0).getModday() %></h4>
     		
     		<%=top3List.get(0).getContent() %><br>
 	
     		<span class="mybounty"><img class="imagebutton" width="50" src="../image/usd2.png" value="<%=top3List.get(0).getNum()%>" bnum="<%=bnum%>"><b style="font-size:40px; line-height:50px;"><%=top3List.get(0).getBounty() %></b></span><br>
+       		<%}
+       		%>
         </div>
         <div class="tape"></div>
 
