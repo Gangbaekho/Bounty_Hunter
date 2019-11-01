@@ -18,9 +18,11 @@
       href="https://fonts.googleapis.com/css?family=Lobster|Special+Elite&display=swap"
       rel="stylesheet"
     />
+    <script src="../js/numberAnimate.js"></script>
     <title>Bounty Hunter</title>
     <script>
     	$(function(){
+    		
     		
     		$(document).on("click","img.imagebutton",function(){
     			
@@ -37,6 +39,7 @@
     				success:function(data){
     					s.parent().find("b").html($(data).find("rBounty").text());
     					$(".boardbounty").find("b").html($(data).find("bBounty").text());
+    			
     				}
     			});
     			

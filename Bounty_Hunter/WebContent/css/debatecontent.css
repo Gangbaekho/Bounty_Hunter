@@ -4,6 +4,17 @@ body {
   box-sizing: border-box;
 
 }
+.container {
+        margin: 150px auto;
+        max-width: 640px;
+}
+span {
+        font: 40px / 1 Courier;
+        font-weight: bold;
+}
+.control {
+        font: 12px /1 Arial;
+}
 
 .wall_background {
   width: 100%;

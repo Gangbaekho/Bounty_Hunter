@@ -197,7 +197,7 @@ public List<ReplyDTO> getTop3ReplyList(int bnum) {
 		List<ReplyDTO> list = new ArrayList<ReplyDTO>();
 		
 
-		String sql = "select rownum,r.num,r.bnum,r.bounty,r.content,r.createday,r.mnum,r.modday from reply r,board b where b.num = ? and rownum <=3 order by r.bounty desc";
+		String sql = "select rownum,r.num,r.bnum,r.bounty,r.content,r.createday,r.mnum,r.modday from reply r,board b where b.num = ? and b.num = r.bnum and rownum <=3 order by r.bounty desc";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
