@@ -87,9 +87,9 @@
           	<th style="width:200px;">Expense</th>
           	<td>
           		<input type="text" id="inputExpense" style="width:450px;" name="expense"
-          				   placeholder="How much will you pay to catch a fugitive?" required>
+          				   placeholder="How much will you pay? (Minimum $500)" required>
           		<span id="totalBounty">
-          			You have $<span id="mybounty"><%= bounty %></span><br>
+          			$<span id="mybounty"><%= bounty %></span><br>
           		</span>
           		<img src="../image/usd1.png" alt="$" id="usdimg">
           	</td>
