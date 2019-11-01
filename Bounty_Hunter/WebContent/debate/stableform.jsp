@@ -1,3 +1,6 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="data.dto.MemberHashDTO"%>
+<%@page import="data.db.MemberHashDB"%>
 <%@page import="data.db.MemberDB"%>
 <%@page import="java.util.Vector"%>
 <%@page import="java.util.List"%>
@@ -35,8 +38,11 @@
 	int mnum = db.getNumByMyid(myid);
 
 	BoardDB bdb = new BoardDB();
-
 	List<BoardDTO> list = bdb.getAllBoard(mnum);
+
+	MemberHashDB hdb = new MemberHashDB();
+	List<MemberHashDTO> hlist = hdb.getMemberHash(mnum);
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 %>
 
 <body class="gummy-transition">
@@ -47,19 +53,29 @@
 				Hunter</a>
 		</h3>
 
-		<h1 id="h1">( )'s &nbsp;&nbsp; Stable</h1>
+		<h1 id="h1"><%=myid%>'s &nbsp;&nbsp; Stable
+		</h1>
 		<br> <br>
 
-		<div id="hash_wrapper">
-			<span id="hash">@@님의 해시태그</span> <a href="debatehash.jsp">수정</a>
+		<div id="superhash">
+			<div id="hash_wrapper">
+				<span id="hash"><%=myid%>님의 해시태그</span> <a id="modify" href="debatehash.jsp">수정</a>
+			</div>
+			<div class="hashbox">
+				<%
+					for (MemberHashDTO hdto : hlist) {
+				%>
+				<span class="hashcontent">#<%=hdto.getHash()%></span>
+				<%
+					}
+				%>
+			</div>
 		</div>
-		<div class="hashbox">hi</div>
-
 		<div class="img_wrapper">
 			<div class="content">
 				<h4 id="h4">
 					<a href="#modal-1" class="cd-btn cd-modal-trigger"
-						style="padding: 50px;">Create new <br>Debate
+						style="padding: 53px;">Create new <br>Debate
 					</a>
 				</h4>
 			</div>
@@ -71,18 +87,18 @@
 			<div id="board_wrapper1">
 				<%
 					for (BoardDTO dto : list) {
-
-						int i;
-						
-						for (i = 0; i < list.size(); i++) {
 				%>
-				<div id="board1"><%=list.get(i)%></div>
-			<%
-				}
-			%>
-			<%
-				}
-			%>
+				<div id="board1">
+					<div>
+						<a href="debatecontent.jsp?bnum=<%=dto.getNum()%>"><img class="myimg" src="<%=dto.getImage()%>"></a>
+					</div>
+					<div><%=dto.getTitle()%></div>
+					<span><%=sdf.format(dto.getModday())%></span> <span><%=dto.getBounty()%></span>
+				</div>
+				<%
+					}
+				%>
+			</div>
 		</div>
 	</div>
 	</main>
