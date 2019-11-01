@@ -46,7 +46,7 @@
   	int mnum = db.getNumByMyid(myid);
   	System.out.println(mnum);
   	
-  
+  	MemberDTO dto = db.getMember(mnum);
   %>
   <body>
   	<div class="cover-gray"></div>
@@ -57,8 +57,19 @@
           <tr>
             <th style="width:200px;">Title</th>
             <td style="width:600px;">
-              <input id="title" name="title" style="width:450px;" type="text" />
+              <input id="title" name="title" style="width:450px;" type="text" required />
             </td>
+          </tr>
+          <tr>
+          	<td class="desc" colspan="2"> How much will you pay to catch a fugitive? </td>
+          </tr>
+          <tr>
+          	<th style="width:200px;">Expense</th>
+          	<td>
+          		<input type="text" id="inputExpense" style="width:450px;" required>
+          		<span id="totalBounty">금액</span>
+          		<img src="../image/usd1.png" alt="$" id="usdimg">
+          	</td>
           </tr>
           <tr>
             <th style="width:200px;">Content</th>
@@ -69,6 +80,7 @@
                 id=""
                 cols="30"
                 rows="10"
+                required
               ></textarea>
             </td>
           </tr>
@@ -81,6 +93,7 @@
                 style="width:450px;"
                 type="text"
                 value=""
+                required
               />
             </td>
           </tr>
