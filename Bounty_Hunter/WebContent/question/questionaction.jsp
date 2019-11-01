@@ -35,11 +35,13 @@
 		qdto.setContent(content);
 		qdto.setMnum(mnum);
 		qdto.setBounty(bounty);
-		
-		System.out.println(bounty);
-		System.out.println(mdto.getBounty());
 	
+		//QuestionDB에 저장 
 		qdb.insertQuestion(qdto);
+		
+		//질문자의 bounty 차감
+		qdb.decreaseBounty(bounty, mnum);
+				
 		//hash을 ,로 짤라주기
 		int max = hdb.getMaxQuestionNum();
 		
@@ -47,7 +49,7 @@
 		while (st.hasMoreTokens()) {
 			hdb.insertQuestionHash(max,st.nextToken());
 		}
-
+		
 		response.sendRedirect("myqna.jsp");
 		%>
 </body>

@@ -78,8 +78,9 @@
   	
   %>
   <body>
+  	
     <div class="super">
-    
+    <div class="logo" onclick="location.href='../main/main.jsp'">Bounty Hunter</div>
     <%
     	for(int i = 0 ; i <= divide-1 ; i++){%>
     		<div class="hashbox">

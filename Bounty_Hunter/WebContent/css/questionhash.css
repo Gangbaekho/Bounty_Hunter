@@ -10,12 +10,18 @@ body {
   margin: 0 auto;
   position: relative;
 }
-
+.logo{
+	font-family: "Lobster", cursive;
+	font-size: 35px;
+	color: white;
+	text-decoration: none;
+	cursor: pointer;
+}
 .hashbox {
   margin-top:100px;
   width: 900px;
   margin: 0 auto;
-  padding: 30px;
+  padding: 10px;
   display: grid;
   grid-template-columns: 33% 33% 33%;
 }
@@ -25,7 +31,7 @@ body {
 .questionlist {
   width: 900px;
   margin: 0 auto;
-  padding: 50px;
+  padding: 10px;
 }
 
 

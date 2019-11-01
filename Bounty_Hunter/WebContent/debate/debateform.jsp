@@ -40,12 +40,12 @@
 				<tr>
 					<th style="width: 200px;">Upload</th>
 					<td style="width: 600px;"><input style="width: 450px;"
-						type="text" id="upload" name="upload"></td>
+						type="text" id="upload" name="upload" placeholder="Please choose the best picture for your debate" required></td>
 				</tr>
 				<tr>
 					<th style="width: 200px;">Content</th>
-					<td style="width: 600px;"><textarea style="width: 450px;"
-							name="content" id="content" cols="30" rows="10"></textarea></td>
+					<td style="width: 600px;"><textarea style="width: 450px;" placeholder="What would you like to discuss about?"
+							name="content" id="content" cols="30" rows="10" ></textarea></td>
 				</tr>
 			</table>
 
