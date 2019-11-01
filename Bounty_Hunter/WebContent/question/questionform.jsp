@@ -1,3 +1,4 @@
+<%@page import="data.dto.MemberDTO"%>
 <%@page import="data.db.MemberDB"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
