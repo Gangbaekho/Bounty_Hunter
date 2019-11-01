@@ -1,3 +1,5 @@
+<%@page import="data.dto.MemberDTO"%>
+<%@page import="data.db.MemberDB"%>
 <%@page import="data.db.QuestionHashDB"%>
 <%@page import="java.util.StringTokenizer"%>
 <%@page import="data.dto.QuestionDTO"%>
@@ -19,18 +21,25 @@
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
 		String hash = request.getParameter("hash");
+		String myid = request.getParameter("myid");
+		int bounty = Integer.parseInt(request.getParameter("expense"));
 
 		QuestionDB qdb = new QuestionDB();
 		QuestionDTO qdto = new QuestionDTO();
 		QuestionHashDB hdb = new QuestionHashDB();
-
+		MemberDB mdb = new MemberDB();
+		MemberDTO mdto = mdb.getMember(mnum);
+		
 		qdto.setMnum(mnum);
 		qdto.setTitle(title);
 		qdto.setContent(content);
 		qdto.setMnum(mnum);
-
+		qdto.setBounty(bounty);
+		
+		System.out.println(bounty);
+		System.out.println(mdto.getBounty());
+	
 		qdb.insertQuestion(qdto);
-
 		//hash을 ,로 짤라주기
 		int max = hdb.getMaxQuestionNum();
 		
@@ -40,6 +49,6 @@
 		}
 
 		response.sendRedirect("myqna.jsp");
-	%>
+		%>
 </body>
 </html>
