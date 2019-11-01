@@ -56,6 +56,11 @@
     	  if(inputBounty>mybounty){
     		  alert("hunter님이 보유하고 있는 금액을 초과하였습니다. \n확인 후 현상금을 입력 해 주세요.");
     		  return false; // 액션으로 넘어가지 않도록 함 
+    	  } 
+    	  
+    	  if(inputBounty<500){
+    		  alert("현상금 최소금액($500) 이상의 값을 입력 해 주세요.");
+    		  return false;
     	  }
     	  
     	  if(isNaN(inputBounty)){
@@ -82,8 +87,10 @@
           	<th style="width:200px;">Expense</th>
           	<td>
           		<input type="text" id="inputExpense" style="width:450px;" name="expense"
-          				   placeholder="How much will you pay to catch a fugitive?" required>
-          		<span id="totalBounty">$<span id="mybounty"><%= bounty %></span></span>
+          				   placeholder="How much will you pay? (Minimum $500)" required>
+          		<span id="totalBounty">
+          			$<span id="mybounty"><%= bounty %></span><br>
+          		</span>
           		<img src="../image/usd1.png" alt="$" id="usdimg">
           	</td>
           </tr>

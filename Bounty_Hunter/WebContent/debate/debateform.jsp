@@ -34,8 +34,8 @@
 			<table class="formtable">
 				<tr>
 					<th style="width: 200px;">Subject</th>
-					<td style="width: 600px;"><input name="subject" style="width: 450px;"
-						type="text" /></td>
+					<td style="width: 600px;"><input name="subject"
+						style="width: 450px;" type="text" /></td>
 				</tr>
 				<tr>
 					<th style="width: 200px;">Upload</th>
@@ -52,7 +52,10 @@
 			<div class="submitform"
 				style="width: 800px; margin: 0 auto; text-align: center;">
 				<input type="submit" value="Submit"
-					style="height: 50px; border-radius: 10px; background: #8862b2; border: none; font-family: 'Lobster'; font-size: 30px; cursor: pointer; color: white" />
+					style="height: 50px; border-radius: 10px; background: #8862b2; border: none; font-family: 'Lobster'; font-size: 30px; cursor: pointer; color: white; margin-left: 70px;" />
+				&nbsp;&nbsp;&nbsp;
+				<input type="button" value="Back" onclick="history.back()"
+					style="height: 50px; border-radius: 10px; background: #8862b2; border: none; font-family: 'Lobster'; font-size: 30px; cursor: pointer; color: white; width:96px;" />
 			</div>
 		</form>
 		<button class="mybutton">Search</button>
