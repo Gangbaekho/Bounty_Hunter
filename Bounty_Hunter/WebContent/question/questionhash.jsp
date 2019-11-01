@@ -3,17 +3,20 @@
 <%@page import="java.util.List"%>
 <%@page import="data.db.MemberHashDB"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="../css/questionhash.css" />
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <title>Bounty Hunter</title>
-    <script>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="stylesheet" href="../css/questionhash.css" />
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<link
+	href="https://fonts.googleapis.com/css?family=Lobster&display=swap"
+	rel="stylesheet" />
+<title>Bounty Hunter</title>
+<script>
       $(function() {
         $(".link").click(function() {
         	
@@ -62,8 +65,8 @@
         });
       });
     </script>
-  </head>
-  <%
+</head>
+<%
   	MemberHashDB db = new MemberHashDB();
   	MemberDB mdb = new MemberDB();
   	String myid = (String)session.getAttribute("myid");
@@ -77,29 +80,27 @@
   		divide++;
   	
   %>
-  <body>
-  	
-    <div class="super">
-    <div class="logo" onclick="location.href='../main/main.jsp'">Bounty Hunter</div>
-    <%
+<body>
+
+	<div class="super">
+		<div class="logo" onclick="location.href='../main/main.jsp'">Bounty
+			Hunter</div>
+		<%
     	for(int i = 0 ; i <= divide-1 ; i++){%>
-    		<div class="hashbox">
-    		<%
+		<div class="hashbox">
+			<%
     		for(int j = i*3 ; j <= (i*3+2 >= listSize ? listSize-1 :i*3+2) ; j++ ){
     			%>
-    			<div class="mydivdiv">
-    			<a href="#" class="link"><span>#<%=list.get(j).getHash() %></span></a>
-    			</div>
-    		<%}%>
-    		</div>
-    		<%
+			<div class="mydivdiv">
+				<a href="#" class="link"><span>#<%=list.get(j).getHash() %></span></a>
+			</div>
+			<%}%>
+		</div>
+		<%
     	}
     %>
-  		
-      <div class="questionlist" id="questionlist">
-        
-      </div>
-    </div>
-  </body>
+
+		<div class="questionlist" id="questionlist"></div>
+	</div>
+</body>
 </html>
-    
