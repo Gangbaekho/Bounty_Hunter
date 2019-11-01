@@ -24,10 +24,10 @@
     		
     		$(document).on("click","button.bounty_up",function(){
     			
+    			var s = $(this);
+    			
     			var rnum = $(this).attr("value");
     			var bnum = $(this).attr("bnum");
-    			
-    			alert("rnum:"+rnum+"bnum:"+bnum);
     			
     			$.ajax({
     				type:"get",
@@ -35,7 +35,8 @@
     				dataType:"xml",
     				data:"rnum="+rnum+"&bnum="+bnum,
     				success:function(data){
-    					
+    					s.parent().find(".mybounty").html($(data).find("rBounty").text());
+    					$(".boardbounty").html($(data).find("bBounty").text());
     				}
     			});
     			
@@ -52,6 +53,8 @@
   		
   		BoardDTO dto = db.getBoard(bnum);
   		
+  		db.increaseCount(bnum);
+  		
   		//myid로 mnum찾기
   		MemberDB mdb = new MemberDB();
   		String myid = (String)session.getAttribute("myid");
@@ -61,9 +64,7 @@
   		
   		List<ReplyDTO> list = rdb.getReplyList(bnum);
   		
-  		for(int i = 0 ; i < list.size() ; i++){
-  			System.out.println(list.get(i).getContent());
-  		}
+ 		List<ReplyDTO> top3List = rdb.getTop3ReplyList();
   		
   %>
   <body>
@@ -76,18 +77,34 @@
         <%=dto.getTitle() %><br>
         <%=dto.getContent() %><br>
         <%=dto.getCount() %><br>
-        <%=dto.getBounty() %><br>
+        <p class="boardbounty"><%=dto.getBounty() %></p><br>
         <%=dto.getCreateday() %><br>
         <%=dto.getImage() %><br>
         </p>
-        <div class="top1_reply">
-          안녕하세요
+        <div class="top1_reply reply">
+    		<h4><%=mdb.getMember(top3List.get(2).getMnum()).getName() %>(<%=mdb.getMember(top3List.get(2).getMnum()).getName() %>)<br>
+    		<%=top3List.get(2).getModday() %></h4>
+    		
+    		<%=top3List.get(2).getContent() %><br>
+	
+    		<span class="mybounty"><%=top3List.get(2).getBounty() %></span><br>
+    		
+    		
+    		<button class="bounty_up" type="button" value="<%=top3List.get(2).getNum()%>" bnum="<%=bnum%>">$100</button>
         </div>
-        <div class="top2_reply">
-          안녕하세요
+        <div class="top2_reply reply">
+  			<%=mdb.getMember(top3List.get(1).getMnum()).getName() %>(<%=mdb.getMember(top3List.get(1).getMnum()).getName() %>)<br>
+    		<span class="mybounty"><%=top3List.get(1).getBounty() %></span><br>
+    		<%=top3List.get(1).getContent() %><br>
+    		<%=top3List.get(1).getModday() %><br>
+    		<button class="bounty_up" type="button" value="<%=top3List.get(1).getNum()%>" bnum="<%=bnum%>">$100</button>	
         </div>
-        <div class="top3_reply">
-          안녕하세요
+        <div class="top3_reply reply">
+        	<%=mdb.getMember(top3List.get(0).getMnum()).getName() %>(<%=mdb.getMember(top3List.get(0).getMnum()).getName() %>)<br>
+    		<span class="mybounty"><%=top3List.get(0).getBounty() %></span><br>
+    		<%=top3List.get(0).getContent() %><br>
+    		<%=top3List.get(0).getModday() %><br>
+    		<button class="bounty_up" type="button" value="<%=top3List.get(0).getNum()%>" bnum="<%=bnum%>">$100</button>
         </div>
         <div class="tape"></div>
         <div class="stamp">
@@ -104,13 +121,13 @@
     <div class="replylist">
     	<%
     		for(ReplyDTO rdto : list){%>
-    		<p>
-    		<%=rdto.getMnum() %><br>
-    		<%=rdto.getBounty() %><br>
+    		<div class="reply">
+    		<%=mdb.getMember(rdto.getMnum()).getName() %>(<%=mdb.getMember(rdto.getMnum()).getMyid() %>)<br>
+    		<span class="mybounty"><%=rdto.getBounty() %></span><br>
     		<%=rdto.getContent() %><br>
     		<%=rdto.getModday() %><br>
     		<button class="bounty_up" type="button" value="<%=rdto.getNum()%>" bnum="<%=bnum%>">$100</button>
-    		</p>
+    		</div>
     		<%}
 
     	%>

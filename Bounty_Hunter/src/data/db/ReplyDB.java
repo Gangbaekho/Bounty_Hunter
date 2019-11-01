@@ -169,6 +169,70 @@ public class ReplyDB {
 		return list;
 		
 	}
+	
+	public void increaseBounty(int rnum) {
+		
+		String sql = "update reply set bounty=bounty+100 where num=?";
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		conn=db.getConnection();
+		try {
+		    pstmt=conn.prepareStatement(sql);
+		    //바인딩
+		    pstmt.setInt(1, rnum);
+			//실행
+		    pstmt.execute();
+		} catch (SQLException e) {
+		    e.printStackTrace();
+		}finally {
+		    db.dbClose(pstmt, conn);
+		}
+		
+	}
+	
+public List<ReplyDTO> getTop3ReplyList() {
+		
+		
+		
+		List<ReplyDTO> list = new ArrayList<ReplyDTO>();
+		
+
+		String sql = "select rownum,num,bnum,bounty,content,createday,mnum,modday from reply where rownum <=3 order by bounty desc";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		conn = db.getConnection();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ReplyDTO dto = new ReplyDTO();
+				dto.setNum(rs.getInt("num"));
+				dto.setBnum(rs.getInt("bnum"));
+				dto.setBounty(rs.getInt("bounty"));
+				dto.setContent(rs.getString("content"));
+				dto.setCreateday(rs.getTimestamp("createday"));
+				dto.setMnum(rs.getInt("mnum"));
+				dto.setModday(rs.getTimestamp("modday"));
+				dto.setNum(rs.getInt("num"));
+				
+				list.add(dto);
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			
+			db.dbClose(rs, pstmt, conn);
+		}
+		
+		
+		return list;
+		
+	}
 		
 	
 }

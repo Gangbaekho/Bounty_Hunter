@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  z-index: -3;
+
 }
 
 .wall_background {
@@ -19,7 +19,7 @@ body {
 
 .super {
   width: 1300px;
-  z-index: -1;
+  z-index: 1;
   margin: 0 auto;
   position: relative;
 }

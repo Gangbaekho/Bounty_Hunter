@@ -11,6 +11,13 @@
 	BoardDB bdb = new BoardDB();
 	ReplyDB rdb = new ReplyDB();
 	
+	rdb.increaseBounty(rnum);
+	bdb.increaseBounty(bnum);
 	
-	
+	int bBounty = bdb.getBoard(bnum).getBounty();
+	int rBounty = rdb.getReply(rnum).getBounty();
 %>
+<list>
+	<bBounty><%=bBounty %></bBounty>
+	<rBounty><%=rBounty %></rBounty>
+</list>

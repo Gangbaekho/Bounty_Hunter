@@ -137,4 +137,44 @@ public class BoardDB {
 		}
 	}
 	
+	public void increaseBounty(int bnum) {
+		
+		String sql = "update board set bounty=bounty+100 where num=?";
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		conn=db.getConnection();
+		try {
+		    pstmt=conn.prepareStatement(sql);
+		    //바인딩
+		    pstmt.setInt(1, bnum);
+			//실행
+		    pstmt.execute();
+		} catch (SQLException e) {
+		    e.printStackTrace();
+		}finally {
+		    db.dbClose(pstmt, conn);
+		}
+		
+	}
+	
+	public void increaseCount(int bnum) {
+		
+		String sql = "update board set count=count+1 where num=?";
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		conn=db.getConnection();
+		try {
+		    pstmt=conn.prepareStatement(sql);
+		    //바인딩
+		    pstmt.setInt(1, bnum);
+			//실행
+		    pstmt.execute();
+		} catch (SQLException e) {
+		    e.printStackTrace();
+		}finally {
+		    db.dbClose(pstmt, conn);
+		}
+		
+	}
+	
 }
