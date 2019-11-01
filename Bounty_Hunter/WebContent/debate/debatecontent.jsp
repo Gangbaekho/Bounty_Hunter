@@ -64,7 +64,7 @@
   		
   		List<ReplyDTO> list = rdb.getReplyList(bnum);
   		
- 		List<ReplyDTO> top3List = rdb.getTop3ReplyList();
+ 		List<ReplyDTO> top3List = rdb.getTop3ReplyList(bnum);
   		
   %>
   <body>
@@ -87,7 +87,7 @@
     		
     		<%=top3List.get(2).getContent() %><br>
 	
-    		<span class="mybounty"><%=top3List.get(2).getBounty() %></span><br>
+    		<span class="mybounty"><img width="50" src="../image/usd2.png"><b style="font-size:40px; line-height:50px;"><%=top3List.get(2).getBounty() %></b></span><br>
     		
     		
     		<button class="bounty_up" type="button" value="<%=top3List.get(2).getNum()%>" bnum="<%=bnum%>">$100</button>

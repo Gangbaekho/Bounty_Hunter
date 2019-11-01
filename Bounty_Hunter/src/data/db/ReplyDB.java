@@ -132,7 +132,7 @@ public class ReplyDB {
 		List<ReplyDTO> list = new ArrayList<ReplyDTO>();
 		
 
-		String sql = "select * from reply where bnum = ?";
+		String sql = "select * from reply where bnum = ? order by num desc";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -190,14 +190,14 @@ public class ReplyDB {
 		
 	}
 	
-public List<ReplyDTO> getTop3ReplyList() {
+public List<ReplyDTO> getTop3ReplyList(int bnum) {
 		
 		
 		
 		List<ReplyDTO> list = new ArrayList<ReplyDTO>();
 		
 
-		String sql = "select rownum,num,bnum,bounty,content,createday,mnum,modday from reply where rownum <=3 order by bounty desc";
+		String sql = "select rownum,r.num,r.bnum,r.bounty,r.content,r.createday,r.mnum,r.modday from reply r,board b where b.num = ? and rownum <=3 order by r.bounty desc";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -205,6 +205,7 @@ public List<ReplyDTO> getTop3ReplyList() {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bnum);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
