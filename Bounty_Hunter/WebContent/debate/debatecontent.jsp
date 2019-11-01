@@ -36,7 +36,7 @@
     				data:"rnum="+rnum+"&bnum="+bnum,
     				success:function(data){
     					s.parent().find("b").html($(data).find("rBounty").text());
-    					$(".boardbounty").html($(data).find("bBounty").text());
+    					$(".boardbounty").find("b").html($(data).find("bBounty").text());
     				}
     			});
     			
@@ -79,7 +79,7 @@
         <%=dto.getCount() %><br>
         <%=dto.getCreateday() %><br>
         <%=dto.getImage() %><br>
-        <span class="boardbounty"><%=dto.getBounty() %></span><br>
+        <span class="boardbounty"><img width="50" src="../image/usd2.png"><b><%=dto.getBounty() %></b></span><br>
         </p>
         <div class="top1_reply topreply">
     		<h4><%=mdb.getMember(top3List.get(2).getMnum()).getName() %>(<%=mdb.getMember(top3List.get(2).getMnum()).getName() %>)<br>

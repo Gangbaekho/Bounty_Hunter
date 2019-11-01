@@ -86,15 +86,18 @@ body {
   background-size: 100% 100%;
 }
 
+
 .top2_reply {
   position: absolute;
-  padding-top: 80px;
   width: 400px;
   height: 400px;
   top: 130px;
   right: -120px;
   background-image: url(../image/post1.png);
   background-size: 100% 100%;
+}
+.top2_reply h4{
+	padding-top:50px;
 }
 .stamp {
   position: absolute;
@@ -122,4 +125,7 @@ body {
 }
 .bboard{
 	padding-left:80px;
+}
+.boardbounty b{
+	font-size:40px;
 }

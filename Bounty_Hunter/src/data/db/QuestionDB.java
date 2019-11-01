@@ -253,4 +253,37 @@ public class QuestionDB {
 			db.dbClose(pstmt, conn);
 		}
 	}
+	
+	public List<QuestionDTO> myqna(String myid){
+	      System.out.println(myid);
+	      String sql = "select distinct question.num,question.title,question.content,question.createday from member,question where question.mnum=(select num from member where myid=?) order by createday desc";
+
+	      List <QuestionDTO> list = new Vector<QuestionDTO>();
+	      Connection conn = db.getConnection();
+	      PreparedStatement pstmt = null;
+	      ResultSet rs = null;
+	      try {
+	         pstmt = conn.prepareStatement(sql);
+	         pstmt.setString(1, myid);
+	         rs = pstmt.executeQuery();
+	         while(rs.next()) {
+	         
+	            QuestionDTO dto = new QuestionDTO();
+	            dto.setNum(rs.getInt("num"));
+	            dto.setTitle(rs.getString("title"));
+	            dto.setContent(rs.getString("content"));
+	            //dto.setChecked(rs.getString("checked"));
+	            dto.setCreateday(rs.getTimestamp("createday"));
+	         
+	            list.add(dto);
+	         }
+	      } catch (SQLException e) {
+	         // TODO Auto-generated catch block
+	         e.printStackTrace();
+	      } finally {
+	         db.dbClose(rs, pstmt, conn);
+	      }
+	      System.out.println(list.size());
+	      return list;
+	   }
 }
