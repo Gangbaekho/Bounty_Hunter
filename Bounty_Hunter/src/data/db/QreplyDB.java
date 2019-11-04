@@ -120,4 +120,36 @@ public class QreplyDB {
 			db.dbClose(pstmt, conn);
 		}
 	}
+	
+	public List<QreplyDTO> getQreplyListByQnum(int qnum){
+		
+		List<QreplyDTO> list = new Vector<>();
+		String sql = "select * from qreply where qnum = ?";
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, qnum);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				QreplyDTO dto = new QreplyDTO();
+				dto.setNum(rs.getInt("num"));
+				dto.setMnum(rs.getInt("mnum"));
+				dto.setMnum(rs.getInt("qnum"));
+				dto.setChecked(rs.getString("checked"));
+				dto.setContent(rs.getString("content"));
+				dto.setCreateday(rs.getTimestamp("createday"));
+				dto.setModday(rs.getTimestamp("modday"));
+
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return list;
+	}
 }
