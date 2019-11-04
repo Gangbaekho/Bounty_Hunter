@@ -30,6 +30,7 @@
 	bdto.setImage(upload);
 	
 	bdb.insertBoard(mnum, bdto);
+	bdb.decreaseBounty(mnum);
 	
 	response.sendRedirect("stableform.jsp");
 %>

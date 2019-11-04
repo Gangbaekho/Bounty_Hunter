@@ -177,4 +177,20 @@ public class BoardDB {
 		
 	}
 	
+	//debate 생성 시 bounty 차감 
+	public void decreaseBounty(int mnum) {
+		String sql = "update member set bounty=bounty-500 where num=?";
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, mnum);
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(pstmt, conn);
+		}
+	}
 }

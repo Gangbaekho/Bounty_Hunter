@@ -19,8 +19,19 @@
 				function() {
 					window.open("debateupload_search.jsp", "w",
 							"left=500px,top=100px,width=700px,heigth=700px");
-				});
+			 });
+		
 	});
+	
+	//submit 이전 조건은 onsubmit에서 
+	function check(){
+		var ans=confirm("Submit 시 $500가 차감됩니다. \nSubmit 하시겠습니까?");
+		if(ans){
+			return true;
+		} else{
+			return false;
+		}
+	}
 </script>
 </head>
 <body>
@@ -30,7 +41,7 @@
 		<h2 class="logo">
 			<a href="../main/main.jsp">Bounty Hunter</a>
 		</h2>
-		<form action="debateaction.jsp" method="post" id="frm">
+		<form method="post" id="frm" action="debateaction.jsp" onsubmit="return check()">
 			<table class="formtable">
 				<tr>
 					<th style="width: 200px;">Subject</th>
