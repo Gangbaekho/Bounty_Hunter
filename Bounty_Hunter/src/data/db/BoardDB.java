@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Vector;
 
 import data.dto.BoardDTO;
+import data.dto.QuestionDTO;
 import oracle.db.DBConnect;
 
 public class BoardDB {
@@ -192,5 +193,37 @@ public class BoardDB {
 		} finally {
 			db.dbClose(pstmt, conn);
 		}
+	}
+	
+	//제목에 일치하는 내용이 있을 시 검색 
+	public List<BoardDTO> searchByTitle(String title) {
+		String sql = "select * from board where title like ?";
+		List<BoardDTO> list = new Vector<>();
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+title+"%");
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				BoardDTO dto = new BoardDTO();
+				dto.setNum(rs.getInt("num"));
+				dto.setMnum(rs.getInt("mnum"));
+				dto.setTitle(rs.getString("title"));
+				dto.setContent(rs.getString("content"));
+				dto.setCount(rs.getInt("count"));
+				dto.setBounty(rs.getInt("bounty"));
+				dto.setModday(rs.getTimestamp("modday"));
+				dto.setImage(rs.getString("image"));
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return list;
 	}
 }

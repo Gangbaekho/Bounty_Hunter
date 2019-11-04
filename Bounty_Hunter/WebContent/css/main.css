@@ -105,7 +105,7 @@
     padding-top: 7vh;
     border-radius: 50%;
     background: #ECB765;
-    margin: 8vh 0 3vh 0;
+    margin: 5vh 0 5vh 0;
     position: relative;
     cursor: pointer;
     text-align: center;
@@ -123,7 +123,7 @@
     padding-top: 7vh;
     border-radius: 50%;
     background: #8862B2;
-    margin: 8vh 0 3vh 0;
+    margin: 5vh 0 5vh 0;
     position: relative;
     cursor: pointer;
     text-align: center;
@@ -159,7 +159,7 @@
     padding: 0;
     margin: 0;
     position: relative;
-    top: -230px;
+    top: -225px;
     left: 60px;
     border: 150px solid transparent;
     cursor: default;
@@ -206,8 +206,8 @@
     font-size: 2.3rem;
     color:#fff;
     transition: 0.6s;
-    margin: -80px;
-     font-family: 'Lobster', cursive;
+    margin: -75px;
+    font-family: 'Lobster', cursive;
 }
 .navbar1:hover .menu li:nth-child(1){
     transition-delay: 0.02s;
@@ -266,4 +266,12 @@
 .navbar2:hover .menu li:nth-child(3) a{
     transition-delay: 0.12s;
     transform: rotate(555deg);
+}
+.navbar2:hover .menu li:nth-child(4){
+    transition-delay: 0.08s;
+    transform: rotate(205deg);
+}
+.navbar2:hover .menu li:nth-child(4) a{
+    transition-delay: 0.16s;
+    transform: rotate(515deg);
 }

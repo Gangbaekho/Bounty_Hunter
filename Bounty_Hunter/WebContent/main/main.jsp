@@ -48,6 +48,7 @@
 	                                <li><a href="../debate/stableform.jsp" class="fab fa-facebook">My stable</a></li>
 	                                <li><a href="../debate/debateform.jsp" class="fab fa-google-plus">Debate</a></li>
 	                                <li><a href="../debate/debatehash.jsp" class="fab fa-twitter">Write #</a></li>
+	                                <li><a href="../debate/debatesearch.jsp" class="fab fa-linkedin">Search</a></li>
 	                            </ul>
 	                        </div>
 	                    </div>
