@@ -185,7 +185,7 @@
 </div>
     <form action="debategivemoneyaction.jsp" method="get" id="frm1">
     	<input type="hidden" name="writer" value="<%=bnum %>">    	
-    	<input type="hidden" name="top1" value="<%=top3List.get(0).getMnum() %>">    	
+    	<input type="hidden" name="top1" value="<%=list.size()>=1?top3List.get(0).getMnum():null %>">    	
     	<input type="hidden" name="bounty" value="<%=dto.getBounty() %>">    	
     </form>
   </body>
