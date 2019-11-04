@@ -37,7 +37,7 @@
         		  str+="<ul class='responsive-table'>";
         		  str+=" <li class='table-header'>";
         		  str+="<div class='col col-1' data-label='Job Id'>#Num</div>";
-        		  str+="<div class='col col-2' data-label='Job Id'>Checked</div>";
+        		  str+="<div class='col col-2' data-label='Job Id'>Answered</div>";
         		  str+="<div class='col col-3' data-label='Job Id'>Title</div>";
         		  str+="<div class='col col-4' data-label='Job Id'>Name(Id)</div>";
         		  str+="<div class='col col-5' data-label='Job Id'>Writeday</div>";
@@ -48,7 +48,11 @@
               
                       str+="<li class='table-row'>";
                       str+="<div class='col col-1' data-label='Job Id'>"+s.find("qnum").text()+"</div>";
-                      str+="<div class='col col-2' data-label='Job Id'>"+s.find("checked").text()+"</div>";
+                      if(s.find("checked").text()=="y"){
+							str += '<div class="col col-2" data-label="Customer Name"><img src="../image/checked.svg" id="checked"></div>';
+						} else{
+							str += '<div class="col col-2" data-label="Customer Name"><img src="../image/unchecked.svg" id="checked"></div>'; 
+						}
                       str+="<div class='col col-3' data-label='Job Id'>"+s.find("title").text()+"</div>";
                       str+="<div class='col col-4' data-label='Job Id'>"+s.find("name").text()+"("+s.find("myid").text()+")"+"</div>";
                       str+="<div class='col col-5' data-label='Job Id'>"+s.find("modday").text()+"</div>";

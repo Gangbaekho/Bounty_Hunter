@@ -99,6 +99,8 @@ body {
   margin-right: auto;
   padding-left: 10px;
   padding-right: 10px;
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 17px;
 }
 
 h2 {
@@ -112,16 +114,21 @@ h2 small {
 
   li {
     border-radius: 3px;
-    padding: 25px 30px;
+    padding: 10px 10px;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 25px;
+    margin: 0;
+    margin-bottom: 10px;
+    height:30px;
+    width:920px;
   }
   .table-header {
-    background-color: #95A5A6;
+background-color: #ECB765;
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 0.03em;
+    height: 30px;
+     width:920px;
   }
   .table-row {
     background-color: #ffffff;
@@ -129,19 +136,29 @@ h2 small {
   }
   .col-1 {
     flex-basis: 10%;
+    text-align:center;
   }
   .col-2 {
     flex-basis: 10%;
+    text-align:center;
   }
   .col-3 {
     flex-basis: 40%;
   }
   .col-4 {
     flex-basis: 20%;
+    text-align:center;
   }
     .col-5 {
     flex-basis: 20%;
+    text-align:center;
   }
   
+  #checked{
+	width: 30px;
+}
+.check{
+	width: 30px;
+}
 
 
