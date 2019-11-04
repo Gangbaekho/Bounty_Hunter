@@ -1,4 +1,4 @@
-/* debateform.jsp ¹é±×¶ó¿îµå¿ë css */
+/* debateform.jsp ï¿½ï¿½×¶ï¿½ï¿½ï¿½ï¿½ css */
 .cover-gray{
   width: 100%;
   height: 100%;
@@ -216,6 +216,7 @@ Gummy Effect
   color: white;
   font-size: 30px;
   font-weight: 100;
+  text-decoration: none;
 }
 
 .gummy-transition .cd-modal {
