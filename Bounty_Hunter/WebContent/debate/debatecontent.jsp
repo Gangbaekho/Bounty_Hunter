@@ -132,13 +132,13 @@
 		<div class="stamp" id="end">종료하기</div>
       </div>
     </div>
-    <form action="debatecontentaction.jsp" method="post" id="frm">
+  <%--   <form action="debatecontentaction.jsp" method="post" id="frm">
     	<input class="myinput" type="text" name="content">
     	<input type="hidden" name="bnum" value="<%=bnum%>">
     	<input type="hidden" name="mnum" value="<%=mnum%>">
     	<input class="mysubmit" type="submit" value="댓글달기">
-    </form>
-    <div class="replylist">
+    </form> --%>
+<%--     <div class="replylist">
     	<%
     		for(ReplyDTO rdto : list){%>
     		<div class="reply">
@@ -152,7 +152,37 @@
     		<%}
 
     	%>
-    </div>
+    </div> --%>
+
+
+<div class="list-type3">
+	<ol>
+		<li style="heigth:300px;">
+			 <a><form action="debatecontentaction.jsp" method="post" id="frm">
+    			<textarea class="mytextarea" type="text" name="content"></textarea>
+    			<input type="hidden" name="bnum" value="<%=bnum%>">
+    			<input type="hidden" name="mnum" value="<%=mnum%>">
+    			<input class="mysubmit" type="submit" value="댓글달기">
+   			 </form>
+   			 </a>
+		</li>
+		<%for(ReplyDTO rdto : list){%>
+			<li>
+				<a class="mylist">
+					<p class="modday"><%=rdto.getModday() %></p> 
+					<h4><%=mdb.getMember(rdto.getMnum()).getName() %>(<%=mdb.getMember(rdto.getMnum()).getMyid() %>)</h4> 
+					<p class="mycontent"><%=rdto.getContent() %></p>
+					
+					<span class="mybounty" style="float:right;"><img class="imagebutton" width="50" src="../image/usd2.png" value="<%=rdto.getNum()%>" bnum="<%=bnum%>">
+						<b style="font-size:20px; line-height:20px;"><%=rdto.getBounty() %></b>
+					</span>
+				</a>
+			</li>
+		<%}
+			%>
+		
+	</ol>
+</div>
     <form action="debategivemoneyaction.jsp" method="get" id="frm1">
     	<input type="hidden" name="writer" value="<%=bnum %>">    	
     	<input type="hidden" name="top1" value="<%=top3List.get(0).getMnum() %>">    	

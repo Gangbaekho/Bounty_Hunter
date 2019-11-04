@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background:rgba(0,0,0,0.7);
 
 }
 .container {
@@ -17,15 +18,7 @@ span {
 }
 
 .wall_background {
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  background-image: url(../image/brownwall.JPG);
-  background-size: 100% 100%;
-  background-repeat: repeat-y;
+
 }
 
 .super {
@@ -128,6 +121,7 @@ span {
 }
 .imagebutton{
 	cursor:pointer;
+	width:30px;
 }
 .reply{
 	border:4px solid black;
@@ -140,5 +134,109 @@ span {
 	padding-left:80px;
 }
 .boardbounty b{
-	font-size:40px;
+	font-size:20px;
+}
+
+.modday{
+	float:right;
+	font-weight:bold;
+}
+.mylist h4{
+	padding-left:30px;
+	padding-top:0px;
+	padding-bottom:0px;
+	margin-top:0px;
+	margin-bottom:0px;
+}
+.mylist .mycontent{
+	padding-left:30px;
+}
+.mylist p{
+padding:0px;
+margin:0px;
+}
+
+.mylist b{
+	font-size:20px;
+}
+
+.list-type3{
+margin:0 auto;
+width: 1000px;
+
+}
+ol{
+	list-style-type: none;
+}
+.mytextarea{
+	width:800px;
+	background:white;
+	border:none;
+	height:100px;
+	border-radius: 10px;
+	margin-left:10px;
+	margin-top:10px;
+	padding:10px;
+}
+.mytextarea:focus{
+	outline: none;
+}
+.list-type3 li, .list-type3 a{
+float:left;
+width:900px;
+line-height:35px;
+position:relative;
+font-size:15px;
+margin-bottom: 10px;
+font-family: 'Raleway', sans-serif;
+transition: background-color 1.5s ease;
+}
+.list-type3 a{
+padding:0 60px 0 12px;
+background:#ECB765;
+color:#fff;
+text-decoration:none;
+-moz-border-radius-bottomright:4px;
+-webkit-border-bottom-right-radius:4px;
+border-bottom-right-radius:4px;
+-moz-border-radius-topright:4px;
+-webkit-border-top-right-radius:4px;
+border-top-right-radius:4px;
+}
+
+.list-type3 a:before{
+content:"";
+float:left;
+position:absolute;
+top:0;
+left:-12px;
+width:0;
+height:0;
+border-color:transparent #ECB765 transparent transparent;
+border-style:solid;
+border-width: 18px 12px 18px 0;
+}
+
+.list-type3 a:after{
+content:"";
+position:absolute;
+top:15px;
+left:0;
+float:left;
+width:6px;
+height:6px;
+-moz-border-radius:2px;
+-webkit-border-radius:2px;
+border-radius:2px;
+background:#fff;
+-moz-box-shadow:-1px -1px 2px #004977;
+-webkit-box-shadow:-1px -1px 2px #004977;
+box-shadow:-1px -1px 2px #004977;
+}
+.list-type3 a:hover{
+background:#555;
+}
+
+.list-type3 a:hover:before{
+border-color:transparent #ECB765 transparent transparent;
 }
