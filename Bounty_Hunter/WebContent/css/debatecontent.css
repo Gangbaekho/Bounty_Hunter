@@ -35,6 +35,7 @@ span {
   background-image: url(../image/wanted2.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  padding:30px;
 
 }
 
@@ -134,7 +135,7 @@ span {
 	padding-left:80px;
 }
 .boardbounty b{
-	font-size:20px;
+	font-size:40px;
 }
 
 .modday{
@@ -180,6 +181,28 @@ ol{
 }
 .mytextarea:focus{
 	outline: none;
+}
+.boardcontent span{
+	float:right;
+	font-size:15px;
+}
+.boardcontent div .myimage{
+	width:150px;
+}
+.boardcontent div {
+	text-align: center;
+}
+.boardcontent h2{
+	text-align:center;
+}
+.centeralign{
+	text-align:center;
+}
+.boardbounty img{
+	width:30px;
+}
+.imagebutton2{
+	width:50px;
 }
 .list-type3 li, .list-type3 a{
 float:left;

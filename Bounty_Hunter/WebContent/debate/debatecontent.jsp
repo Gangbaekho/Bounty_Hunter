@@ -82,14 +82,25 @@
       <div class="wanted">
         <p class="wanted_head">Wanted</p>        
         <h3 class="dora">DEAD or ALIVE</h3>
-        <p class="bboard">
+<%--         <p class="bboard">
         <%=dto.getTitle() %><br>
         <%=dto.getContent() %><br>
         <%=dto.getCount() %><br>
         <%=dto.getCreateday() %><br>
         <%=dto.getImage() %><br>
         <span class="boardbounty"><img width="50" src="../image/usd2.png"><b><%=dto.getBounty() %></b></span><br>
-        </p>
+        </p> --%>
+        <div class="boardcontent">
+        	<span class="content-span">조회수:<%=dto.getCount() %> 날짜:<%=dto.getCreateday() %></span><br>
+        	<div class="centeralign">
+				<img class="myimage" src="<%=dto.getImage() %>"><img class="myimage" src="<%=dto.getImage() %>"><img class="myimage" src="<%=dto.getImage() %>">
+        	</div>
+        	<h2><%=dto.getTitle() %></h2>
+        	<p><%=dto.getContent() %></p><br>
+        	<div class="centeralign">
+        	<span class="boardbounty"><img class="imagebutton2" src="../image/usd2.png"><b><%=dto.getBounty() %></b></span>
+        	</div>
+        </div>
         <div class="top1_reply topreply">
 		<% if(list.size() >=3){
 			%>
