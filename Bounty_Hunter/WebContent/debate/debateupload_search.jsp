@@ -54,6 +54,7 @@ margin:10px;
 <select id="sel">
 	<option value="book">도서</option>
 	<option value="movie">영화</option>
+	<option value="image">이미지</option>
 </select>
 <div id="out">
 </div>
