@@ -1,0 +1,246 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background:rgba(0,0,0,0.7);
+
+}
+.container {
+        margin: 150px auto;
+        max-width: 640px;
+}
+span {
+        font: 40px / 1 Courier;
+        font-weight: bold;
+}
+.control {
+        font: 12px /1 Arial;
+}
+
+.wall_background {
+
+}
+
+.super {
+  width: 1300px;
+  z-index: 1;
+  margin: 0 auto;
+  position: relative;
+}
+
+.wanted {
+  width: 600px;
+  height: 750px;
+  margin: 0 auto;
+  background-image: url(../image/wanted2.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+}
+
+.wanted_head {
+  font-size: 100px;
+  padding: 0;
+  margin: 0;
+  padding-top: 30px;
+  margin-bottom: -20px;
+  font-family: "Special Elite";
+  text-align:center;
+}
+
+.dora {
+  font-size: 30px;
+  padding: 0px;
+  margin: 0px;
+  font-family: "Special Elite";
+  text-align:center;
+}
+
+.top3_reply {
+  position: absolute;
+  padding-top: 40px;
+  top: 100px;
+  left: -150px;
+  width: 500px;
+  height: 200px;
+  background-image: url(../image/post3.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.tape {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 50px;
+  left: 100px;
+  background-image: url(../image/tape.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  transform: rotate(-30deg);
+}
+
+.top1_reply {
+  position: absolute;
+  padding-top: 50px;
+  width: 350px;
+  height: 350px;
+  bottom: -20px;
+  left: -50px;
+  background-image: url(../image/post2.png);
+  background-size: 100% 100%;
+}
+
+
+.top2_reply {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: 130px;
+  right: -120px;
+  background-image: url(../image/post1.png);
+  background-size: 100% 100%;
+}
+.top2_reply h4{
+	padding-top:50px;
+}
+.stamp {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  bottom: 30px;
+  right: 100px;
+  line-height: 200px;
+  color: white;
+  font-family: "Lobster";
+  font-size: 35px;
+  background-image: url(../image/stamp.png);
+  background-size: 100% 100%;
+  cursor: pointer;
+  text-align:center;
+  cursor:pointer;
+}
+.imagebutton{
+	cursor:pointer;
+	width:30px;
+}
+.reply{
+	border:4px solid black;
+	margin-top:15px;
+}
+.topreply{
+	padding:30px;
+}
+.bboard{
+	padding-left:80px;
+}
+.boardbounty b{
+	font-size:20px;
+}
+
+.modday{
+	float:right;
+	font-weight:bold;
+}
+.mylist h4{
+	padding-left:30px;
+	padding-top:0px;
+	padding-bottom:0px;
+	margin-top:0px;
+	margin-bottom:0px;
+}
+.mylist .mycontent{
+	padding-left:30px;
+}
+.mylist p{
+padding:0px;
+margin:0px;
+}
+
+.mylist b{
+	font-size:20px;
+}
+
+.list-type3{
+margin:0 auto;
+width: 1000px;
+
+}
+ol{
+	list-style-type: none;
+}
+.mytextarea{
+	width:800px;
+	background:white;
+	border:none;
+	height:100px;
+	border-radius: 10px;
+	margin-left:10px;
+	margin-top:10px;
+	padding:10px;
+}
+.mytextarea:focus{
+	outline: none;
+}
+.list-type3 li, .list-type3 a{
+float:left;
+width:900px;
+line-height:35px;
+position:relative;
+font-size:15px;
+margin-bottom: 10px;
+font-family: 'Raleway', sans-serif;
+transition: background-color 1.5s ease;
+}
+.list-type3 a{
+padding:0 60px 0 12px;
+background:#ECB765;
+color:#fff;
+text-decoration:none;
+-moz-border-radius-bottomright:4px;
+-webkit-border-bottom-right-radius:4px;
+border-bottom-right-radius:4px;
+-moz-border-radius-topright:4px;
+-webkit-border-top-right-radius:4px;
+border-top-right-radius:4px;
+}
+
+.list-type3 a:before{
+content:"";
+float:left;
+position:absolute;
+top:0;
+left:-12px;
+width:0;
+height:0;
+border-color:transparent #ECB765 transparent transparent;
+border-style:solid;
+border-width: 18px 12px 18px 0;
+}
+
+.list-type3 a:after{
+content:"";
+position:absolute;
+top:15px;
+left:0;
+float:left;
+width:6px;
+height:6px;
+-moz-border-radius:2px;
+-webkit-border-radius:2px;
+border-radius:2px;
+background:#fff;
+-moz-box-shadow:-1px -1px 2px #004977;
+-webkit-box-shadow:-1px -1px 2px #004977;
+box-shadow:-1px -1px 2px #004977;
+}
+.list-type3 a:hover{
+background:#555;
+}
+
+.list-type3 a:hover:before{
+border-color:transparent #ECB765 transparent transparent;
+}
+
+/*
+	위에까지 그냥 싹다 배낌.
+*/

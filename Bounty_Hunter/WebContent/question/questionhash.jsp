@@ -46,7 +46,7 @@
         
                       var s = $(this);
               
-                      str+="<li class='table-row'>";
+                      str+="<li class='table-row' qnum='"+s.find("qnum").text()+"'>";
                       str+="<div class='col col-1' data-label='Job Id'>"+s.find("qnum").text()+"</div>";
                       if(s.find("checked").text()=="y"){
 							str += '<div class="col col-2" data-label="Customer Name"><img src="../image/checked.svg" id="checked"></div>';
@@ -67,6 +67,14 @@
           });
           
         });
+        
+        $(document).on("click","li.table-row",function(){
+        	
+        	var go = $(this).attr("qnum");
+        	location.href="questioncontent.jsp?qnum="+go;
+        	
+        });
+        
       });
     </script>
 </head>

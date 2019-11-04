@@ -43,7 +43,7 @@
 							$(data).find("question").each(function(idx){
 								var s = $(this);
 								str += '</li>';
-						       	str += '<li class="table-row">';
+						       	str += "<li class='table-row' qnum='"+s.find("num").text()+"'>";
 						        str += '<div class="col col-1" data-label="Job Id">'+(idx+1)+'</div>';
 								if(s.find("checked").text()=="y"){
 									str += '<div class="col col-2" data-label="Customer Name"><img src="../image/checked.svg" id="checked"></div>';
@@ -91,7 +91,8 @@
 						$(data).find("question").each(function(idx){
 							var s = $(this);
 							str += '</li>';
-					       	str += '<li class="table-row">';
+					       	str += "<li class='table-row' qnum='"+s.find("num").text()+"'>";
+					       	console.log(s.find("num").text());
 					        str += '<div class="col col-1" data-label="Job Id">'+(idx+1)+'</div>';
 							if(s.find("checked").text()=="y"){
 								str += '<div class="col col-2" data-label="Customer Name"><img src="../image/checked.svg" id="checked"></div>';
@@ -116,6 +117,14 @@
 					}
 				});
 			});
+			
+	        $(document).on("click","li.table-row",function(){
+	        	
+	        	var go = $(this).attr("qnum");
+	        	console.log(go);
+	        	location.href="questioncontent.jsp?qnum="+go;
+	        	
+	        });
 		});
 	</script>
 </head>
