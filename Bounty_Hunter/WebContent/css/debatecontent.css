@@ -123,6 +123,8 @@ span {
   background-image: url(../image/stamp.png);
   background-size: 100% 100%;
   cursor: pointer;
+  text-align:center;
+  cursor:pointer;
 }
 .imagebutton{
 	cursor:pointer;

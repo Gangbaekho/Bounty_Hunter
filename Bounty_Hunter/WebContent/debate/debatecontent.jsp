@@ -45,6 +45,12 @@
     			
     		});
     		
+    		$("#end").click(function(){
+    			
+    			$("#frm1").submit();
+    			
+    		});
+    		
     	});
     </script>
   </head>
@@ -123,7 +129,7 @@
        		%>
         </div>
         <div class="tape"></div>
-
+		<div class="stamp" id="end">종료하기</div>
       </div>
     </div>
     <form action="debatecontentaction.jsp" method="post" id="frm">
@@ -147,5 +153,10 @@
 
     	%>
     </div>
+    <form action="debategivemoneyaction.jsp" method="get" id="frm1">
+    	<input type="hidden" name="writer" value="<%=bnum %>">    	
+    	<input type="hidden" name="top1" value="<%=top3List.get(0).getMnum() %>">    	
+    	<input type="hidden" name="bounty" value="<%=dto.getBounty() %>">    	
+    </form>
   </body>
 </html>

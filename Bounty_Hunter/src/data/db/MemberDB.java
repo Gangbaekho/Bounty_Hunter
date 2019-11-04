@@ -298,7 +298,90 @@ public class MemberDB {
 		return mnum;
 		
 	}
+	
+	public int getMnumByBnum(int bnum) {
+		
+		int mnum = 0;
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		String sql="select mnum from board where num = ?";
+		ResultSet rs=null;
+		conn=db.getConnection();
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, bnum);
+			
+			rs=pstmt.executeQuery();
+			if(rs.next())
+			{
+				mnum=rs.getInt("mnum");
+			}
+			
+		
+		    } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		    }finally {
+			db.dbClose(rs, pstmt, conn);
+	     	}
+		
+		return mnum;
+		
+	}
 
+	public int getMnumByRnum(int rnum) {
+		
+		int mnum = 0;
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		String sql="select mnum from reply where num = ?";
+		ResultSet rs=null;
+		conn=db.getConnection();
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, rnum);
+			
+			rs=pstmt.executeQuery();
+			if(rs.next())
+			{
+				mnum=rs.getInt("mnum");
+			}
+			
+		
+		    } catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		    }finally {
+			db.dbClose(rs, pstmt, conn);
+	     	}
+		
+		return mnum;
+		
+	}
+	
+	public void giveBountyToMnum(int mnum, int bounty) {
+		
+		String sql = "update member set bounty = bounty+? where num = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		conn=db.getConnection();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bounty/2);
+			pstmt.setInt(2, mnum);
+			pstmt.execute();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(pstmt, conn);
+		}
+		
+	}
 
 	
 }
