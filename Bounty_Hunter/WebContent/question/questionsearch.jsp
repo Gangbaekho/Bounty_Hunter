@@ -76,7 +76,7 @@
 				/* alert(hash); */
 				$.ajax({
 					type: "get",
-					url: "qsearchajax.jsp",
+					url: "../xml/qsearchajax.jsp",
 					dataType: "xml",
 					data: {"hash": hash},
 					success: function(data){
@@ -91,7 +91,7 @@
 						$(data).find("question").each(function(idx){
 							var s = $(this);
 							str += '</li>';
-					       	str += "<li class='table-row' qnum='"+s.find("num").text()+"'>";
+					       	str += "<li class='table-row'>";
 					       	console.log(s.find("num").text());
 					        str += '<div class="col col-1" data-label="Job Id">'+(idx+1)+'</div>';
 							if(s.find("checked").text()=="y"){
