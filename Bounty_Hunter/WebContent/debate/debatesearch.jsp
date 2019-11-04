@@ -37,19 +37,18 @@
 					        str += '<li class="table-header">';
 					        str += '<div class="col col-1">Num</div>';
 					        str += '<div class="col col-2" style="text-align: left; padding-left: 30px;">Title</div>';
-					        str += '<div class="col col-3" style="text-align: right; padding-right: 30px;">Writer</div>';
+					        str += '<div class="col col-3" style="text-align: left; padding-left: 10px;">Writer</div>';
 					        str += '<div class="col col-4" style="text-align: right; padding-right: 30px;">Write day</div>';
-					       /*  str += '<div class="col col-5">Count</div>'; */
+					       	str += '<div class="col col-5">Count</div>';
 							$(data).find("board").each(function(idx){
 								var s = $(this);
 								str += '</li>';
 						       	str += '<li class="table-row">';
 						        str += '<div class="col col-1" data-label="Job Id">'+(idx+1)+'</div>';
 								str += '<div class="col col-2" data-label="Customer Name" style="text-align: left; padding-left: 25px;">'+s.find("title").text()+'</div>';
-								str += '<div class="col col-3" data-label="Amount">이름</div>';
-								<%-- +<%=name%>+'('+<%=myid%>+')' --%>
+								str += '<div class="col col-3" data-label="Amount" style="text-align: left;">'+s.find("name").text()+"("+s.find("myid").text()+")"+'</div>';
 						       	str += '<div class="col col-4" data-label="Payment Status" style="text-align: right; padding-right: 25px;">'+s.find("modday").text()+'</div>';
-						       /* 	str += '<div class="col col-5">'+s.find("count").text()+'</div>'; */
+						        str += '<div class="col col-5">'+s.find("count").text()+'</div>';
 						       	str += '</li>';
 							});
 							 str += '</ul>';
@@ -73,7 +72,7 @@
 				var title = $(this).prev().find("#dsearch").val();
 				$.ajax({
 					type: "get",
-					url: "qsearchajax.jsp",
+					url: "../xml/dsearchajax.jsp",
 					dataType: "xml",
 					data: {"title": title},
 					success: function(data){

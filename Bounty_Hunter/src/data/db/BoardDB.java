@@ -215,7 +215,8 @@ public class BoardDB {
 				dto.setCount(rs.getInt("count"));
 				dto.setBounty(rs.getInt("bounty"));
 				dto.setModday(rs.getTimestamp("modday"));
-				dto.setImage(rs.getString("image"));
+				//&를 가져오지 못하므로 특수문자 형태로 replace 필요 
+				dto.setImage(rs.getString("image").replace("&", "&amp;"));
 				list.add(dto);
 			}
 		} catch (SQLException e) {
