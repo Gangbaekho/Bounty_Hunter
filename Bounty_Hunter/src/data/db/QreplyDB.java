@@ -113,6 +113,7 @@ public class QreplyDB {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, num);
+			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -152,4 +153,5 @@ public class QreplyDB {
 		}
 		return list;
 	}
+	
 }

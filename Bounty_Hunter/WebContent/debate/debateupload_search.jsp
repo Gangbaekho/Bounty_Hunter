@@ -36,6 +36,7 @@ margin:10px;
 				dataType:"json",
 				data:"genre="+genre+"&word="+word,
 				success:function(data){
+					if(genre =="book"){
 					for(var i = 0 ; i < data.items.length ;i++){
 						var realImage = "";
 						var cutIndex = data.items[i].image.indexOf("type=m1&");
@@ -44,7 +45,14 @@ margin:10px;
 						$("#out").append("<img class='click' width='150' src='"+realImage+"'>");
 							//$("#out").append("<img class='click' width='150' src='"+data.items[i].image+"'>");
 						}
+					
+					}else{
+						for(var i = 0 ; i < data.items.length ;i++){
+								$("#out").append("<img class='click' width='150' src='"+data.items[i].image+"'>");
+							}
 					}
+					
+				}
 			});
 			
 		});

@@ -204,6 +204,10 @@ ol{
 .imagebutton2{
 	width:50px;
 }
+.checked{
+	width:20px;
+	z-index:20;
+}
 .list-type3 li, .list-type3 a{
 float:left;
 width:900px;
