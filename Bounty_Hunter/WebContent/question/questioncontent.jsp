@@ -64,12 +64,23 @@
 			<li>
 				<a class="mylist">
 					<p class="modday"><%=qdto.getModday() %></p> 
-					<h4><%=mdb.getMember(mnum).getName() %>(<%=mdb.getMember(mnum).getMyid() %>)</h4> 
+					<h4><%=mdb.getMember(qdto.getMnum()).getName() %><%=qdto.getMnum() %>(<%=mdb.getMember(qdto.getMnum()).getMyid() %>)</h4> 
 					<p class="mycontent"><%=qdto.getContent() %></p>
 					
 					<span class="mybounty" style="float:right;">
 						<b style="font-size:20px; line-height:20px;"><%=qdto.getChecked() %></b>
 					</span>
+					<% if(mnum == dto.getMnum())
+					{%>
+					<form action="questiongivemoney.jsp" method="get" id="frm3">
+						<input type="hidden" name="mnum" value="<%=qdto.getMnum() %>">
+						<input type="hidden" name="bounty" value="<%=dto.getBounty() %>">
+						<input type="submit" value="채택하기">
+					</form>
+						
+					<%}
+						%>
+
 				</a>
 			</li>
 		<%}

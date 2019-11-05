@@ -63,6 +63,7 @@ public class QuestionDB {
 				dto.setNum(rs.getInt("num"));
 				dto.setMnum(rs.getInt("mnum"));
 				dto.setTitle(rs.getString("title"));
+				dto.setBounty(rs.getInt("bounty"));
 				dto.setContent(rs.getString("content"));
 				dto.setChecked(rs.getString("checked"));
 				dto.setCreateday(rs.getTimestamp("createday"));

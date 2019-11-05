@@ -382,6 +382,28 @@ public class MemberDB {
 		}
 		
 	}
+	
+public void giveBountyToMnum2(int mnum, int bounty) {
+		
+		String sql = "update member set bounty = bounty+? where num = ?";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		conn=db.getConnection();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bounty);
+			pstmt.setInt(2, mnum);
+			pstmt.execute();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(pstmt, conn);
+		}
+		
+	}
 
 	
 }

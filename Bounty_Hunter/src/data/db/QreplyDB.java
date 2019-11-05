@@ -124,7 +124,7 @@ public class QreplyDB {
 	public List<QreplyDTO> getQreplyListByQnum(int qnum){
 		
 		List<QreplyDTO> list = new Vector<>();
-		String sql = "select * from qreply where qnum = ?";
+		String sql = "select * from qreply where qnum = ? order by num desc";
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -137,7 +137,7 @@ public class QreplyDB {
 				QreplyDTO dto = new QreplyDTO();
 				dto.setNum(rs.getInt("num"));
 				dto.setMnum(rs.getInt("mnum"));
-				dto.setMnum(rs.getInt("qnum"));
+				dto.setQnum(rs.getInt("qnum"));
 				dto.setChecked(rs.getString("checked"));
 				dto.setContent(rs.getString("content"));
 				dto.setCreateday(rs.getTimestamp("createday"));
