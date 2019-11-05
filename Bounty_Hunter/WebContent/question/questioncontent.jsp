@@ -38,6 +38,8 @@
 			<p class="wanted_head">Wanted</p>
 			<h3 class="dora">DEAD or ALIVE</h3>
 			<span style="float:left;font-size:15px;font-weight:bold;padding-top:10px;">작성자 : <%=mdb.getMember(dto.getMnum()).getName() %>(<%=mdb.getMember(dto.getMnum()).getMyid() %>) </span><span style="float:right;font-size:15px;font-weight:bold;padding-top:10px;"><%=dto.getModday() %></span>
+			<br><br><br><br>
+			<div style="text-align:center;"><img src="../image/qmark.png" width="150"><img src="../image/qmark.png" width="150"><img src="../image/qmark.png" width="150"></div>
 			<h1 style="text-align:center;padding-top:30px;"><%=dto.getTitle() %></h1>
 			<p><%=dto.getContent() %></p>
 			<div style="position:absolute;bottom:50px; width:600px;">
