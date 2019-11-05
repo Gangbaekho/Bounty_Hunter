@@ -74,6 +74,10 @@
   		List<ReplyDTO> list = rdb.getReplyList(bnum);
   		
  		List<ReplyDTO> top3List = rdb.getTop3ReplyList(bnum);
+ 		
+ 		for(int i = 0 ; i < top3List.size()  ; i++){
+ 			System.out.println(top3List.get(i));
+ 		}
   		
   %>
   <body>

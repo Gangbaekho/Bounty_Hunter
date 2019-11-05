@@ -54,6 +54,11 @@ public class ReplyDTO {
 	public void setBounty(int bounty) {
 		this.bounty = bounty;
 	}
+	@Override
+	public String toString() {
+		return "ReplyDTO [num=" + num + ", mnum=" + mnum + ", bnum=" + bnum + ", content=" + content + ", bounty="
+				+ bounty + ", createday=" + createday + ", modday=" + modday + "]";
+	}
 	
 	
 }
