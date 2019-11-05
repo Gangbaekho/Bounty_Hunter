@@ -84,6 +84,7 @@
 						<input type="hidden" name="mnum" value="<%=qdto.getMnum() %>">
 						<input type="hidden" name="num" value="<%=qdto.getNum() %>">
 						<input type="hidden" name="bounty" value="<%=dto.getBounty() %>">
+						<input type="hidden" name="qnum" value="<%=qnum%>">
 						<input type="submit" value="채택하기">
 					</form>
 						

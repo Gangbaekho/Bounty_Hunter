@@ -79,7 +79,6 @@ body {
   border-radius: 10px;
   font-size: 20px;
   margin-bottom: 10px;
-  b
 }
 .checked {
   flex: 1;
@@ -280,7 +279,7 @@ p {
   background: none repeat scroll 0% 0% #8862B2;
   border: 5px solid #ecb765;
 }
-}
+
 .timeline-list {
   animation: reveal 2s 0 ease both 1;
 }

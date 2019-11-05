@@ -1,3 +1,4 @@
+<%@page import="data.db.QuestionDB"%>
 <%@page import="data.db.QreplyDB"%>
 <%@page import="data.db.MemberDB"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -14,12 +15,16 @@
 	int mnum = Integer.parseInt(request.getParameter("mnum"));
 	int bounty = Integer.parseInt(request.getParameter("bounty"));
 	int num = Integer.parseInt(request.getParameter("num"));
+	int qnum = Integer.parseInt(request.getParameter("qnum"));
 	
 	MemberDB db = new MemberDB();
 	db.giveBountyToMnum2(mnum, bounty);
 	
 	QreplyDB qdb = new QreplyDB();
 	qdb.qreplyIsChecked(num);
+	
+	QuestionDB Qdb = new QuestionDB();
+	Qdb.questionIsChecked(qnum);
 	
 	response.sendRedirect("../main/main.jsp");
 %>

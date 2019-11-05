@@ -21,7 +21,8 @@
 		QuestionDB qdb = new QuestionDB();
 		String myid = (String)session.getAttribute("myid");
 		int mnum = db.getNumByMyid(myid);
-		List<QuestionDTO> list = qdb.getAllQuestionByMnum(mnum);
+		List<QuestionDTO> qlist = qdb.getAllQuestionByMnum(mnum);
+		List<QuestionDTO> alist = qdb.getQtitleByMnum(mnum);
 %>
 <script type="text/javascript">
 		var q_start=1;
@@ -42,7 +43,7 @@
     		
     		//question의 오른쪽 화살표 클릭 
     		$(".question_right_arrow").click(function(){
-    			if(q_start>0 && q_start+3<<%=list.size()%>){
+    			if(q_start>0 && q_start+3<<%=qlist.size()%>){
 					q_start += 3;
     			}
         		qlist();
@@ -60,13 +61,15 @@
     		
     		//answer의 오른쪽 화살표 클릭 
     		$(".answer_right_arrow").click(function(){
-    			if(a_start>0 && a_start+3<<%=list.size()%>){
+    			if(a_start>0 && a_start+3<<%=alist.size()%>){
 					a_start += 3;
     			}
         		alist();
     		});
     		
-    		});   		
+    });   
+
+	
 	function qlist(){
 		$.ajax({
 			type: "post",
@@ -98,6 +101,7 @@
 				}
 			}
 	});
+}
 		function alist(){
 			$.ajax({
 				type: "post",
@@ -105,7 +109,7 @@
 				data: {"a_start": a_start},
 				dataType: "xml",
 				success: function(data){
-					str = '<ul class="timeline-list">';
+					str = '<ul class="timeline-list timeline-list2">';
 					$(data).find("myqna").each(function(idx){
 						var s = $(this);
 						str += '<li>';
@@ -128,8 +132,8 @@
 						alert("서버 오류");
 					}
 				}
-		});
-	}
+			});	
+		}
 </script>
 </head>
 <body>

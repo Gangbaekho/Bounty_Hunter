@@ -240,13 +240,14 @@ public class QuestionDB {
 
 	//채택된 답변이 있을 시 질문의 checked column 'y'로 변경, Question의 num을 parameter로 줄 것 
 	public void questionIsChecked(int num) {
-		String sql = "update question set checked='y' where exists (select * from qreply where checked='y' and qnum=?)";
+		String sql = "update question set checked='y' where num=? and exists (select * from qreply where checked='y' and qnum=?)";
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, num);
+			pstmt.setInt(2, num);
 			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -363,7 +364,7 @@ public class QuestionDB {
 	//해당 회원이 작성한 댓글의 원글 제목 가져오기 
 	public List<QuestionDTO> getQtitleByMnum(int mnum) {
 		List<QuestionDTO> list = new Vector<>();
-		String sql = "select q.title from question q, qreply qr where qr.mnum=? and qr.qnum=q.num;";
+		String sql = "select q.title from question q, qreply qr where qr.mnum=? and qr.qnum=q.num";
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -372,16 +373,10 @@ public class QuestionDB {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, mnum);
 			rs = pstmt.executeQuery();
+			
 			while (rs.next()) {
 				QuestionDTO dto = new QuestionDTO();
-				dto.setNum(rs.getInt("num"));
-				dto.setMnum(rs.getInt("mnum"));
 				dto.setTitle(rs.getString("title"));
-				dto.setContent(rs.getString("content"));
-				dto.setChecked(rs.getString("checked"));
-				dto.setCreateday(rs.getTimestamp("createday"));
-				dto.setModday(rs.getTimestamp("modday"));
-
 				list.add(dto);
 			}
 		} catch (SQLException e) {
