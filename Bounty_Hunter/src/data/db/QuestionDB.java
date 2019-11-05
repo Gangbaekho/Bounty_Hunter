@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Vector;
 
 import data.dto.BoardDTO;
+import data.dto.QuestionDTO;
 import data.dto.QuestionByHashDTO;
 import data.dto.QuestionDTO;
 import oracle.db.DBConnect;
@@ -256,7 +257,7 @@ public class QuestionDB {
 	
 	public List<QuestionDTO> myqna(String myid){
 	      System.out.println(myid);
-	      String sql = "select distinct question.num,question.title,question.content,question.createday from member,question where question.mnum=(select num from member where myid=?) order by createday desc";
+	      String sql = "select distinct question.num,question.title,question.content,question.modday from member,question where question.mnum=(select num from member where myid=?) order by modday desc";
 
 	      List <QuestionDTO> list = new Vector<QuestionDTO>();
 	      Connection conn = db.getConnection();
@@ -273,7 +274,7 @@ public class QuestionDB {
 	            dto.setTitle(rs.getString("title"));
 	            dto.setContent(rs.getString("content"));
 	            //dto.setChecked(rs.getString("checked"));
-	            dto.setCreateday(rs.getTimestamp("createday"));
+	            dto.setModday(rs.getTimestamp("modday"));
 	         
 	            list.add(dto);
 	         }
@@ -286,4 +287,43 @@ public class QuestionDB {
 	      System.out.println(list.size());
 	      return list;
 	   }
+	
+	
+	//페이징  
+	public List<QuestionDTO> getList(int mnum, int q_start){
+		String sql = "select a.* from (select ROWNUM as RNUM,b.* from " + 
+				"(select * from question where mnum=? order by num desc)b)a " + 
+				"where a.RNUM>="+q_start+" and a.RNUM<="+(q_start+2);
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<QuestionDTO> list = new Vector<QuestionDTO>();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, mnum);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				QuestionDTO dto = new QuestionDTO();
+				
+				dto.setNum(rs.getInt("num"));
+				dto.setMnum(rs.getInt("mnum"));
+				dto.setTitle(rs.getString("title"));
+				dto.setContent(rs.getString("content"));
+				dto.setChecked(rs.getString("checked"));
+				dto.setCreateday(rs.getTimestamp("createday"));
+				dto.setModday(rs.getTimestamp("modday"));
+				dto.setBounty(rs.getInt("bounty"));
+				
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		System.out.println(list.size());
+		return list;
+	}
 }

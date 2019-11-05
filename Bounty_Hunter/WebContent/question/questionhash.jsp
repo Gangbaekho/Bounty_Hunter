@@ -93,26 +93,27 @@
   	
   %>
 <body>
-
-	<div class="super">
-		<div class="logo" onclick="location.href='../main/main.jsp'">Bounty
-			Hunter</div>
-		<%
-    	for(int i = 0 ; i <= divide-1 ; i++){%>
-		<div class="hashbox">
+	<div class="bgimg">
+		<div class="super">
+			<div class="logo" onclick="location.href='../main/main.jsp'">Bounty
+				Hunter</div>
 			<%
-    		for(int j = i*3 ; j <= (i*3+2 >= listSize ? listSize-1 :i*3+2) ; j++ ){
-    			%>
-			<div class="mydivdiv">
-				<a href="#" class="link"><span>#<%=list.get(j).getHash() %></span></a>
+	    	for(int i = 0 ; i <= divide-1 ; i++){%>
+			<div class="hashbox">
+				<%
+	    		for(int j = i*3 ; j <= (i*3+2 >= listSize ? listSize-1 :i*3+2) ; j++ ){
+	    			%>
+				<div class="mydivdiv">
+					<a href="#" class="link"><span>#<%=list.get(j).getHash() %></span></a>
+				</div>
+				<%}%>
 			</div>
-			<%}%>
+			<%
+	    	}
+	    %>
+	
+			<div class="questionlist" id="questionlist"></div>
 		</div>
-		<%
-    	}
-    %>
-
-		<div class="questionlist" id="questionlist"></div>
 	</div>
 </body>
 </html>

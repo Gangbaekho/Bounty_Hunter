@@ -134,20 +134,19 @@
 	List<QuestionDTO> list = db.searchByQhash(hash);
 %>
 <body>
-	<div class="cover-gray"></div>
-	<div class="bgimg"></div>
-	<div class="super">
-		<div class="logo" onclick="location.href='../main/main.jsp'">Bounty
-			Hunter</div>
-		<div class="searchbar">
-			<div class="hashcontainer">
-				<input type="text" id="qsearch" name="qsearch" required autofocus>
-				<div class="hashtag"></div>
-			</div>
+	<div class="bgimg">
+		<div class="super">
+			<div class="logo" onclick="location.href='../main/main.jsp'">Bounty Hunter</div>
+			<div class="searchbar">
+				<div class="hashcontainer">
+					<input type="text" id="qsearch" name="qsearch" required autofocus>
+					<div class="hashtag"></div>
+				</div>
 			<img src="../image/mglass.png" alt="magnifying glass" id="mglass"
 				onclick="location.href='#'">
 			<div id="out"></div>
 		</div>
+	</div>
 	</div>
 </body>
 </html>

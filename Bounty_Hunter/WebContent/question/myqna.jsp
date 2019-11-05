@@ -1,3 +1,4 @@
+<%@page import="data.db.MemberDB"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -6,12 +7,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <link rel="stylesheet" href="../css/myqna.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Lobster&display=swap"
       rel="stylesheet"
     />
     <title>Bounty Hunter</title>
+    <%
+    	MemberDB db = new MemberDB();
+    	
+    %>
+    <script type="text/javascript">
+    	$(function(){
+    		var q_start=1;
+    		$.ajax({
+    			type: "post",
+    			url: "../xml/myqnaajax_q.jsp",
+    			data: {"q_start": q_start},
+    			dataType: "xml",
+    			success: function(data){
+    				str = '<ul class="timeline-list">';
+    				$(data).find("myqna").each(function(idx){
+    					var s = $(this);
+    					str += '<li>';
+        				str += '<div class="content">';
+    					str += '<h3>'+s.find("title").text()+'<span class="modday">'+s.find("modday").text()+'</span></h3>';
+    					str += '<p>';
+    					str += s.find("content").text();
+    					str += '</p>';
+    					str += '</div>';
+    					str += '</li>';
+    				});      
+    	            str += '</ul>';
+    	            $("#out").html(str);
+    			},
+    			statusCode: {
+					404: function(){
+						alert("해당 url을 찾을 수 없습니다");
+					},
+					500: function(){
+						alert("서버 오류");
+					}
+				}
+    		});
+    	});
+    </script>
   </head>
   <body>
     <div class="myquestion"></div>
@@ -29,32 +70,7 @@
                   내가 한 질문을 알아볼까요?
                 </p>
               </header>
-              <ul class="timeline-list">
-                <li>
-                  <div class="content">
-                    <h3>A timeline?<span class="modday">오늘의날짜.</span></h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
-                  </div>
-                </li>
-                <li>
-                  <div class="content">
-                    <h3>A timeline?<span class="modday">오늘의날짜.</span></h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
-                  </div>
-                </li>
-                <li>
-                  <div class="content">
-                    <h3>A timeline?<span class="modday">오늘의날짜.</span></h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
-                  </div>
-                </li>
-              </ul>
+              <div id="out"></div>
             </div>
           </section>
         </div>
