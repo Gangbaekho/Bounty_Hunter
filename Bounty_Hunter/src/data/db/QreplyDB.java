@@ -12,9 +12,9 @@ import data.dto.QreplyDTO;
 import oracle.db.DBConnect;
 
 public class QreplyDB {
-	
+
 	private DBConnect db = new DBConnect();
-	
+
 	//질문에 대한 모든 답변 가져오기
 	public List<QreplyDTO> getAllQreply(){
 		List<QreplyDTO> list = new Vector<>();
@@ -45,7 +45,7 @@ public class QreplyDB {
 		}
 		return list;
 	}
-	
+
 	//답변 insert
 	public void insertQreply(QreplyDTO dto) {
 		String sql = "insert into qreply values (seq_bounty.nextval, ?, ?, 'n', ?, sysdate, sysdate)";
@@ -65,7 +65,7 @@ public class QreplyDB {
 			db.dbClose(pstmt, conn);
 		}
 	}
-	
+
 	//답변 수정 (update)
 	public void updateQreply(QreplyDTO dto) {
 		String sql = "update qreply set content=?, modday=sysdate where num=?";
@@ -84,7 +84,7 @@ public class QreplyDB {
 			db.dbClose(pstmt, conn);
 		}
 	}
-	
+
 	//답변 삭제 (delete)
 	public void deleteQreply(int num) {
 		String sql = "delete from qreply where num=?";
@@ -103,13 +103,13 @@ public class QreplyDB {
 			db.dbClose(pstmt, conn);
 		}
 	}
-	
+
 	//답변 채택시 checked column 'y'로 변경
 	public void qreplyIsChecked(int num) {
 		String sql = "update qreply set checked='y' where num=?";
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
-		
+
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, num);
@@ -121,9 +121,9 @@ public class QreplyDB {
 			db.dbClose(pstmt, conn);
 		}
 	}
-	
+
 	public List<QreplyDTO> getQreplyListByQnum(int qnum){
-		
+
 		List<QreplyDTO> list = new Vector<>();
 		String sql = "select * from qreply where qnum = ? order by num desc";
 		Connection conn = db.getConnection();
@@ -153,5 +153,43 @@ public class QreplyDB {
 		}
 		return list;
 	}
-	
+
+	//페이징  
+	public List<QreplyDTO> getList(int mnum, int a_start){
+		String sql = "select a.* from (select ROWNUM as RNUM,b.* from " + 
+				"(select * from qreply where mnum=? order by num desc)b)a " + 
+				"where a.RNUM>="+a_start+" and a.RNUM<="+(a_start+2);
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<QreplyDTO> list = new Vector<QreplyDTO>();
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, mnum);
+			rs = pstmt.executeQuery();
+
+			while(rs.next()) {
+				QreplyDTO dto = new QreplyDTO();
+
+				dto.setNum(rs.getInt("num"));
+				dto.setMnum(rs.getInt("mnum"));
+				dto.setQnum(rs.getInt("qnum"));
+				dto.setChecked(rs.getString("checked"));
+				dto.setContent(rs.getString("content"));
+				dto.setChecked(rs.getString("checked"));
+				dto.setCreateday(rs.getTimestamp("createday"));
+				dto.setModday(rs.getTimestamp("modday"));
+
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		System.out.println(list.size());
+		return list;
+	}
+
 }

@@ -289,6 +289,38 @@ public class QuestionDB {
 	      return list;
 	   }
 	
+	//mnum에 해당하는 질문 모아 가져오기 
+	public List<QuestionDTO> getAllQuestionByMnum(int mnum) {
+		List<QuestionDTO> list = new Vector<>();
+		String sql = "select * from question where mnum=?";
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, mnum);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				QuestionDTO dto = new QuestionDTO();
+				dto.setNum(rs.getInt("num"));
+				dto.setMnum(rs.getInt("mnum"));
+				dto.setTitle(rs.getString("title"));
+				dto.setContent(rs.getString("content"));
+				dto.setChecked(rs.getString("checked"));
+				dto.setCreateday(rs.getTimestamp("createday"));
+				dto.setModday(rs.getTimestamp("modday"));
+
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return list;
+	}
+	
 	
 	//페이징  
 	public List<QuestionDTO> getList(int mnum, int q_start){
@@ -325,6 +357,38 @@ public class QuestionDB {
 			db.dbClose(rs, pstmt, conn);
 		}
 		System.out.println(list.size());
+		return list;
+	}
+	
+	//해당 회원이 작성한 댓글의 원글 제목 가져오기 
+	public List<QuestionDTO> getQtitleByMnum(int mnum) {
+		List<QuestionDTO> list = new Vector<>();
+		String sql = "select q.title from question q, qreply qr where qr.mnum=? and qr.qnum=q.num;";
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, mnum);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				QuestionDTO dto = new QuestionDTO();
+				dto.setNum(rs.getInt("num"));
+				dto.setMnum(rs.getInt("mnum"));
+				dto.setTitle(rs.getString("title"));
+				dto.setContent(rs.getString("content"));
+				dto.setChecked(rs.getString("checked"));
+				dto.setCreateday(rs.getTimestamp("createday"));
+				dto.setModday(rs.getTimestamp("modday"));
+
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
 		return list;
 	}
 }
