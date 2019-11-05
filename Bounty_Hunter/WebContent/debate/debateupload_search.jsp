@@ -37,8 +37,12 @@ margin:10px;
 				data:"genre="+genre+"&word="+word,
 				success:function(data){
 					for(var i = 0 ; i < data.items.length ;i++){
+						var realImage = "";
+						var cutIndex = data.items[i].image.indexOf("type=m1&");
+						var realImage = data.items[i].image.substring(0,cutIndex)
 						
-							$("#out").append("<img class='click' width='150' src='"+data.items[i].image+"'>");
+						$("#out").append("<img class='click' width='150' src='"+realImage+"'>");
+							//$("#out").append("<img class='click' width='150' src='"+data.items[i].image+"'>");
 						}
 					}
 			});
