@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="data.db.MemberDB"%>
 <%@page import="data.dto.QreplyDTO"%>
 <%@page import="java.util.List"%>
@@ -16,7 +17,13 @@
 <title>Insert title here</title>
 <script>
 
-	$(document).on("click","button.btn",function(){
+	$(document).on("click","button.btn2",function(){
+		
+		$(this).parent().submit();
+		
+	});
+	
+	$(document).on("click","button.btn3",function(){
 		
 		$(this).parent().submit();
 		
@@ -36,10 +43,12 @@
 	List<QreplyDTO> list = qrdb.getQreplyListByQnum(qnum);
 	
 	int mnum = mdb.getNumByMyid(myid);
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	
 %>
 <body>
 	<div class="super">
+		<a class="logo" href="../main/main.jsp">Bounty Hunter</a>
 		<div class="wanted">
 			<p class="wanted_head">Wanted</p>
 			<h3 class="dora">DEAD or ALIVE</h3>
@@ -72,7 +81,7 @@
 		<%for(QreplyDTO qdto : list){%>
 			<li>
 				<a class="mylist">
-					<p class="modday"><%=qdto.getModday() %></p> 
+					<p class="modday"><%=sdf.format(qdto.getModday()) %></p> 
 					<h4><%=mdb.getMember(qdto.getMnum()).getName() %><%=qdto.getMnum() %>(<%=mdb.getMember(qdto.getMnum()).getMyid() %>)</h4> 
 					<p class="mycontent"><%=qdto.getContent() %></p>
 					
@@ -91,7 +100,7 @@
 						<input type="hidden" name="num" value="<%=qdto.getNum() %>">
 						<input type="hidden" name="bounty" value="<%=dto.getBounty() %>">
 						<input type="hidden" name="qnum" value="<%=qnum%>">
-						<button class="btn" ><span>Choose this reply</span></button>
+						<button class="btn btn3" ><span>Choose this reply</span></button>
 					</form>
 						
 					<%}

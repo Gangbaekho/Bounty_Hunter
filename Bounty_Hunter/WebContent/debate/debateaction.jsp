@@ -20,10 +20,20 @@
 	BoardDB bdb = new BoardDB();
 	BoardDTO bdto = new BoardDTO();
 	
+ 	
+	
 	String subject=request.getParameter("subject");
 	String upload=request.getParameter("upload");
 	String content=request.getParameter("content");
 
+	if(db.getMember(mnum).getBounty()-500<0){%>
+		
+		<script>
+			alert("보유하고 있는 돈이 $500 미만입니다.\n 현상금을 더 모아주세요.");
+			history.back();
+		</script>
+		
+	<%}else{
 	
 	bdto.setContent(content);
 	bdto.setTitle(subject);
@@ -33,6 +43,7 @@
 	bdb.decreaseBounty(mnum);
 	
 	response.sendRedirect("stableform.jsp");
+	}
 %>
 <body>
 

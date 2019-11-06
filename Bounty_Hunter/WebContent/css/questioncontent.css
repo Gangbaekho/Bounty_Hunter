@@ -154,7 +154,7 @@ span {
 	margin-top:0px;
 	margin-bottom:0px;
 	font-family:'Nanum Myeongjo' !important;
-	font-size:18px;
+	font-size:15px;
 }
 .mylist .mycontent{
 	padding-left:30px;
@@ -164,7 +164,7 @@ span {
 padding:0px;
 margin:0px;
 font-family:'Nanum Myeongjo' !important;
-font-size:20px;
+font-size:17px;
 }
 .mylist .modday{
 font-size:18px;
@@ -183,6 +183,16 @@ width: 1000px;
 ol{
 	list-style-type: none;
 }
+.logo{
+	font-family:"Lobster";
+	font-size:35px;
+	position:absolute;
+	left:0px;
+	top:0px;
+	text-decoration: none;
+	color:white;
+	
+}
 .mytextarea{
 	width:700px;
 	background:white;
@@ -192,6 +202,9 @@ ol{
 	margin-left:10px;
 	margin-top:10px;
 	padding:10px;
+	font-size:20px;
+	margin-bottom:10px;
+	font-family:'Nanum Myeongjo' !important;
 }
 .mytextarea:focus{
 	outline: none;

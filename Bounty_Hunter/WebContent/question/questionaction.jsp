@@ -35,6 +35,13 @@
 		qdto.setContent(content);
 		qdto.setMnum(mnum);
 		qdto.setBounty(bounty);
+		
+		if(qdto.getBounty()-bounty < 0){%>
+			<script>
+				alert("돈이 부족합니다. 다시 입력해주세요");
+				history.back();
+			</script>
+		<%}else{
 	
 		//QuestionDB에 저장 
 		qdb.insertQuestion(qdto);
@@ -51,6 +58,7 @@
 		}
 		
 		response.sendRedirect("myqna.jsp");
-		%>
+		
+		}%>
 </body>
 </html>
