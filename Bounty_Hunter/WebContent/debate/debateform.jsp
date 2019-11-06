@@ -1,3 +1,5 @@
+<%@page import="data.dto.MemberDTO"%>
+<%@page import="data.db.MemberDB"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -33,6 +35,20 @@
 		}
 	}
 </script>
+<%
+	  	//Session에서 나의 id를 가져오기
+	  	String myid = (String)session.getAttribute("myid");
+	  	System.out.println(myid);
+	  	
+	  	MemberDB db = new MemberDB();
+	  	
+	  	//나의 id를 통해서 나의 mnum을 알아내기.
+	  	int mnum = db.getNumByMyid(myid);
+	  	System.out.println(mnum);
+	  	
+	  	MemberDTO dto = db.getMember(mnum);
+	 	int bounty = dto.getBounty();
+	  %>
 </head>
 <body>
 	<div class="cover-gray"></div>
@@ -45,8 +61,13 @@
 			<table class="formtable">
 				<tr>
 					<th style="width: 200px;">Subject</th>
-					<td style="width: 600px;"><input name="subject"
-						style="width: 450px;" type="text" /></td>
+					<td style="width: 600px;">
+						<input name="subject" style="width: 450px;" type="text" />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<span id="totalBounty">
+		          			$<span id="mybounty"><%= bounty %></span><br>
+		          		</span>
+					</td>
 				</tr>
 				<tr>
 					<th style="width: 200px;">Upload</th>

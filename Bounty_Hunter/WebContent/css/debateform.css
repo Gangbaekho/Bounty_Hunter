@@ -36,6 +36,12 @@ body {
   font-family: "Lobster";
   font-size: 35px;
 }
+#totalBounty{
+	font-size: 23px;
+	color: white;
+	font-weight: bold;
+	padding: auto;
+}
 .formtable {
   width: 800px;
   margin: 0 auto;
