@@ -104,7 +104,7 @@
 				<img class="myimage" src="<%=dto.getImage() %>"><img class="myimage" src="<%=dto.getImage() %>"><img class="myimage" src="<%=dto.getImage() %>">
         	</div>
         	<h2><%=dto.getTitle() %></h2>
-        	<p><%=dto.getContent() %></p><br>
+        	<p><%=dto.getContent().replace("\n","<br>") %></p><br>
         	<div class="centeralign">
         	<span class="boardbounty"><img class="imagebutton2" src="../image/usd2.png"><b><%=dto.getBounty() %></b></span>
         	</div>
@@ -115,7 +115,7 @@
 			<h4><%=mdb.getMember(top3List.get(2).getMnum()).getName() %>(<%=mdb.getMember(top3List.get(2).getMnum()).getName() %>)<br>
     		<%=top3List.get(2).getModday() %></h4>
     		
-    		<%=top3List.get(2).getContent() %><br>
+    		<%=top3List.get(2).getContent().replace("\n","<br>") %><br>
 	
     		<span class="mybounty"><img class="imagebutton" width="50" src="../image/usd2.png" value="<%=top3List.get(2).getNum() %>" bnum=<%=bnum %> ><b style="font-size:40px; line-height:50px;"><%=top3List.get(2).getBounty() %></b></span><br>
 			<%}
@@ -129,7 +129,7 @@
   				<h4><%=mdb.getMember(top3List.get(1).getMnum()).getName() %>(<%=mdb.getMember(top3List.get(1).getMnum()).getName() %>)<br>
   	    		<%=top3List.get(1).getModday() %></h4>
   	    		
-  	    		<%=top3List.get(1).getContent() %><br>
+  	    		<%=top3List.get(1).getContent().replace("\n","<br>") %><br>
   		
   	    		<span class="mybounty"><img class="imagebutton" width="50" src="../image/usd2.png" value="<%=top3List.get(1).getNum()%>" bnum="<%=bnum%>"><b style="font-size:40px; line-height:50px;"><%=top3List.get(1).getBounty() %></b></span><br>
   			<%}
@@ -141,7 +141,7 @@
        			<h4><%=mdb.getMember(top3List.get(0).getMnum()).getName() %>(<%=mdb.getMember(top3List.get(0).getMnum()).getName() %>)<br>
     		<%=top3List.get(0).getModday() %></h4>
     		
-    		<%=top3List.get(0).getContent() %><br>
+    		<%=top3List.get(0).getContent().replace("\n","<br>") %><br>
 	
     		<span class="mybounty"><img class="imagebutton" width="50" src="../image/usd2.png" value="<%=top3List.get(0).getNum()%>" bnum="<%=bnum%>"><b style="font-size:40px; line-height:50px;"><%=top3List.get(0).getBounty() %></b></span><br>
        		<%}
@@ -169,7 +169,7 @@
 				<a class="mylist">
 					<p class="modday"><%=rdto.getModday() %></p> 
 					<h4><%=mdb.getMember(rdto.getMnum()).getName() %>(<%=mdb.getMember(rdto.getMnum()).getMyid() %>)</h4> 
-					<p class="mycontent"><%=rdto.getContent() %></p>
+					<p class="mycontent"><%=rdto.getContent().replace("\n","<br>") %></p>
 					
 					<span class="mybounty" style="float:right;"><img class="imagebutton" width="50" src="../image/usd2.png" value="<%=rdto.getNum()%>" bnum="<%=bnum%>">
 						<b style="font-size:20px; line-height:20px;"><%=rdto.getBounty() %></b>

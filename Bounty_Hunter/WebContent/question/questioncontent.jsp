@@ -56,7 +56,7 @@
 			<br><br><br><br>
 			<div style="text-align:center;"><img src="../image/qmark.png" width="150"><img src="../image/qmark.png" width="150"><img src="../image/qmark.png" width="150"></div>
 			<h1 style="text-align:center;padding-top:30px;"><%=dto.getTitle() %></h1>
-			<p><%=dto.getContent() %></p>
+			<p><%=dto.getContent().replace("\n","<br>") %></p>
 			<div style="position:absolute;bottom:50px; width:600px;">
 				<div class="money" style="display:flex;align-items:center; justify-content: center; margin:0 auto;">
 					<img src="../image/usd2.png" width="60"> 
@@ -83,7 +83,7 @@
 				<a class="mylist">
 					<p class="modday"><%=sdf.format(qdto.getModday()) %></p> 
 					<h4><%=mdb.getMember(qdto.getMnum()).getName() %><%=qdto.getMnum() %>(<%=mdb.getMember(qdto.getMnum()).getMyid() %>)</h4> 
-					<p class="mycontent"><%=qdto.getContent() %></p>
+					<p class="mycontent"><%=qdto.getContent().replace("\n","<br>") %></p>
 					
 						<%
 							if(qdto.getChecked().equals("y")){%>
