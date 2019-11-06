@@ -144,13 +144,14 @@ a {
 }
 
 .boardsee {
+	/* border: 1px solid black; */
+	top:100px;
 	width: 200px;
-    height: 280px;
+    height: 110px;
 	color: white;
 	font-size: 15px;
 	position: absolute;
 	z-index: -100;
-	top: 130px;
 	text-align: center;
        opacity: .9; /* 0.9를 생략해서 .9 로 쓸 수 있음!!*/
     transition: opacity .5s ease-out;
