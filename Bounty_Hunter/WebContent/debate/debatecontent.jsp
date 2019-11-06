@@ -48,6 +48,12 @@
     			
     		});
     		
+    		$(document).on("click","button.btn",function(){
+    			
+    			$(this).parent().submit();
+    			
+    		});
+    		
     	});
     </script>
   </head>
@@ -154,7 +160,7 @@
     					<textarea class="mytextarea" type="text" name="content"></textarea>
     					<input type="hidden" name="bnum" value="<%=bnum%>">
     					<input type="hidden" name="mnum" value="<%=mnum%>">
-    					<input class="mysubmit" type="submit" value="댓글달기">
+    					<button class="btn btn2" ><span>Reply</span></button>
    					 </form>
    			 	</a>
 			</li>
