@@ -66,7 +66,7 @@ $(function(){
    <div class="cover-gray">
    	<div id="super">
       <h3 id="logo">
-         <div onclick="location.href='../main/main.jsp'" style="text-decoration: none;" class="logo">Bounty
+         <div onclick="location.href='../main/main.jsp'" class="logo">Bounty
             Hunter</div>
       </h3>
 
@@ -114,7 +114,7 @@ $(function(){
                   <div id="title"><%=dto.getTitle()%></div>
                   <br>
                   <span id="modday"> <img class ="timeimg" alt="Time" src="../image/icon-clock.png" > &nbsp;<%=sdf.format(dto.getModday())%></span>
-                  &nbsp; &nbsp; &nbsp;
+                  &nbsp; &nbsp;
                  <img class="bountyimg" alt="bountyimg" src="../image/usd2.png"> <span id="bounty" ><%=dto.getBounty()%></span>
                </div>
             </div>
@@ -146,19 +146,23 @@ $(function(){
                <tr>
                   <th style="position: absolute; width: 458px; top:74px; left:265px;">Upload</th>
                   <td style="width: 600px;"><input style="width: 458px; top:-9px;"
-                     type="text" name="upload" /></td>
+                     type="text" name="upload" placeholder="Please choose the best picture for your debate" /></td>
                </tr>
                <tr>
                   <th style="width: 200px; position: absolute; top: 153px; left: 265.7px;">Content</th>
                   <td style="width: 600px;"><textarea style="width: 470px; height: 420px; position:relative; top:-15px; left:5px;"
-                        name="content" id="content" cols="30" rows="10"></textarea></td>
+                       placeholder="What would you like to discuss about?"
+                       name="content" id="content" cols="30" rows="10"></textarea></td>
                </tr>
             </table>
 
             <div class="submitform"
-               style="width: 800px; margin: 0 auto; text-align: center;">
+               style="width: 800px; margin-left:290px; text-align: center; margin-top: -16px;">
                <input type="submit" value="Submit"
                   style="height: 50px; border-radius: 10px; background: #8862b2; border: none; font-family: 'Lobster'; font-size: 30px; cursor: pointer; color: white" />
+         		  &nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="button" value="Back" onclick="location.href='../debate/stableform.jsp'"
+					style="height: 50px; border-radius: 10px; background: #8862b2; border: none; font-family: 'Lobster'; font-size: 30px; cursor: pointer; color: white; width:96px;" />
             </div>
          </form>
          <button class="mybutton">Search</button>

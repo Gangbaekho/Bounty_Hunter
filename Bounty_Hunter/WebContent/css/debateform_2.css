@@ -13,7 +13,7 @@ body {
   width:100%;
   z-index:-300;
   position:absolute;
-      background-size: 100% 100vh;
+  background-size: 100% 100vh;
   /* top:0;
   left:0; */
 }
@@ -35,6 +35,8 @@ body {
   text-decoration: none;
   font-family: "Lobster";
   font-size: 35px;
+  width: 800px;
+  float: left;
 }
 .formtable {
   width: 800px;
