@@ -1,3 +1,5 @@
+<%@page import="data.dto.MemberDTO"%>
+<%@page import="data.db.MemberDB"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -24,6 +26,10 @@
 </head>
 <%
 	String myid = (String)session.getAttribute("myid");
+	MemberDB db = new MemberDB();
+	int mnum = db.getNumByMyid(myid);
+	MemberDTO dto = db.getMember(mnum);
+	int bounty = dto.getBounty();
 %>
 <body>
     <div class="scroll"></div>
@@ -77,6 +83,7 @@
 	         <h3 class="stabledesc">마구간에서 토론을 통해 <br>현상금을 쟁취 해 보세요</h3>
 	     </div>
 	     <img src="../image/cowboy.png" class="centerimg">
+	     <div class="userbounty"><%= myid %>님의 보유액: $<%= bounty %></div>
     </div>
 </body>
 </html>

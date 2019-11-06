@@ -1,3 +1,4 @@
+<%@page import="data.dto.MemberDTO"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="data.dto.MemberHashDTO"%>
 <%@page import="data.db.MemberHashDB"%>
@@ -50,8 +51,10 @@ $(function(){
 <%
    String myid = (String) session.getAttribute("myid");
    MemberDB db = new MemberDB();
-
+   
    int mnum = db.getNumByMyid(myid);
+   MemberDTO mdto = db.getMember(mnum);
+   int bounty = mdto.getBounty();
 
    BoardDB bdb = new BoardDB();
    List<BoardDTO> list = bdb.getAllBoard(mnum);
@@ -65,60 +68,89 @@ $(function(){
    <main class="cd-main-content">
    <div class="cover-gray">
    	<div id="super">
-      <h3 id="logo">
-         <div onclick="location.href='../main/main.jsp'" class="logo">Bounty
-            Hunter</div>
+	  <div class="topinfo">
+	  	<h3 id="logo">
+         <div onclick="location.href='../main/main.jsp'" class="logo">Bounty Hunter</div>
       </h3>
-
-      <h1 id="h1"><%=myid%>'s &nbsp;&nbsp; Stable
-      </h1>
+	  <div class="userbounty"><%= myid %>님의 보유액: $<%= bounty %></div>
+	  </div>
+      <h1 id="h1"><%=myid%>'s &nbsp;&nbsp; Stable</h1>
       <br> <br>
 
-      <div id="superhash">
-         <div id="hash_wrapper">
-            <span id="hash"><%=myid%>님의 해시태그</span> <div class="modify" onclick="location.href='debatehash.jsp'">수정</div>
-         </div>
-         <div class="hashbox">
-            <%
-               for (MemberHashDTO hdto : hlist) {
-            %>
-            <span class="hashcontent">#<%=hdto.getHash()%></span>
-            <%
-               }
-            %>
-         </div>
-      </div>
-      <div class="img_wrapper">
-         <div class="content">
-            <h4 class="stampcontent">
-               <a href="#modal-1" class="cd-btn cd-modal-trigger"
-              	style="padding: 48px;">Create new <br>Debate
-               </a>
-            </h4>
-         </div>
-
+      <div class="centerinfo">
+      	<div id="superhash">
+	         <div id="hash_wrapper">
+	            <span id="hash"><%=myid%>님의 해시태그</span> <div class="modify" onclick="location.href='debatehash.jsp'">수정</div>
+	         </div>
+	         <div class="hashbox">
+	            <%
+	               for (MemberHashDTO hdto : hlist) {
+	            %>
+	            <span class="hashcontent">#<%=hdto.getHash()%></span>
+	            <%
+	               }
+	            %>
+	         </div>
+	      </div>
+	      <div class="img_wrapper">
+	         <div class="content">
+	            <h4 class="stampcontent">
+	               <a href="#modal-1" class="cd-btn cd-modal-trigger">Create new <br>Debate
+	               </a>
+	            </h4>
+	         </div>
+	      </div>
       </div>
 
       <div style="clear: both"></div>
       <div id="board_super">
          <div id="board_wrapper1">
             <%
-               for (BoardDTO dto : list) {
-            %>
-            <div class="board1" >
-               <div class="myimg" bnum="<%=dto.getNum() %>">
-                  <img class="myimg" src="<%=dto.getImage()%>" >
-               </div>
-               <br> <br> <br>
-               <div class="boardsee">
-                  <div id="title"><%=dto.getTitle()%></div>
-                  <br>
-                  <span id="modday"> <img class ="timeimg" alt="Time" src="../image/icon-clock.png" > &nbsp;<%=sdf.format(dto.getModday())%></span>
-                  &nbsp; &nbsp;
-                 <img class="bountyimg" alt="bountyimg" src="../image/usd2.png"> <span id="bounty" ><%=dto.getBounty()%></span>
-               </div>
-            </div>
-            <%
+               for (int i=0; i<list.size(); i++) {
+            	   if(i==0){%>
+            		   <div class="board1" >
+		               <div class="myimg" bnum="<%=list.get(i).getNum() %>">
+		                  <img class="myimg" src="<%=list.get(i).getImage()%>" >
+		               </div>
+		               <br> <br> <br>
+		               <div class="boardsee">
+		                  <div id="title"><%=list.get(i).getTitle()%></div>
+		                  <br>
+		                  <span id="modday"> <img class ="timeimg" alt="Time" src="../image/icon-clock.png" > &nbsp;<%=sdf.format(list.get(i).getModday())%></span>
+		                  &nbsp; &nbsp;
+		                 <img class="bountyimg" alt="bountyimg" src="../image/usd2.png"> <span id="bounty" ><%=list.get(i).getBounty()%></span>
+		               </div>
+		            </div>
+            	  <%}
+               else if(i%4==0){%>
+            		   <div class="board1" style="margin-right: 0;">
+			               <div class="myimg" bnum="<%=list.get(i).getNum() %>">
+			                  <img class="myimg" src="<%=list.get(i).getImage()%>" >
+			               </div>
+			               <br> <br> <br>
+			               <div class="boardsee">
+			                  <div id="title"><%=list.get(i).getTitle()%></div>
+			                  <br>
+			                  <span id="modday"> <img class ="timeimg" alt="Time" src="../image/icon-clock.png" > &nbsp;<%=sdf.format(list.get(i).getModday())%></span>
+			                  &nbsp; &nbsp;
+			                 <img class="bountyimg" alt="bountyimg" src="../image/usd2.png"> <span id="bounty" ><%=list.get(i).getBounty()%></span>
+			               </div>
+			            </div>
+            	  <%} else{%>
+            		  	<div class="board1" >
+			               <div class="myimg" bnum="<%=list.get(i).getNum() %>">
+			                  <img class="myimg" src="<%=list.get(i).getImage()%>" >
+			               </div>
+			               <br> <br> <br>
+			               <div class="boardsee">
+			                  <div id="title"><%=list.get(i).getTitle()%></div>
+			                  <br>
+			                  <span id="modday"> <img class ="timeimg" alt="Time" src="../image/icon-clock.png" > &nbsp;<%=sdf.format(list.get(i).getModday())%></span>
+			                  &nbsp; &nbsp;
+			                 <img class="bountyimg" alt="bountyimg" src="../image/usd2.png"> <span id="bounty" ><%=list.get(i).getBounty()%></span>
+			               </div>
+			            </div>
+            	  <%}
                }
             %>
          </div>

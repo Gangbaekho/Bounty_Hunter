@@ -200,10 +200,10 @@ Gummy Effect
 
 .gummy-transition .cd-btn {
   color: white;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 100;
   text-decoration: none;
-
+  padding-left: 10px;
 }
 
 .gummy-transition .cd-modal {
