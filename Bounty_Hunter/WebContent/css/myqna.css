@@ -34,13 +34,25 @@ body {
   z-index: -2;
   background: rgba(0, 0, 0, 0.2);
 }
-
 .super {
   width: 1300px;
   margin: 0 auto;
   z-index: 1;
   display: flex;
   position: relative;
+}
+.logo{
+	font-family: "Lobster", cursive;
+	font-size: 35px;
+	color: white;
+	text-decoration: none;
+	cursor: pointer;
+	text-align: left;
+	cursor: pointer;
+	z-index: 100;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 .question_main {
   flex: 1;

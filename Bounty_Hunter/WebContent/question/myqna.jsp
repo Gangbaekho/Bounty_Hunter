@@ -27,9 +27,14 @@
 <script type="text/javascript">
 		var q_start=1;
 		var a_start=1;
+		var qn = <%= (qlist.size()-1)/3 %>
+		var an = <%= (alist.size()-1)/3 %>
+
     	$(function(){
     		qlist();
     		alist();
+    		$(".question_left_arrow").css("visibility", "hidden");
+    		$(".answer_left_arrow").css("visibility", "hidden");
     		
     		//question의 왼쪽 화살표 클릭 
     		$(".question_left_arrow").click(function(){
@@ -38,14 +43,36 @@
     			} else{
     				q_start = 1;
     			}
-        		qlist();
+				
+    			//첫 페이지 일 때 (q_start가 1일 때) 왼쪽 화살표 숨기기 
+    			if(q_start==1){
+    				$(".question_left_arrow").css("visibility", "hidden");
+    			}
+    			
+    			//끝 페이지가 아닐 때 오른쪽 화살표 보이기 
+    			if(q_start!=3*qn+1){
+    				$(".question_right_arrow").css("visibility", "visible");
+    			}
+    			
+				qlist();
     		});
     		
     		//question의 오른쪽 화살표 클릭 
     		$(".question_right_arrow").click(function(){
-    			if(q_start>0 && q_start+3<<%=qlist.size()%>){
+    			if(q_start>0 && q_start+2<<%=qlist.size()%>){
 					q_start += 3;
     			}
+    			
+    			//첫 페이지 아닐 때(q_start가 1이 아닐 때) 왼쪽 화살표 보이도록 하기 
+        		if(q_start!=1){
+        			$(".question_left_arrow").css("visibility", "visible");
+        		}
+    			
+    			//끝 페이지 일 때 (q_start==list.size())일 때 오른 쪽 화살표 숨기기 
+    			if(q_start==3*qn+1){
+    				$(".question_right_arrow").css("visibility", "hidden");
+    			}
+    			
         		qlist();
     		});
     			
@@ -56,17 +83,39 @@
     			} else{
     				a_start = 1;
     			}
+    			
+    			//첫 페이지 일 때 (a_start가 1일 때) 왼쪽 화살표 숨기기 
+    			if(a_start==1){
+    				$(".answer_left_arrow").css("visibility", "hidden");
+    			}
+    			
+    			//끝 페이지가 아닐 때 오른쪽 화살표 보이기 
+    			if(a_start!=3*an+1){
+    				$(".answer_right_arrow").css("visibility", "visible");
+    			}
+    			
         		alist();
     		});
     		
     		//answer의 오른쪽 화살표 클릭 
     		$(".answer_right_arrow").click(function(){
-    			if(a_start>0 && a_start+3<<%=alist.size()%>){
+    			if(a_start>0 && a_start+2<<%=alist.size()%>){
 					a_start += 3;
     			}
+    			
+    			//첫 페이지 아닐 때(a_start가 1이 아닐 때) 왼쪽 화살표 보이도록 하기 
+        		if(a_start!=1){
+        			$(".answer_left_arrow").css("visibility", "visible");
+        		}
+    			
+    			//끝 페이지 일 때 (a_start==list.size())일 때 오른 쪽 화살표 숨기기 
+    			if(a_start==3*an+1){
+    				$(".answer_right_arrow").css("visibility", "hidden");
+    			}
+    			
         		alist();
     		});
-    		
+
     });   
 
 	
@@ -141,6 +190,7 @@
 	<div class="myanswer"></div>
 
 	<div class="super">
+		<a class="logo" href="../main/main.jsp"> Bounty Hunter </a>
 		<div class="question_main">
 			<h1 class="subject1">Q&nbsp;&nbsp;</h1>
 			<div class="content">

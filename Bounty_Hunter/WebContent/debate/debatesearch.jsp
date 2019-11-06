@@ -125,8 +125,7 @@
 			<div class="logo" onclick="location.href='../main/main.jsp'">Bounty Hunter</div>
 			<div class="searchbar">
 				<div class="hashcontainer">
-					<input type="text" id="dsearch" name="dsearch" required autofocus>
-					<div class="hashtag"></div>
+					<input type="text" id="dsearch" name="dsearch" placeholder="What would you like to search? (*title*)" required autofocus>
 				</div>
 				<img src="../image/mglass.png" alt="magnifying glass" id="mglass">
 				<div id="out"></div>
