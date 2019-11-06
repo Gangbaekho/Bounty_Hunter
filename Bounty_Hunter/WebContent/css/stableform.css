@@ -14,12 +14,13 @@ html, body {
 }
 #logo {
 	font-family:"Lobster", cursive;
-	font-size:35px;
+	font-size: 35px;
 	color:white;
 	text-decoration:none;
 	cursor:pointer;
 	width: 300px;
     float: left;
+    margin-top: 20px;
 }
 
 .logo: hover{

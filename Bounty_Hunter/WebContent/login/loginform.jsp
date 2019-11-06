@@ -14,34 +14,7 @@
 <link rel="stylesheet"
           href="http://fonts.googleapis.com/css?family=Lobster">
 <link rel="stylesheet" href="style.css">
-<style type="text/css">
-	#mylogin:hover{
-		cursor: pointer;
-		font-weight: bold;
-	}
-	
-	#mylogin{
-		padding-top: 40px;
-	}
-   	svg {
-    width: 70%;
-    border-radius: 50%;
-    background: #fff;
-    margin-bottom: 40px;
-    align-self: center;
-    transform-style: preserve-3d;
-        }
-
-    input {
-    font-size: 16px;
-    border: 0;
-    border-radius: 5px;
-    outline: 0;
-    padding: 10px 15px;
-    margin-top: 15px;
-    }
-
-</style>
+<link rel="stylesheet" type="text/css" href="../css/loginform.css" />
 <script type="text/javascript">
 $(function(){
 	$("#mylogin").click(function(){
