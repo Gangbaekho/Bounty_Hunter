@@ -14,6 +14,14 @@
 <link rel="stylesheet" href="../css/questioncontent.css" />
 <link href="https://fonts.googleapis.com/css?family=Lobster|Nanum+Myeongjo|Special+Elite&display=swap" rel="stylesheet">
 <title>Insert title here</title>
+<script>
+
+	$(document).on("click","button.btn",function(){
+		
+		$(this).parent().submit();
+		
+	});
+</script>
 </head>
 <%
 	String myid = (String)session.getAttribute("myid");
@@ -57,7 +65,7 @@
     					<textarea class="mytextarea" type="text" name="content"></textarea>
     					<input type="hidden" name="qnum" value="<%=qnum%>">
     					<input type="hidden" name="mnum" value="<%=mnum%>">
-    					<input class="mysubmit" type="submit" value="댓글달기">
+    					<button class="btn btn2" ><span>Reply</span></button>
    					 </form>
    			 	</a>
 			</li>
@@ -83,7 +91,7 @@
 						<input type="hidden" name="num" value="<%=qdto.getNum() %>">
 						<input type="hidden" name="bounty" value="<%=dto.getBounty() %>">
 						<input type="hidden" name="qnum" value="<%=qnum%>">
-						<input type="submit" value="채택하기">
+						<button class="btn" ><span>Choose this reply</span></button>
 					</form>
 						
 					<%}

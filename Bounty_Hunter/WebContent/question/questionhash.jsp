@@ -15,6 +15,7 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Lobster&display=swap"
 	rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Lobster|Nanum+Myeongjo&display=swap" rel="stylesheet">
 <title>Bounty Hunter</title>
 <script>
       $(function() {

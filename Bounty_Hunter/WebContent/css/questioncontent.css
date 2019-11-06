@@ -122,6 +122,9 @@ span {
   text-align:center;
   cursor:pointer;
 }
+#frm{
+	display:flex;
+}
 .imagebutton{
 	cursor:pointer;
 	width:30px;
@@ -151,6 +154,7 @@ span {
 	margin-top:0px;
 	margin-bottom:0px;
 	font-family:'Nanum Myeongjo' !important;
+	font-size:18px;
 }
 .mylist .mycontent{
 	padding-left:30px;
@@ -160,10 +164,14 @@ span {
 padding:0px;
 margin:0px;
 font-family:'Nanum Myeongjo' !important;
+font-size:20px;
+}
+.mylist .modday{
+font-size:18px;
 }
 
 .mylist b{
-	font-size:20px;
+	font-size:30px;
 	font-family:'Nanum Myeongjo' !important;
 }
 
@@ -176,7 +184,7 @@ ol{
 	list-style-type: none;
 }
 .mytextarea{
-	width:800px;
+	width:700px;
 	background:white;
 	border:none;
 	height:100px;
@@ -209,6 +217,7 @@ border-bottom-right-radius:4px;
 -moz-border-radius-topright:4px;
 -webkit-border-top-right-radius:4px;
 border-top-right-radius:4px;
+padding-right: 10px;
 }
 
 .list-type3 a:before{
@@ -251,3 +260,70 @@ border-color:transparent #ECB765 transparent transparent;
 /*
 	위에까지 그냥 싹다 배낌.
 */
+.btn {
+  border: none;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  font-weight: 700;
+  font-size: 15px;
+  background-color: #222;
+  padding: 10px 40px;
+  margin: 10px auto;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+ 
+}
+
+.btn span {
+  position: relative; 
+  font-size:15px;
+  z-index: 1;
+}
+
+.btn:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 380%;
+  width: 140%;
+  background: #78c7d2;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+  transform: translateX(-98%) translateY(-25%) rotate(45deg);
+}
+.btn2:after {
+  content: "";
+  position: absolute;
+  left: -25px;
+  top: -10px;
+  height: 200%;
+  width: 200%;
+  background: #78c7d2;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+  transform: translateX(-98%) translateY(-25%) rotate(45deg);
+}
+
+
+.btn:hover:after {
+  -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  transform: translateX(-9%) translateY(-25%) rotate(45deg);
+}
+
+.link {
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+.link a {
+  color: #000;
+  font-size: 25px; 
+}
