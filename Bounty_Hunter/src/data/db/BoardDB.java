@@ -17,7 +17,7 @@ public class BoardDB {
 	//mnum에 해당하는 회원이 작성한 전체 Board 가져오기
 	public List<BoardDTO> getAllBoard(int mnum) {
 		List<BoardDTO> list = new Vector<>();
-		String sql = "select * from board where mnum=?";
+		String sql = "select * from board where mnum=? order by num desc";
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

@@ -8,6 +8,7 @@
     z-index: -20;
 }
 .super{
+	position: relative;
 	width: 950px;
 	margin: auto;
 }
@@ -15,8 +16,8 @@
 	position: absolute;
 	z-index: -4;
 	width: 200px;
-	top: 40vh;
-	left: 43.5vw;
+	top: 32vh;
+	left: 25.5vw;
 }
 .scroll {
     position: absolute;
@@ -344,8 +345,7 @@ height: 100%;
 }
 .container-2{
 	position:absolute;
-	top:100px;
-	right:200px;
+	top:83px;
+	left: 820px;
 	font-size:20px;
-
 }

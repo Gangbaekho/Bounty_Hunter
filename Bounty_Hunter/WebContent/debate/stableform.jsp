@@ -132,11 +132,13 @@ $(function(){
    <div class="cd-modal" id="modal-1">
       <div class="cover-gray"></div>
       <div class="debatecover"></div>
-       <h2 class="logo">
-          <a href="../main/main.jsp">Bounty Hunter</a>
-       </h2>
+      <div class="logo_align">
+      	  <div class="logo">
+	        <span onclick="location.href='../main/main.jsp'">Bounty Hunter</span>
+	      </div>
+      </div>
       <div class="super">
-         <form action="debateaction.jsp" method="post" id="frm" style="margin-top: 100px;">
+         <form action="debateaction.jsp" method="post" id="frm">
             <table class="formtable">
                <tr>
                   <th style="position: absolute; top:-5px;">Subject</th>
@@ -165,7 +167,7 @@ $(function(){
 					style="height: 50px; border-radius: 10px; background: #8862b2; border: none; font-family: 'Lobster'; font-size: 30px; cursor: pointer; color: white; width:96px;" />
             </div>
          </form>
-         <button class="mybutton">Search</button>
+         <button type="button" class="mybutton">Search</button>
       </div>
       <a href="#0" class="modal-close">Close</a>
    </div>

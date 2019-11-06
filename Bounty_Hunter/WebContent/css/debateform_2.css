@@ -14,8 +14,6 @@ body {
   z-index:-300;
   position:absolute;
   background-size: 100% 100vh;
-  /* top:0;
-  left:0; */
 }
 .debatecover{
 	z-index:-10;
@@ -30,20 +28,35 @@ body {
 	background-size:100% 100%;
 	background-image:no-repeat;
 }
-.logo a {
+.logo_align{
+	text-align: left;
+	width: 1300px;
+	position: absolute;
+	top: 0;
+	left: 70px;
+	margin-top: 20px;
+}
+.logo{
   color: white;
   text-decoration: none;
   font-family: "Lobster";
   font-size: 35px;
-  width: 800px;
+  width: 1300px;
   float: left;
+}
+.logo:hover{
+	color: white;
+	text-decoration: none;
+	cursor: pointer;
+}
+#frm{
+	margin-top: 100px;
 }
 .formtable {
   width: 800px;
   height:603px;
   margin: 0 auto;
 }
-
 .formtable th {
   font-size: 60px;
   font-family: "Lobster";
