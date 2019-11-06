@@ -27,14 +27,14 @@
 <link rel="stylesheet" href="../css/style.css">
 <!-- Resource style -->
 <link rel="stylesheet" href="../css/stableform.css">
-<link rel="stylesheet" href="../css/debateform.css">
+<link rel="stylesheet" href="../css/debateform_2.css">
 
 <title>Bounty Hunter</title>
 
 <script>
 $(function(){
 	
-	$(document).on("click",".board1",function(){
+	$(document).on("click",".myimg",function(){
 		
 		var bnum = $(this).attr("bnum");
 		
@@ -63,10 +63,11 @@ $(function(){
 
 <body class="gummy-transition">
    <main class="cd-main-content">
-   <div id="super">
-      <h3 id="h3">
-         <a href="../main/main.jsp" style="text-decoration: none;">Bounty
-            Hunter</a>
+   <div class="cover-gray">
+   	<div id="super">
+      <h3 id="logo">
+         <div onclick="location.href='../main/main.jsp'" style="text-decoration: none;" class="logo">Bounty
+            Hunter</div>
       </h3>
 
       <h1 id="h1"><%=myid%>'s &nbsp;&nbsp; Stable
@@ -75,7 +76,7 @@ $(function(){
 
       <div id="superhash">
          <div id="hash_wrapper">
-            <span id="hash"><%=myid%>님의 해시태그</span> <a class="modify" href="debatehash.jsp">수정</a>
+            <span id="hash"><%=myid%>님의 해시태그</span> <div class="modify" onclick="location.href='debatehash.jsp'">수정</div>
          </div>
          <div class="hashbox">
             <%
@@ -89,9 +90,9 @@ $(function(){
       </div>
       <div class="img_wrapper">
          <div class="content">
-            <h4 id="h4">
+            <h4 class="stampcontent">
                <a href="#modal-1" class="cd-btn cd-modal-trigger"
-                  style="padding: 53px;">Create new <br>Debate
+              	style="padding: 48px;">Create new <br>Debate
                </a>
             </h4>
          </div>
@@ -104,15 +105,15 @@ $(function(){
             <%
                for (BoardDTO dto : list) {
             %>
-            <div class="board1" bnum="<%=dto.getNum() %>">
-               <div >
-                  <img class="myimg" src="<%=dto.getImage()%>">
+            <div class="board1" >
+               <div class="myimg" bnum="<%=dto.getNum() %>">
+                  <img class="myimg" src="<%=dto.getImage()%>" >
                </div>
                <br> <br> <br>
-               <div class="boardsee" bnum="<%=dto.getNum() %>">
+               <div class="boardsee">
                   <div id="title"><%=dto.getTitle()%></div>
                   <br>
-                  <span id="modday"> <img class ="timeimg" alt="Time" src="../image/icon-clock.png"> &nbsp;<%=sdf.format(dto.getModday())%></span>
+                  <span id="modday"> <img class ="timeimg" alt="Time" src="../image/icon-clock.png" > &nbsp;<%=sdf.format(dto.getModday())%></span>
                   &nbsp; &nbsp; &nbsp;
                  <img class="bountyimg" alt="bountyimg" src="../image/usd2.png"> <span id="bounty" ><%=dto.getBounty()%></span>
                </div>
@@ -123,30 +124,33 @@ $(function(){
          </div>
       </div>
    </div>
+   </div>
+   
    </main>
    <!-- .cd-main-content -->
 
    <div class="cd-modal" id="modal-1">
       <div class="cover-gray"></div>
+      <div class="debatecover"></div>
+       <h2 class="logo">
+          <a href="../main/main.jsp">Bounty Hunter</a>
+       </h2>
       <div class="super">
-         <h2 class="logo">
-            <a href="#">Bounty Hunter</a>
-         </h2>
-         <form action="debateaction.jsp" method="post" id="frm">
+         <form action="debateaction.jsp" method="post" id="frm" style="margin-top: 100px;">
             <table class="formtable">
                <tr>
-                  <th style="width: 200px;">Subject</th>
-                  <td style="width: 600px;"><input style="width: 450px;"
+                  <th style="position: absolute; top:-5px;">Subject</th>
+                  <td style="width: 600px;"><input style="width: 458px;"
                      type="text" name="subject" /></td>
                </tr>
                <tr>
-                  <th style="width: 200px;">Upload</th>
-                  <td style="width: 600px;"><input style="width: 450px;"
+                  <th style="position: absolute; width: 458px; top:74px; left:265px;">Upload</th>
+                  <td style="width: 600px;"><input style="width: 458px; top:-9px;"
                      type="text" name="upload" /></td>
                </tr>
                <tr>
-                  <th style="width: 200px;">Content</th>
-                  <td style="width: 600px;"><textarea style="width: 450px;"
+                  <th style="width: 200px; position: absolute; top: 153px; left: 265.7px;">Content</th>
+                  <td style="width: 600px;"><textarea style="width: 470px; height: 420px; position:relative; top:-15px; left:5px;"
                         name="content" id="content" cols="30" rows="10"></textarea></td>
                </tr>
             </table>

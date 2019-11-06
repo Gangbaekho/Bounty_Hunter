@@ -1,21 +1,10 @@
-/* debateform.jsp ��׶���� css */
-.cover-gray{
-  width: 100%;
-  height: 100%;
-  background: rgb(0, 0, 0, 0.7);
-  z-index: -10;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 /* -------------------------------- 
 
 Primary style
 
 -------------------------------- */
 *, *::after, *::before {
-  box-sizing: border-box;
+
 }
 
 html {
@@ -25,10 +14,6 @@ html {
 body {
   font-size: 16px;
   background-color: #ffffff;
-}
-
-a {
-  text-decoration: none;
 }
 
 /* -------------------------------- 
@@ -217,6 +202,7 @@ Gummy Effect
   font-size: 30px;
   font-weight: 100;
   text-decoration: none;
+
 }
 
 .gummy-transition .cd-modal {
@@ -249,8 +235,11 @@ Gummy Effect
           animation: cd-sequence 0.8s steps(24) forwards reverse;
 }
 
-  .gummy-transition h2 {
-    font-size: 5.8rem;
+  .gummy-transition .logo {
+	position: absolute;
+    top: 23px;
+    left: 300.01px;
+    font-weight: bold;
   }
 
 

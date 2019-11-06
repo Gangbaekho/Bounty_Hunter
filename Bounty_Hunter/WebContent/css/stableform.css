@@ -1,23 +1,21 @@
 html, body {
 	height: 100%;
 }
-
-body {
-	height: 100%;
-	background: rgba(0, 0, 0, 0.7);
-}
-
 #super {
 	width: 1300px;
-	height: 100%;
 	margin: auto;
 }
 
-#h3 {
-	font-family: "Lobster", cursive;
-	font-size: 35px;
-	color: white;
-	text-decoration: none;
+#logo {
+	font-family:"Lobster", cursive;
+	font-size:35px;
+	color:white;
+	text-decoration:none;
+	cursor:pointer;
+}
+
+.logo: hover{
+	cursor: pointer;
 }
 
 #h1 {
@@ -29,7 +27,7 @@ body {
 	font-weight: 100;
 }
 
-#h4 {
+.stampcontent {
 	font-size: 45%;
 	text-shadow: #212121 5px 5px 5px;
 	font-family: Lobster;
@@ -39,12 +37,21 @@ body {
 #superhash {
 	width: 1000px;
 	height: 117px;
-	border: thin solid white;
+	/* border: thin solid white; */
 	float: left;
+}
+
+.modify{
+	float:right;
+	font-size: 23px;
+	color: white;
+
+	cursor:pointer;
 }
 
 #hash {
 	color: white;
+	font-size: 26px;
 }
 
 a {
@@ -57,15 +64,16 @@ a {
 }
 
 .hashbox {
-	width: 70%;
+	width: 100%;
 	height: 100px;
 	border: medium solid white;
 	float: left;
 	border-style: ridge;
+	margin-top: 15px;
 }
 
 .hashcontent {
-	height: 28px;
+	height: 35px;
 	background: #8862b2;
 	border-radius: 5px;
 	border: none;
@@ -73,8 +81,9 @@ a {
 	margin: 3px;
 	float: left;
 	font-family: "Nanum Myeongjo", serif;
-	font-size: 20px;
+	font-size: 23px;
 	padding: 7px;
+	
 }
 
 .img_wrapper {
@@ -104,11 +113,10 @@ a {
 #board_super {
 	/*border: 1px solid black;*/
 	width:1300px;
-	height:100%;
 }
 
 #board_wrapper1 {
-	border:1px solid black;
+	/* border:1px solid black;*/	
 	height:300px;
 }
 
@@ -120,7 +128,7 @@ a {
 	border-style:ridge;
 	text-align:center;
 	margin-right:44px;
-	margin-bottom:10px;
+	margin-bottom:45px;
 	position:relative;
 	cursor:pointer;
 }
@@ -158,12 +166,13 @@ a {
 
 .board1 :hover .boardsee {
   opacity:0;
+  z-index:200;
 
 }
 
-.modify: hover{
-	color: yellow;
-	text-decoration: none;
+.modify:hover{
+	color: white;
+	text-decoration:underline;
 }
 
 #title{
