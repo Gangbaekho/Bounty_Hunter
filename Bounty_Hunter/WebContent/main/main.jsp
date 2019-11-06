@@ -10,6 +10,17 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/main.css" />
     <link href="https://fonts.googleapis.com/css?family=Lobster|Nanum+Myeongjo&display=swap" rel="stylesheet">
+	<script>
+	 $(function(){
+		
+		 $(".btn-two").click(function(){
+			
+			 location.href="../login/logoutaction.jsp";
+			
+		 });
+		 
+	 });
+	</script>
 </head>
 <%
 	String myid = (String)session.getAttribute("myid");
@@ -19,6 +30,11 @@
     <div class="cover-purple"></div>
     <div class="cover-gray"></div>
     <div class="super">
+    	 <div class="container-2">
+   			 <div class="btn btn-two" style="display:flex; align-items:center;justify-content: center;">
+     			 <span style="font-size:15px;">Logout</span>
+   			 </div>
+  		</div>
     	<div id="logo">
 	        <h1> Bounty Hunter </h1>
 	    </div>

@@ -12,7 +12,7 @@
 <%
 		//세션에서 loginok 만 삭제하고 메인으로 이동
 		session.removeAttribute("loginok");
-		response.sendRedirect("../");
+		response.sendRedirect("../index.jsp");
 
 %>
 </body>
