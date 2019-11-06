@@ -3,6 +3,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   background:rgba(0,0,0,0.7);
+  font-family:'Nanum Myeongjo' !important;
 
 }
 .container {
@@ -26,6 +27,7 @@ span {
   z-index: 1;
   margin: 0 auto;
   position: relative;
+  font-family:'Nanum Myeongjo' !important;
 }
 
 .wanted {
@@ -148,17 +150,21 @@ span {
 	padding-bottom:0px;
 	margin-top:0px;
 	margin-bottom:0px;
+	font-family:'Nanum Myeongjo' !important;
 }
 .mylist .mycontent{
 	padding-left:30px;
+	font-family:'Nanum Myeongjo' !important;
 }
 .mylist p{
 padding:0px;
 margin:0px;
+font-family:'Nanum Myeongjo' !important;
 }
 
 .mylist b{
 	font-size:20px;
+	font-family:'Nanum Myeongjo' !important;
 }
 
 .list-type3{

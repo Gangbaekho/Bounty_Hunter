@@ -14,10 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <link rel="stylesheet" href="../css/debatecontent.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Lobster|Special+Elite&display=swap"
-      rel="stylesheet"
-    />
+<link href="https://fonts.googleapis.com/css?family=Lobster|Nanum+Myeongjo|Special+Elite&display=swap" rel="stylesheet">
     <script src="../js/numberAnimate.js"></script>
     <title>Bounty Hunter</title>
     <script>
@@ -83,6 +80,7 @@
   <body>
     <div class="wall_background"></div>
     <div class="super">
+    <a class="logo" href="../main/main.jsp">Bounty Hunter</a>
       <div class="wanted">
         <p class="wanted_head">Wanted</p>        
         <h3 class="dora">DEAD or ALIVE</h3>
@@ -144,7 +142,7 @@
        		%>
         </div>
         <div class="tape"></div>
-		<div class="stamp" id="end">종료하기</div>
+		<div class="stamp" id="end">Finish</div>
       </div>
     </div>
 

@@ -42,7 +42,7 @@ body{
 
 .link {
   color: white;
-  font-family: "Atomic Age", cursive;
+  font-family: 'Nanum Myeongjo', cursive;
   font-size: 25px;
   font-weight: 700;
   line-height: 20px;
@@ -166,4 +166,7 @@ background-color: #ECB765;
 	width: 30px;
 }
 
+.col, li{
+	font-family:'Nanum Myeongjo';
+}
 

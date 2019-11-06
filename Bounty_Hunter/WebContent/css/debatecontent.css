@@ -3,7 +3,16 @@ body {
   padding: 0;
   box-sizing: border-box;
   background:rgba(0,0,0,0.7);
-
+  font-family:'Nanum Myeongjo' !important; 
+}
+.logo{
+	font-family:"Lobster";
+	font-size:35px;
+	position:absolute;
+	left:0px;
+	top:0px;
+	text-decoration: none;
+	color:white;
 }
 .container {
         margin: 150px auto;
@@ -61,8 +70,8 @@ span {
   position: absolute;
   padding-top: 40px;
   top: 100px;
-  left: -150px;
-  width: 500px;
+  left: -50px;
+  width: 400px;
   height: 200px;
   background-image: url(../image/post3.png);
   background-size: 100% 100%;
@@ -94,10 +103,10 @@ span {
 
 .top2_reply {
   position: absolute;
-  width: 400px;
+  width: 360px;
   height: 400px;
   top: 130px;
-  right: -120px;
+  right: -70px;
   background-image: url(../image/post1.png);
   background-size: 100% 100%;
 }
@@ -113,12 +122,13 @@ span {
   line-height: 200px;
   color: white;
   font-family: "Lobster";
-  font-size: 35px;
+  font-size: 50px;
   background-image: url(../image/stamp.png);
   background-size: 100% 100%;
   cursor: pointer;
   text-align:center;
   cursor:pointer;
+  font-family:"Lobster" !important;
 }
 .imagebutton{
 	cursor:pointer;
@@ -148,17 +158,21 @@ span {
 	padding-bottom:0px;
 	margin-top:0px;
 	margin-bottom:0px;
+	 font-family:'Nanum Myeongjo' !important; 
 }
 .mylist .mycontent{
 	padding-left:30px;
+	 font-family:'Nanum Myeongjo' !important; 
 }
 .mylist p{
 padding:0px;
 margin:0px;
+ font-family:'Nanum Myeongjo' !important; 
 }
 
 .mylist b{
 	font-size:20px;
+	 font-family:'Nanum Myeongjo' !important; 
 }
 
 .list-type3{
