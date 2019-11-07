@@ -115,9 +115,18 @@
              
               alist();
           });
+          
+          
+          $(document).on("click","h3",function(){
+        	 
+        	  var qnum = $(this).attr("num");
+        	  location.href="questioncontent.jsp?qnum="+qnum;
+        	  
+        	  
+          });
 
-    });   
-
+    });  
+       
    
    function qlist(){
       $.ajax({
@@ -129,9 +138,9 @@
             str = '<ul class="timeline-list">';
             $(data).find("myqna").each(function(idx){
                var s = $(this);
-               str += '<li>';
+               str += '<li>'
                 str += '<div class="content">';
-               str += '<h3>'+s.find("title").text()+'<span class="modday">'+s.find("modday").text()+'</span></h3>';
+               str += '<h3 num="'+s.find("qnum").text()+'">'+s.find("title").text()+'<span class="modday">'+s.find("modday").text()+'</span></h3>';
                str += '<p>';
                str += s.find("content").text();
                str += '</p>';
@@ -163,7 +172,7 @@
                   var s = $(this);
                   str += '<li>';
                    str += '<div class="content">';
-                  str += '<h3>'+s.find("title").text()+'<span class="modday">'+s.find("modday").text()+'</span></h3>';
+                  str += '<h3 num="'+s.find("qnum").text()+'">'+s.find("title").text()+'<span class="modday">'+s.find("modday").text()+'</span></h3>';
                   str += '<p>';
                   str += s.find("content").text();
                   str += '</p>';

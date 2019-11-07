@@ -36,6 +36,7 @@
 				<modday><%= sdf.format(dto.getModday()) %></modday>
 				<bounty><%= dto.getBounty() %></bounty>
 				<listsize><%= list.size() %></listsize>
+				<qnum><%= dto.getNum() %></qnum>
 			</myqna>
 		<%}
 	%>

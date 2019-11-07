@@ -364,7 +364,7 @@ public class QuestionDB {
 	//해당 회원이 작성한 댓글의 원글 제목 가져오기 
 	public List<QuestionDTO> getQtitleByMnum(int mnum) {
 		List<QuestionDTO> list = new Vector<>();
-		String sql = "select q.title from question q, qreply qr where qr.mnum=? and qr.qnum=q.num";
+		String sql = "select q.title,q.num from question q, qreply qr where qr.mnum=? and qr.qnum=q.num";
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -377,6 +377,7 @@ public class QuestionDB {
 			while (rs.next()) {
 				QuestionDTO dto = new QuestionDTO();
 				dto.setTitle(rs.getString("title"));
+				dto.setNum(rs.getInt("num"));
 				list.add(dto);
 			}
 		} catch (SQLException e) {

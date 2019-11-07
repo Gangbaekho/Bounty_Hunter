@@ -42,6 +42,7 @@
 				<modday><%= sdf.format(list.get(i).getModday()) %></modday>
 				<listsize><%= list.size() %></listsize>
 				<title><%=tlist.get(i).getTitle() %></title>
+				<qnum><%=tlist.get(i).getNum() %></qnum>
 			</myqna>
 		<%}
 	%>
