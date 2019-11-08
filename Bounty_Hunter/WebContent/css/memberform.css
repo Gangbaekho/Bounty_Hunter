@@ -26,7 +26,7 @@
 	position: absolute;
 }
 .jointable{
-	background: white;
+	background: rgb(255, 255, 255, 0.8);
 	vertical-align: middle !important;
 }
 caption{
@@ -39,6 +39,11 @@ caption{
 .jointable th{
 	text-align: center;
 	width: 150px !important;
+	height: 30px !important;
+	line-height: 51px !important;
+}
+.jointable td{
+	width: 350px !important;
 	height: 30px !important;
 	line-height: 51px !important;
 }

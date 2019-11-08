@@ -5,6 +5,12 @@
 <head>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="../css/debateupload_search.css" />
+<link	href="https://fonts.googleapis.com/css?family=Lobster|Nanum+Myeongjo&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <style>
 img{
 cursor:pointer;
@@ -26,6 +32,7 @@ margin:10px;
 		});
 		
 		$("#btn1").click(function(){
+			$("#out").empty();
 			
 			var genre = $("#sel").val();
 			var word = $("#word").val();
@@ -61,14 +68,21 @@ margin:10px;
 </script>
 </head>
 <body>
-<input type="text" id="word"><br>
-<button type="button" id="btn1">Search</button>
-<select id="sel">
-	<option value="book">도서</option>
-	<option value="movie">영화</option>
-	<option value="image">이미지</option>
-</select>
-<div id="out">
-</div>
+	<div class="bgimg">
+		<div class="location">
+			<div class="super">
+				<div class="align-item">
+					<select id="sel" class="form-control">
+						<option value="book">도서</option>
+						<option value="movie">영화</option>
+						<option value="image">이미지</option>
+					</select>
+					<input type="text" id="word" class="form-control" autofocus required><br>
+					<button type="button" id="btn1">Search</button>
+				</div>
+				<div id="out"></div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

@@ -17,8 +17,8 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/debatesearch.css" />
 <link
-	href="https://fonts.googleapis.com/css?family=Lobster&display=swap"
-	rel="stylesheet" />
+	href="https://fonts.googleapis.com/css?family=Lobster|Nanum+Myeongjo&display=swap"
+	rel="stylesheet">
 <script type="text/javascript">
 		$(function(){
 			

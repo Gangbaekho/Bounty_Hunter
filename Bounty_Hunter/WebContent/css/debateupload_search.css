@@ -1,0 +1,54 @@
+body{
+	margin: 0px;
+}
+.bgimg {
+	background-image: url("../image/search.jpeg");
+	width: 100%;
+	height: 100%;
+	background-size: 100% 100vh;
+	background-repeat: repeat-y;
+	position: relative;
+} 
+.location{
+	
+}
+.super {
+	width: 1300px;
+	min-height: 100vh;
+	margin: auto;
+}
+.align-item{
+	padding-bottom: 50px;
+	display: flex;
+	justify-content: center;
+}
+#sel{
+	width: 150px;
+    height: 40px;
+    font-size: 20px;
+    font-family: 'Nanum Myeongjo', serif;
+    margin: 50px 10px;
+}
+#word{
+	width: 300px;
+    height: 40px;
+    font-size: 20px;
+    font-family: 'Nanum Myeongjo', serif;
+    margin: 50px 10px;
+}
+#btn1{
+	width: 150px;
+    height: 40px;
+    font-size: 20px;
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 7px;
+    background: #8862B2;
+    color: white;
+    float: left;
+    margin: 50px 10px;
+}
+#out{
+	text-align: center;
+}

@@ -180,6 +180,7 @@
 			%>
 		
 		</ol>
+		<div class="space"></div>
 	</div>
     <form action="debategivemoneyaction.jsp" method="get" id="frm1">
     	<input type="hidden" name="writer" value="<%=bnum %>">    	

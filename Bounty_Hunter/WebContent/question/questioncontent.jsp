@@ -82,7 +82,7 @@
 			<li>
 				<a class="mylist">
 					<p class="modday"><%=sdf.format(qdto.getModday()) %></p> 
-					<h4><%=mdb.getMember(qdto.getMnum()).getName() %><%=qdto.getMnum() %>(<%=mdb.getMember(qdto.getMnum()).getMyid() %>)</h4> 
+					<h4><%=mdb.getMember(qdto.getMnum()).getName() %>&nbsp;(<%=mdb.getMember(qdto.getMnum()).getMyid() %>)</h4> 
 					<p class="mycontent"><%=qdto.getContent().replace("\n","<br>") %></p>
 					
 						<%
@@ -112,6 +112,9 @@
 			%>
 		
 		</ol>
+		<div class="space"></div>
 	</div>
+	</div>
+	
 </body>
 </html>

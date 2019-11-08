@@ -199,7 +199,7 @@ $(function(){
 					style="height: 50px; border-radius: 10px; background: #8862b2; border: none; font-family: 'Lobster'; font-size: 30px; cursor: pointer; color: white; width:96px;" />
             </div>
          </form>
-         <button type="button" class="mybutton">Search</button>
+         <button type="button" class="mybutton" onclick="location.href='debateupload_search.jsp'">Search</button>
       </div>
       <a href="#0" class="modal-close">Close</a>
    </div>

@@ -102,7 +102,7 @@
 									required="required"
 									maxlength="10"
 									style="width: 150px;"
-									placeholder="password2">	
+									placeholder="password">	
 							</td>
 						</tr>
 						
