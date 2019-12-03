@@ -196,6 +196,8 @@ ol{
 	margin-top:10px;
 	margin-bottom:10px;
 	padding:10px;
+	font-size: 17px;
+	font-family:'Nanum Myeongjo' !important;
 }
 .mytextarea:focus{
 	outline: none;
