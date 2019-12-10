@@ -26,7 +26,7 @@
 	QuestionDB Qdb = new QuestionDB();
 	Qdb.questionIsChecked(qnum);
 	
-	response.sendRedirect("../main/main.jsp");
+	response.sendRedirect("../question/questioncontent.jsp?qnum="+qnum);
 %>
 </body>
 </html>

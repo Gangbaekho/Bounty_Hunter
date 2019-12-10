@@ -50,7 +50,7 @@
 								} else{
 									str += '<div class="col col-2" data-label="Customer Name"><img src="../image/unchecked.svg" id="checked"></div>'; 
 								}
-								str += '<div class="col col-3" data-label="Amount" style="text-align: left; padding-left: 25px;">'+s.find("title").text()+'</div>';
+								str += '<div class="col col-3 qtitle" data-label="Amount" style="text-align: left; padding-left: 25px;">'+s.find("title").text()+'</div>';
 						       	str += '<div class="col col-4" data-label="Payment Status" style="text-align: right; padding-right: 25px;">'+s.find("modday").text()+'</div>';
 						        str += ' </li>';
 							});

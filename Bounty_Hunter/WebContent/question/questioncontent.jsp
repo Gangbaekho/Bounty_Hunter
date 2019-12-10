@@ -17,7 +17,7 @@
 <title>Insert title here</title>
 <script>
 
-	$(document).on("click","button.btn2",function(){
+	/* $(document).on("click","button.btn2",function(){
 		
 		$(this).parent().submit();
 		
@@ -27,7 +27,7 @@
 		
 		$(this).parent().submit();
 		
-	});
+	}); */
 </script>
 </head>
 <%
@@ -74,7 +74,7 @@
     					<textarea class="mytextarea" type="text" name="content"></textarea>
     					<input type="hidden" name="qnum" value="<%=qnum%>">
     					<input type="hidden" name="mnum" value="<%=mnum%>">
-    					<button class="btn btn2" ><span>Reply</span></button>
+    					<button type="submit" class="btn btn2" ><span>Reply</span></button>
    					 </form>
    			 	</a>
 			</li>
@@ -100,7 +100,7 @@
 						<input type="hidden" name="num" value="<%=qdto.getNum() %>">
 						<input type="hidden" name="bounty" value="<%=dto.getBounty() %>">
 						<input type="hidden" name="qnum" value="<%=qnum%>">
-						<button class="btn btn3" ><span>Choose this reply</span></button>
+						<button type="submit" class="btn btn3"><span>Choose this reply</span></button>
 					</form>
 						
 					<%}

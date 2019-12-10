@@ -48,11 +48,11 @@
     			
     		});
     		
-    		$(document).on("click","button.btn",function(){
+    		/* $(document).on("click","button.btn",function(){
     			
     			$(this).parent().submit();
-    			
-    		});
+    			console.log("reply 버튼 클릭됨");
+    		}); */
     		
     	});
     </script>
@@ -160,7 +160,7 @@
     					<textarea class="mytextarea" type="text" name="content"></textarea>
     					<input type="hidden" name="bnum" value="<%=bnum%>">
     					<input type="hidden" name="mnum" value="<%=mnum%>">
-    					<button class="btn btn2" ><span>Reply</span></button>
+    					<button type="submit" class="btn btn2"><span>Reply</span></button>
    					 </form>
    			 	</a>
 			</li>

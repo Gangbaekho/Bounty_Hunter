@@ -52,6 +52,16 @@
 	font-family: 'Nanum Myeongjo', serif;
 	margin-bottom: 20px;
 }
+
+.qtitle {
+	width: 220px;
+	height: 50px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	cursor: pointer;
+}
+
 input{
 	outline: none;
 }

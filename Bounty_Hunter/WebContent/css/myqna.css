@@ -146,6 +146,13 @@ body {
   cursor:pointer;
 }
 
+ul li p{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 500px;
+  height: 20px;
+}
 
 
 .block-content {
